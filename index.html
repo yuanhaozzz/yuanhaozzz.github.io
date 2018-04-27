@@ -130,6 +130,160 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-换电脑后如何继续写博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/27/换电脑后如何继续写博客/">换电脑后如何继续写博客</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/27/换电脑后如何继续写博客/" class="archive-article-date">
+  	<time datetime="2018-04-27T13:26:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为有写博客的习惯，但是公司的事儿太忙了，耽搁了好久，每次回家都挺累，所以决定还是每天在公司写一篇博客吧，其实倒是有点像是日记了，不过对于每天的总结还是很有帮助的，blog文章命名一定要以功能来进行命名，这样在以后如果有类似的话很好找</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><strong>传送门</strong> <a href="https://blog.csdn.net/eternity1118_/article/details/71194395?ref=myread" target="_blank" rel="noopener">换电脑后如何继续写博客</a></p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>1.找到你原来写blog的文件夹，找到<strong>_config.yml</strong>、<strong>themes</strong>、<strong>source</strong>、<strong>scaffolds</strong>、<strong>package.json</strong></p>
+<p>2.copy到你本地  例： /hexo文件中</p>
+<h5 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h5><pre><code>npm install hexo -g   
+</code></pre><h5 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h5><pre><code>npm install  
+npm install hexo-deployer-git --save
+npm install hexo-generator-feed --save
+npm install hexo-generator-sitemap --save
+</code></pre><h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><pre><code>hexo g
+hexo deploy
+</code></pre><h3 id="加油，你不是最弱的"><a href="#加油，你不是最弱的" class="headerlink" title="加油，你不是最弱的"></a>加油，你不是最弱的</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/27/换电脑后如何继续写博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2018-04-27-小组会" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/27/2018-04-27-小组会/">2018-04-27 小组会</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/27/2018-04-27-小组会/" class="archive-article-date">
+  	<time datetime="2018-04-27T12:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>来了快两个月了，因为平时比较忙，大家都比较忙，距离上次开会大概是三周前了</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>不足之处</p>
+<pre><code>1. 针对于现在h5移动端调试问题只能使用手机终端进行调试，影响效率
+</code></pre><p>答： 因为需要与客户端交互，需要客户端的数据，暂时只能使用抓包工具在store当中把数据先写死进行调试</p>
+<pre><code>2. 命名规范问题
+</code></pre><p>答： css遵从BEM规范进行命名</p>
+<pre><code>3. git规范开发流程
+</code></pre><p>答： 首先，环境有dev(本地测试)、alpha(测试人员测试)、rc(预上线测试人员测试)、pro(正式环境)<br>git开发分支：本地创建feature/projuct  ==&gt;  提测合并alpha分支（发送邮件）  ==&gt;  测试通过合并develop分支 ==&gt;  develop分支合并至rc分支并且删除本地分支，如果有bug从rc拉取bugfix/bug分支（develop分支为一个中转站 发送邮件）  ==&gt;  测试通过合并至pro分支（在测试的邮件中回复全部发送运维）<br>需要注意的是邮件的<strong>准确性</strong></p>
+<pre><code>4. .vue单文件组件命名方式
+</code></pre><p>答： 该文件命名规范为大驼峰例：List.vue BaseInfo.vue</p>
+<p>老大说的几句话挺对的</p>
+<pre><code>1. 设计简单合理
+2. UI设计，审美观念
+3. 提高自我价值，变强
+4. 愿意接受改变，接受别人的建议
+5. 当封装公共组件时，最好大家一起讨论下设计思想，能够减少返工时间，提高开发效率
+</code></pre><p>在设计的时候最好有至少两种的设计理念，并且当拿到需求时，一定要先自己设计一遍，不要埋头就干，不过我对着这个还是有满满的自信的，对于审美方面，也许是我自己太死板了，没有用心，没有把自己当成一个客户，可能比较随意，这点我会改正，加油吧！！！</p>
+<h3 id="不管如何，你都要去克服，去接受，把它变为自己的"><a href="#不管如何，你都要去克服，去接受，把它变为自己的" class="headerlink" title="不管如何，你都要去克服，去接受，把它变为自己的"></a>不管如何，你都要去克服，去接受，把它变为自己的</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/27/2018-04-27-小组会/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-时间戳转换年月日小月问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -700,140 +854,10 @@
 
 
   
-    <article id="post-github配合hexo建站攻略（2）主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/22/github配合hexo建站攻略（2）主题/">github配合hexo建站攻略（2）主题及头像上传</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/22/github配合hexo建站攻略（2）主题/" class="archive-article-date">
-  	<time datetime="2018-02-22T12:01:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>经过基础建站成功后，大家一定感觉默认的主题实在是太单调了，我看了几个主题,<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>是我比较喜欢的，所以就他了~！</p>
-<p><img src="http://img1.imgtn.bdimg.com/it/u=1453468209,1035067192&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
-<p>。。。 好吧</p>
-        
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（2）主题/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（2）主题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-github配合hexo建站攻略（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/22/github配合hexo建站攻略（1）/">github配合hexo建站攻略（1）建站基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/22/github配合hexo建站攻略（1）/" class="archive-article-date">
-  	<time datetime="2018-02-22T02:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="作为一名小白，如何建站？"><a href="#作为一名小白，如何建站？" class="headerlink" title="作为一名小白，如何建站？"></a>作为一名小白，如何建站？</h2><p>可能我和大多数人一样，在听到别人都有自己的博客的时候，自己是多么的羡慕，妒忌，恨~！  但是奈何公司总是加班，根本没有时间去弄别的事情，难得有点时间，还要占用假期来进行研究<br><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1010459245,4006277659&amp;fm=27&amp;gp=0.jpg" alt="avatar"> 哈哈哈！好了 言归正传！<br>
-        
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（1）/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（1）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
