@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-16T13:31:01.902Z</updated>
+  <updated>2018-05-16T13:39:12.822Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手机select展示样式不同</title>
+    <link href="http://yoursite.com/2018/05/16/%E6%89%8B%E6%9C%BAselect%E5%B1%95%E7%A4%BA%E6%A0%B7%E5%BC%8F%E4%B8%8D%E5%90%8C/"/>
+    <id>http://yoursite.com/2018/05/16/手机select展示样式不同/</id>
+    <published>2018-05-16T13:32:37.000Z</published>
+    <updated>2018-05-16T13:39:12.822Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="下拉框"><a href="#下拉框" class="headerlink" title="下拉框"></a>下拉框</h3><p>虽然今天比较委屈，但是也算是学到了点东西</p><p>select在手机当中展示的样式不同，所以，为了还原UI，需要按照UI样式写</p><pre><code>将select下拉框使用定位盖在UI上面，透明度给0就可以实现，通过change事件的改变在来改变UI的DOM，此方法为最合适的方法</code></pre><p>一定要注意变通，而且不管干什么一定要注意过脑子</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;下拉框&quot;&gt;&lt;a href=&quot;#下拉框&quot; class=&quot;headerlink&quot; title=&quot;下拉框&quot;&gt;&lt;/a&gt;下拉框&lt;/h3&gt;&lt;p&gt;虽然今天比较委屈，但是也算是学到了点东西&lt;/p&gt;
+&lt;p&gt;select在手机当中展示的样式不同，所以，为了还原UI，需要按照UI样式写
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>第一次受这么大委屈</title>
