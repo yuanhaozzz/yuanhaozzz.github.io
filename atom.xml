@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-27T13:43:17.774Z</updated>
+  <updated>2018-05-16T13:31:01.902Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>第一次受这么大委屈</title>
+    <link href="http://yoursite.com/2018/05/16/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%8F%97%E8%BF%99%E4%B9%88%E5%A4%A7%E5%A7%94%E5%B1%88/"/>
+    <id>http://yoursite.com/2018/05/16/第一次受这么大委屈/</id>
+    <published>2018-05-16T13:25:54.000Z</published>
+    <updated>2018-05-16T13:31:01.902Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="没有前言"><a href="#没有前言" class="headerlink" title="没有前言"></a>没有前言</h3><p>今天，挺难受，那么简单的页面居然用了一天的时间来写完，是呀，大老大也是用这句话来嘲讽我的，我知道没有开玩笑，也知道我自身能力还有很大的问题，还需要时间去一步一步的填满，经验和阅历真的很重要，相信我，大老大，如果我跟你一样大，我会至少跟你一样强，至少，如果你知道我的工作年限的话，不过这也是经历中需要的磨砺，我一定会越挫越勇，我会加油的，感谢马哥安慰我鼓励我，谢谢</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;没有前言&quot;&gt;&lt;a href=&quot;#没有前言&quot; class=&quot;headerlink&quot; title=&quot;没有前言&quot;&gt;&lt;/a&gt;没有前言&lt;/h3&gt;&lt;p&gt;今天，挺难受，那么简单的页面居然用了一天的时间来写完，是呀，大老大也是用这句话来嘲讽我的，我知道没有开玩笑，也知道我自身能力
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>换电脑后如何继续写博客</title>
     <link href="http://yoursite.com/2018/04/27/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2018/04/27/换电脑后如何继续写博客/</id>
     <published>2018-04-27T13:26:48.000Z</published>
-    <updated>2018-04-27T13:43:17.774Z</updated>
+    <updated>2018-05-16T13:25:59.493Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为有写博客的习惯，但是公司的事儿太忙了，耽搁了好久，每次回家都挺累，所以决定还是每天在公司写一篇博客吧，其实倒是有点像是日记了，不过对于每天的总结还是很有帮助的，blog文章命名一定要以功能来进行命名，这样在以后如果有类似的话很好找</p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><strong>传送门</strong> <a href="https://blog.csdn.net/eternity1118_/article/details/71194395?ref=myread" target="_blank" rel="noopener">换电脑后如何继续写博客</a></p><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>1.找到你原来写blog的文件夹，找到<strong>_config.yml</strong>、<strong>themes</strong>、<strong>source</strong>、<strong>scaffolds</strong>、<strong>package.json</strong></p><p>2.copy到你本地  例： /hexo文件中</p><h5 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h5><pre><code>npm install hexo -g   </code></pre><h5 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h5><pre><code>npm install  npm install hexo-deployer-git --savenpm install hexo-generator-feed --savenpm install hexo-generator-sitemap --save</code></pre><h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><pre><code>hexo ghexo deploy</code></pre><h3 id="加油，你不是最弱的"><a href="#加油，你不是最弱的" class="headerlink" title="加油，你不是最弱的"></a>加油，你不是最弱的</h3>]]></content>
     
