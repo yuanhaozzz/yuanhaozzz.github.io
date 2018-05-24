@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/5 | 渡的个人博客</title>
+  <title>gulp | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="渡的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/05/index.html">
+  <meta name="description" content="前言在被大老大一顿嘲讽后，恶补了一下gulp,看了看  真的很简单呀    gulp拥有简洁的API，使用者能够轻易上手，Gulp是一个自动化构建工具，具有强大的插件，只要搭配合适，能够大大提高我们工作中开发的效率。gulp更加强调的是开发流程，通过taskAPI可以定义符合自己的流程。    webpack主要是模块化的规范，更加强调模块化，把各种文件看成模块，用过loader,最终打包为css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp">
+<meta property="og:url" content="http://yoursite.com/2018/05/21/gulp/index.html">
 <meta property="og:site_name" content="渡的个人博客">
+<meta property="og:description" content="前言在被大老大一顿嘲讽后，恶补了一下gulp,看了看  真的很简单呀    gulp拥有简洁的API，使用者能够轻易上手，Gulp是一个自动化构建工具，具有强大的插件，只要搭配合适，能够大大提高我们工作中开发的效率。gulp更加强调的是开发流程，通过taskAPI可以定义符合自己的流程。    webpack主要是模块化的规范，更加强调模块化，把各种文件看成模块，用过loader,最终打包为css">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-24T11:31:31.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡的个人博客">
+<meta name="twitter:title" content="gulp">
+<meta name="twitter:description" content="前言在被大老大一顿嘲讽后，恶补了一下gulp,看了看  真的很简单呀    gulp拥有简洁的API，使用者能够轻易上手，Gulp是一个自动化构建工具，具有强大的插件，只要搭配合适，能够大大提高我们工作中开发的效率。gulp更加强调的是开发流程，通过taskAPI可以定义符合自己的流程。    webpack主要是模块化的规范，更加强调模块化，把各种文件看成模块，用过loader,最终打包为css">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -128,130 +132,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-gulp" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      gulp
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/gulp/" class="archive-article-date">
+
+        
+        <a href="/2018/05/21/gulp/" class="archive-article-date">
   	<time datetime="2018-05-21T11:19:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/gulp/">gulp</a>
-    </h1>
-  
+        
+      </header>
+      
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在被大老大一顿嘲讽后，恶补了一下gulp,看了看  真的很简单呀<br>    gulp拥有简洁的API，使用者能够轻易上手，Gulp是一个自动化构建工具，具有强大的插件，只要搭配合适，能够大大提高我们工作中开发的效率。gulp更加强调的是开发流程，通过taskAPI可以定义符合自己的流程。<br>    webpack主要是模块化的规范，更加强调模块化，把各种文件看成模块，用过loader,最终打包为css/js/html/图片等</p>
+<a id="more"></a>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://www.cnblogs.com/2050/p/4198792.html" target="_blank" rel="noopener">前端构建工具gulpjs的使用介绍及技巧 - 无双 - 博客园</a></p>
+<h3 id="gulp-工作模式"><a href="#gulp-工作模式" class="headerlink" title="gulp 工作模式"></a>gulp 工作模式</h3><p>gulp是基于nodejs的stream流的概念，通过pipe()来导入到你想要让他去的地方，是一个抽象的概念，比如gulp.src获取到相关内容，通过.pipe导入到插件中，在通过插件处理后，在通过pipe导入，通过gulp.dest来指定到相应位置</p>
+<h3 id="四大API"><a href="#四大API" class="headerlink" title="四大API"></a>四大API</h3><p><strong>一 gulp.src(glob, [, option])</strong><br>    该方法主要获取到你的文件源，通过这个路径来找到对应的文件</p>
+<ol>
+<li>glob类似于正则表达式，主要通过这个来找到文件</li>
+<li>option 可选参数，通常不需要用到</li>
+</ol>
+<p>主要讲讲glob</p>
+<pre><code>*                   // 匹配0个或多个字符，但不会匹配到路径分隔符
+**                  // 匹配所有字符，包括路径分隔符
+?                   // 匹配文件中的一个字符，不包含路径分隔符
+[...]               // 匹配方括号中的所有路径，如果出现^或者!，则匹配时不会去找相应文件
+</code></pre><p>例子：</p>
+<pre><code>*                   // 能匹配a.js/b.css/d.html/aa    但不包含b/a.js
+*.*                 // 能匹配.后缀名所有的文件
+**                  // 能匹配所有文件，包含b/a.js c/d.css
+*/*/*.*             // 能匹配a/b/a.js / c/d/b.css
+[&apos;*/abc/*.js&apos;]      // 匹配c/abc/e.js / v/abc/ss.js
+[&apos;!c/abc/*.js&apos;, &apos;c/abc/*.css&apos;]     // 不会匹配c/abc/下的所有js
+</code></pre><p><strong>二 gulp.dest(path, [, option])</strong><br>该方法主要把经过<strong>插件处理</strong> 或 <strong>gulp.src命令</strong>中的stream流写入到指定的文件路径</p>
+<ol>
+<li>path指定路径</li>
+<li>option 可选参数，通常不需要用到</li>
+</ol>
+<p>例子：<br>    gulp.task(‘default’, function () {<br>        gulp.src(‘src/css/*.css’)<br>            .pipe(gulp.dest(‘dist/css’))<br>    })</p>
+<p>task命令稍后会讲，以上功能只是一个简单的复制功能，就是找到src/css下所有css文件，通过dest命令写入dist/css文件中</p>
+<p><strong>三 gulp.task(name, [, deps], fn)</strong><br>task方法用于定义命令</p>
+<ol>
+<li>name为命令的名称</li>
+<li>deps依赖任务的队列，如果你对执行顺序有要求，以数组的方式依次写入顺序即可</li>
+<li>fn业务逻辑</li>
+</ol>
+<p>创建一个依赖队列的任务执行<br>gulp.task(‘test’, [‘a’, ‘b’, ‘c’, ‘d’], function () {<br>    // …..<br>})</p>
+<p>这个命令也没啥好讲的，不过要记住你得定义一个空的命令用来执行你定义的task命令就好</p>
+<p>异步的三种解决方法，暂时还没有遇到异步的，等遇到了在进行补充！</p>
+<p><strong>四 gulp.watch(glob, [, deps], [tasks])</strong><br>watch用于监听某个路径下的文件，当发生改变后会进行触发</p>
+<ol>
+<li>glob用法与gulp.src相同</li>
+<li>deps可选参数，通常不需要用到</li>
+<li>tasks是一个数组，里面是你task定义的命令，当监听被触发后，会执行定义在这里的任务</li>
+</ol>
+<p>gulp.task(‘copyCss’, function () {<br>    gulp.src(‘src/<em>/</em>.css’)<br>        .pipe(gulp.dest(‘dist/css))<br>})<br>gulp.task(‘dev’, function () {<br>    gulp.watch(‘src/<em>/</em>.css’, [‘copyCss’])<br>})</p>
+<p>在package.json中 scripts中 写入 “dev”: “gulp dev” 命令</p>
+<pre><code>npm run dev         启动命令
+</code></pre><p>当修改src下的css文件后，会执行copyCss命令，你在dist文件下的css就会实时更新了</p>
+<h3 id="gulp常用插件"><a href="#gulp常用插件" class="headerlink" title="gulp常用插件"></a>gulp常用插件</h3><p><strong>gulp-load-plugins  自动载入插件</strong></p>
+<p>安装：<br>        cnpm install --save-dev gulp-load-plugins       </p>
+<p>功能：<br>    该插件主要解决繁多的命名空间和代码整洁度<br>    例子：<br>    var gulp = require(‘gulp’),<br>    //一些gulp插件,abcd这些命名只是用来举个例子<br>    a = require(‘gulp-a’),<br>    b = require(‘gulp-b’),<br>    c = require(‘gulp-c’),<br>    d = require(‘gulp-d’),<br>    e = require(‘gulp-e’),<br>    f = require(‘gulp-f’),<br>    g = require(‘gulp-g’)</p>
+<p>用法：<br>    var gulp = require(‘gulp’),<br>        plugins = require(‘gulp-load-plugins’)()    //调用下方法</p>
+<pre><code>gulp.task(&apos;default&apos;, function () {
+    // 例如你有个js压缩插件
+    gulp.src(&apos;src/js/*.js&apos;)
+        // gulp-uglify      //调用时值仅需要uglify即可，如果后面还有中划线，以驼峰的方式 例:gulp-minify-css  plugins.minifyCss
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest(&apos;dist/js&apos;))
+})
+</code></pre><p><strong>browserSnyc  热更新</strong></p>
+<p>安装browserSync</p>
+<p>使用它只需要记住 在每个执行命令中需要调用一次reload方法就好，具体先看下文档~</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/static/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/21/gulp/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/" class="archive-article-date">
-  	<time datetime="2018-05-19T14:58:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我要对陈晨大声的说:我~~爱~~~你！</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/">我要对陈晨大声的说:我~~爱~~~你！</a>
-    </h1>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2158002"></script>
+<!-- UY END -->
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/node环境变量配置/" class="archive-article-date">
-  	<time datetime="2018-05-16T13:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/node环境变量配置/">node环境变量配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/16/手机select展示样式不同/" class="archive-article-date">
-  	<time datetime="2018-05-16T13:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/16/手机select展示样式不同/">手机select展示样式不同</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -275,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
