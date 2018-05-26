@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>渡的个人博客</title>
+  <title>vuex | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="渡的个人博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="前言vuex,个人理解为一个提供全局公用的属性及方法，是中大型开发项目架构中不可缺少的一部分，他的设计及使用都很方便，便于协同开发。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex">
+<meta property="og:url" content="http://yoursite.com/2018/05/25/vuex/index.html">
 <meta property="og:site_name" content="渡的个人博客">
+<meta property="og:description" content="前言vuex,个人理解为一个提供全局公用的属性及方法，是中大型开发项目架构中不可缺少的一部分，他的设计及使用都很方便，便于协同开发。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-26T03:19:54.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡的个人博客">
+<meta name="twitter:title" content="vuex">
+<meta name="twitter:description" content="前言vuex,个人理解为一个提供全局公用的属性及方法，是中大型开发项目架构中不可缺少的一部分，他的设计及使用都很方便，便于协同开发。">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -128,36 +132,296 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-浅谈原型链-prototype-proto" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-vuex" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/浅谈原型链-prototype-proto/">浅谈原型链 prototype __proto__</a>
+    <h1 class="article-title" itemprop="name">
+      vuex
     </h1>
   
 
         
-        <a href="/2018/03/03/浅谈原型链-prototype-proto/" class="archive-article-date">
-  	<time datetime="2018-03-03T03:16:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
+        <a href="/2018/05/25/vuex/" class="archive-article-date">
+  	<time datetime="2018-05-25T11:45:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-25</time>
 </a>
         
       </header>
       
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>hi，这两天都比较忙，好不容易有点时间立刻就来更新啦~，因为项目都是由Vue进行开发的，一直想看看源码，但是又限于自己的原因，所以先来对面向对象来总结总结！~</p>
-<p><img src="http://img5.imgtn.bdimg.com/it/u=2822639283,850849670&amp;fm=11&amp;gp=0.jpg" alt="img"></p>
-        
-          <a class="article-more-a" href="/2018/03/03/浅谈原型链-prototype-proto/#more">^(*￣(oo)￣)^ >></a>
-        
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>vuex,个人理解为一个提供全局公用的属性及方法，是中大型开发项目架构中不可缺少的一部分，他的设计及使用都很方便，便于协同开发。</p>
+<a id="more"></a>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm install --save-dev vuex
+</code></pre><p>安装至package.json中开发依赖</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>main.js</p>
+<pre><code>import Vue from &apos;vue&apos;
+import Vuex from &apos;vuex&apos;
+import store from &apos;./store/index&apos;
+
+Vue.use(Vuex)               // 全局配置
+
+new Vue({
+    el: &apos;#app&apos;,
+    router,
+    store,                  // 导入全局
+    render: h =&gt; h(App)
+})
+</code></pre><p>store/index.js</p>
+<pre><code>import Vue from &apos;vue&apos;
+import Vuex from &apos;vuex&apos;
+
+Vue.use(Vuex)               // 全局配置
+
+let store = {
+    state: {
+        ....
+    },
+    getters: {
+        ....
+    },
+    mutations: {
+        ....
+    },
+    actions: {
+        ....
+    }
+}
+//导出store
+export default store
+</code></pre><p>以上是store的基本配置</p>
+<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>存储数据的，任何属性的定义都在里</p>
+<h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><p>可以理解为Vue的计算属性，假设有这样一个需求  需要让你过滤出小于25的数</p>
+<pre><code>let sotre = {
+    state: {
+        data: [10, 50, 10, 40]
+    }
+}
+
+当然聪明你的肯定在组件中轻易的就可以写出来，但是如果换一个页面的话 是不是还要在写一遍？如果10， 20个的话 是不是就吐啦？？，所以getters就来解决这种问题
+</code></pre><p>store/index.js</p>
+<pre><code>let sotre = {
+    state: {
+        data: [10, 50, 10, 40]
+    },
+    getters: {
+        filterData (state) {
+            return state.data.filter(item =&gt; item &lt; 25)
+        }
+    }
+}
+</code></pre><p>index.vue</p>
+<pre><code>mounted () {
+    // 获取已过滤出的数据
+    let data = this.$store.getters.filterData
+}
+</code></pre><h3 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a>mutations</h3><p>想要修改state 中的数据 ，只能mutations来进行修改，并且它是同步的，稍后会讲到action（异步），这种模式能够更加清晰的知道你的数据是什么来进行改变的，具有可读性和可维护性</p>
+<p>store/index.js</p>
+<pre><code>state: {
+    name: &apos;张三&apos;
+},
+getters: {
+    filterData (state) {
+        return state.data.filter(item =&gt; item &lt; 25)
+    }
+},
+mutations: {
+    changeName1 (state) {
+        state.name = &apos;李四&apos;
+    },
+    changeName2 (state, people) {
+        state.name = people.name
+    }
+}
+</code></pre><p>index.vue</p>
+<pre><code>// 调用1
+html
+
+{{ this.$store.state.name }}  // 李四
+
+mounted () {
+    this.$store.commit(&apos;changeData&apos;)
+}
+
+// 调用2
+html
+
+{{ this.$store.state.name }}  // aa
+
+mounted () {
+    // 传值方式1
+    this.$store.commit(&apos;changeData&apos;, {
+        name: &apos;aa&apos;
+    })
+    // 传值方式2
+    this.$store.commit({
+        type: &apos;changeData&apos;,
+        name: &apos;aa&apos;
+    })
+}
+</code></pre><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>前面说到了 mutations 是使用同步来进行解决的，异步的话使用action来处理，为什么呢？ 首先，得按照人家的规矩的来不是？ 其次，还是因为追踪数据，如果mutations使用了异步，无法追踪到数据改变的纪录，同时有时会导致错误，无法进行赋值，前面说了只能通过mutations来进行改变，所以action所做的就是调用mutations内的函数，通过实参传递过去。</p>
+<p>store/index.js</p>
+<pre><code>state: {
+    arr: &apos;张三&apos;,
+    userInfo: []
+},
+getters: {
+    filterData (state) {
+        return state.data.filter(item =&gt; item &lt; 25)
+    },
+    userInfo: state =&gt; state.userInfo
+},
+mutations: {
+    changeArr (state) {
+        state.arr = data  
+    },
+    changeArr1 (state, data) {
+        state.arr = data.data
+    }
+},
+action: {
+    asynChangeName ({commit}) {         // es6函数参数解构
+        commit(&apos;changeName&apos;)            // 基本调用
+    },
+    asynChangeName1 ({commit}) {         // es6函数参数解构
+        let data = [
+            {
+                name: &apos;加油&apos;,
+                age: 10
+            }, {
+                name: &apos;你是&apos;,
+                age: 15
+            }, {
+                name: &apos;最棒的&apos;,
+                age: 20
+            },
+        ]
+        setTimeOut(() =&gt; {
+            commit(&apos;changeName&apos;, data)      // 异步通过这种方式来进行赋值
+        }, 200)
+    },
+    asynChangeName2 ({commit}) {
+        new Promise((resolve, rejuct) =&gt; {
+            let random = Math.random()
+            if (random &gt; 0.5) {
+                resolve(random)
+            } else {
+                rejuct(&apos;小于0.5哦&apos;)
+            }
+        })
+    },
+    getUserInfo () {
+
+    }
+}
+</code></pre><p>index.vue</p>
+<pre><code>mounted () {
+    let num = this.$store.dispatch(&apos;asynChangeName2&apos;)
+    num.then((resolve) =&gt; {
+        alert(resolve)
+    })
+}
+</code></pre><p>main.js</p>
+<pre><code>import Vue from &apos;vue&apos;
+import Vuex from &apos;vuex&apos;
+import Router from &quot;vue-router&quot;
+import store from &apos;./store/index&apos;
+
+Vue.use(Vuex)               // 全局配置
+Vue.use(Router)             // 全局路由
+
+Router.beforeEach((to, from, next) =&gt; {
+    if (store.state.userInfo.length === 0) {
+        next({
+            path: &apos;/&apos;
+        })
+    }
+    next()
+})
+
+
+new Vue({
+    el: &apos;#app&apos;,
+    router,
+    store,                  // 导入全局
+    render: h =&gt; h(App)
+})
+
+一个简单的路由守卫拦截的登录功能，同样具有拦截效果的是axios，具体在后面我会更新
+</code></pre><h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p>当你的项目越来越庞大，store会变的臃肿，所以你需要继续把它拆分出来，更具有可维护性</p>
+<p>store/index.js</p>
+<pre><code>import Vue from &apos;vue&apos;
+import Vuex from &apos;vuex&apos;
+import User from &apos;./store/common/user.js&apos;
+import Other from &apos;./store/common/other.js&apos;
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+    modules: {
+        User,
+        Other
+    }
+})
+</code></pre><p>store/common/user.js</p>
+<pre><code>let User = {
+    state: {
+        ...
+    },
+    mutations: {
+
+    }
+}
+
+export default User
+</code></pre><p>store/common/other.js</p>
+<pre><code>let Other = {
+    state: {
+        ...
+    },
+    mutations: {
+
+    }
+}
+
+export default Other
+</code></pre><p>以上是个人理解Vuex，让我们继续努力加油吧！！</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/static/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -166,16 +430,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/浅谈原型链-prototype-proto/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/05/25/vuex/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/21/gulp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gulp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -195,416 +518,20 @@
 
 
 
-
   
-    <article id="post-flex布局-移动端布局利器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2158002"></script>
+<!-- UY END -->
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/26/flex布局-移动端布局利器/">flex布局 移动端布局利器</a>
-    </h1>
   
-
-        
-        <a href="/2018/02/26/flex布局-移动端布局利器/" class="archive-article-date">
-  	<time datetime="2018-02-26T12:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名前端开发人员，不仅要有睿智的大脑，更要想办法去提高工作效率，在传统布局中<strong>float</strong>、<strong>display:inline-block</strong>，使用后是不是总感觉要么向上多一点，要么向下多一点，还要使用margin或者padding来进行调，不然总感觉怪怪的！</p>
-<p><img src="http://img5.imgtn.bdimg.com/it/u=2212265039,2568628666&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
-<p>哈哈哈，进入正题！<br>
-        
-          <a class="article-more-a" href="/2018/02/26/flex布局-移动端布局利器/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/26/flex布局-移动端布局利器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-前端基础算法-冒泡排序-选择排序-快速排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/">前端基础算法 冒泡排序 选择排序 快速排序</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/" class="archive-article-date">
-  	<time datetime="2018-02-24T13:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名合格的前端不仅对自身业务能力的要求，还必须具有一定的算法知识，虽然博主数学就没及过格~,但是没办法，还是要学，这不，年前两天没啥事儿，看了看我最头痛的算法，当然，都是基本的，各位同学看到肯定一下就明白了，好了，进入正题~！<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3305254330,4081387098&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
-        
-          <a class="article-more-a" href="/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-github配合hexo建站攻略（4）域名绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/23/github配合hexo建站攻略（4）域名绑定/">github配合hexo建站攻略（4）域名与github绑定</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/23/github配合hexo建站攻略（4）域名绑定/" class="archive-article-date">
-  	<time datetime="2018-02-23T02:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><p>域名这玩儿，我申请了几天终于下来了，这不~，趁热打铁，一并写出来与大家一块分享，本人域名<a href="www.hushnow.cn">www.hushnow.cn</a>，望各位大佬捧场，谢谢~~！</p>
-<p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2464799472,2104441980&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
-<p>嗯！<br>
-        
-          <a class="article-more-a" href="/2018/02/23/github配合hexo建站攻略（4）域名绑定/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/23/github配合hexo建站攻略（4）域名绑定/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-github配合hexo建站攻略（3）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/22/github配合hexo建站攻略（3）/">github配合hexo建站攻略（3）统计访问量</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/22/github配合hexo建站攻略（3）/" class="archive-article-date">
-  	<time datetime="2018-02-22T12:27:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="统计访问量的实现？"><a href="#统计访问量的实现？" class="headerlink" title="统计访问量的实现？"></a>统计访问量的实现？</h3><p>上一篇介绍了如何构建一个基本的网站，但是 是网站他就得有访问量不是~？ 不然怎么能满足咱们内心的蠢动，有木有~~！</p>
-<p><img src="http://img5.imgtn.bdimg.com/it/u=3296605248,3911530965&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
-<p>。。。</p>
-        
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（3）/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（3）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-github配合hexo建站攻略（2）主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/22/github配合hexo建站攻略（2）主题/">github配合hexo建站攻略（2）主题及头像上传</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/22/github配合hexo建站攻略（2）主题/" class="archive-article-date">
-  	<time datetime="2018-02-22T12:01:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>经过基础建站成功后，大家一定感觉默认的主题实在是太单调了，我看了几个主题,<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>是我比较喜欢的，所以就他了~！</p>
-<p><img src="http://img1.imgtn.bdimg.com/it/u=1453468209,1035067192&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
-<p>。。。 好吧</p>
-        
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（2）主题/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（2）主题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-github配合hexo建站攻略（1）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/22/github配合hexo建站攻略（1）/">github配合hexo建站攻略（1）建站基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/22/github配合hexo建站攻略（1）/" class="archive-article-date">
-  	<time datetime="2018-02-22T02:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="作为一名小白，如何建站？"><a href="#作为一名小白，如何建站？" class="headerlink" title="作为一名小白，如何建站？"></a>作为一名小白，如何建站？</h2><p>可能我和大多数人一样，在听到别人都有自己的博客的时候，自己是多么的羡慕，妒忌，恨~！  但是奈何公司总是加班，根本没有时间去弄别的事情，难得有点时间，还要占用假期来进行研究<br><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1010459245,4006277659&amp;fm=27&amp;gp=0.jpg" alt="avatar"> 哈哈哈！好了 言归正传！<br>
-        
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（1）/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/22/github配合hexo建站攻略（1）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -628,8 +555,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
