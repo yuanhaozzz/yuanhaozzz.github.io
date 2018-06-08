@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-26T03:19:54.358Z</updated>
+  <updated>2018-06-08T09:03:20.274Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vue，公共tab跳转不同路由页面样式切换</title>
+    <link href="http://yoursite.com/2018/06/08/Vue%EF%BC%8C%E5%85%AC%E5%85%B1tab%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E8%B7%AF%E7%94%B1%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F%E5%88%87%E6%8D%A2/"/>
+    <id>http://yoursite.com/2018/06/08/Vue，公共tab跳转不同路由页面样式切换/</id>
+    <published>2018-06-08T08:53:27.000Z</published>
+    <updated>2018-06-08T09:03:20.274Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>先有一个公共tab组件用来分别跳转不同路由的页面</p><p>例<br>    a 公共组件<br>    b 点击跳转页面<br>    c 点击跳转页面</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>两种方法解决选中样式问题</p><ol><li>router-link标签 （推荐）<br><router-link to="/a" active-class="active"><br><router-link to="/b" active-class="active"></router-link></router-link></li></ol><p>active为选中的样式</p><ol start="2"><li>通过路由当前参数来进行判断</li></ol><p>data () {<br>    return {<br>        active: this.$route.query.index || 0<br>    }<br>}</p><p>在跳转时传递不同参数  选项卡通过当前active来进行判断，实现样式的切换</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;现象&quot;&gt;&lt;a href=&quot;#现象&quot; class=&quot;headerlink&quot; title=&quot;现象&quot;&gt;&lt;/a&gt;现象&lt;/h3&gt;&lt;p&gt;先有一个公共tab组件用来分别跳转不同路由的页面&lt;/p&gt;
+&lt;p&gt;例&lt;br&gt;    a 公共组件&lt;br&gt;    b 点击跳转页面&lt;br&gt;   
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>v-html</title>
+    <link href="http://yoursite.com/2018/06/07/v-html/"/>
+    <id>http://yoursite.com/2018/06/07/v-html/</id>
+    <published>2018-06-07T07:50:58.000Z</published>
+    <updated>2018-06-08T08:51:31.171Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>v-html 渲染出来的标签无法修改样式</p><p>结构</p><pre><code>&lt;div class=&quot;wrap&quot;&gt;    &lt;div v-html=&quot;text&quot;&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p>解决</p><pre><code>.wrap &gt;&gt;&gt;div{    //.....}.wrap &gt;&gt;&gt;span{    //.....}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;小技巧&quot;&gt;&lt;a href=&quot;#小技巧&quot; class=&quot;headerlink&quot; title=&quot;小技巧&quot;&gt;&lt;/a&gt;小技巧&lt;/h3&gt;&lt;p&gt;v-html 渲染出来的标签无法修改样式&lt;/p&gt;
+&lt;p&gt;结构&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>vuex</title>
     <link href="http://yoursite.com/2018/05/25/vuex/"/>
     <id>http://yoursite.com/2018/05/25/vuex/</id>
     <published>2018-05-25T11:45:26.000Z</published>
-    <updated>2018-05-26T03:19:54.358Z</updated>
+    <updated>2018-06-07T07:49:54.168Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>vuex,个人理解为一个提供全局公用的属性及方法，是中大型开发项目架构中不可缺少的一部分，他的设计及使用都很方便，便于协同开发。</p><a id="more"></a><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>npm install --save-dev vuex</code></pre><p>安装至package.json中开发依赖</p><h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>main.js</p><pre><code>import Vue from &apos;vue&apos;import Vuex from &apos;vuex&apos;import store from &apos;./store/index&apos;Vue.use(Vuex)               // 全局配置new Vue({    el: &apos;#app&apos;,    router,    store,                  // 导入全局    render: h =&gt; h(App)})</code></pre><p>store/index.js</p><pre><code>import Vue from &apos;vue&apos;import Vuex from &apos;vuex&apos;Vue.use(Vuex)               // 全局配置let store = {    state: {        ....    },    getters: {        ....    },    mutations: {        ....    },    actions: {        ....    }}//导出storeexport default store</code></pre><p>以上是store的基本配置</p><h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p>存储数据的，任何属性的定义都在里</p><h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><p>可以理解为Vue的计算属性，假设有这样一个需求  需要让你过滤出小于25的数</p><pre><code>let sotre = {    state: {        data: [10, 50, 10, 40]    }}当然聪明你的肯定在组件中轻易的就可以写出来，但是如果换一个页面的话 是不是还要在写一遍？如果10， 20个的话 是不是就吐啦？？，所以getters就来解决这种问题</code></pre><p>store/index.js</p><pre><code>let sotre = {    state: {        data: [10, 50, 10, 40]    },    getters: {        filterData (state) {            return state.data.filter(item =&gt; item &lt; 25)        }    }}</code></pre><p>index.vue</p><pre><code>mounted () {    // 获取已过滤出的数据    let data = this.$store.getters.filterData}</code></pre><h3 id="mutations"><a href="#mutations" class="headerlink" title="mutations"></a>mutations</h3><p>想要修改state 中的数据 ，只能mutations来进行修改，并且它是同步的，稍后会讲到action（异步），这种模式能够更加清晰的知道你的数据是什么来进行改变的，具有可读性和可维护性</p><p>store/index.js</p><pre><code>state: {    name: &apos;张三&apos;},getters: {    filterData (state) {        return state.data.filter(item =&gt; item &lt; 25)    }},mutations: {    changeName1 (state) {        state.name = &apos;李四&apos;    },    changeName2 (state, people) {        state.name = people.name    }}</code></pre><p>index.vue</p><pre><code>// 调用1html{{ this.$store.state.name }}  // 李四mounted () {    this.$store.commit(&apos;changeData&apos;)}// 调用2html{{ this.$store.state.name }}  // aamounted () {    // 传值方式1    this.$store.commit(&apos;changeData&apos;, {        name: &apos;aa&apos;    })    // 传值方式2    this.$store.commit({        type: &apos;changeData&apos;,        name: &apos;aa&apos;    })}</code></pre><h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>前面说到了 mutations 是使用同步来进行解决的，异步的话使用action来处理，为什么呢？ 首先，得按照人家的规矩的来不是？ 其次，还是因为追踪数据，如果mutations使用了异步，无法追踪到数据改变的纪录，同时有时会导致错误，无法进行赋值，前面说了只能通过mutations来进行改变，所以action所做的就是调用mutations内的函数，通过实参传递过去。</p><p>store/index.js</p><pre><code>state: {    arr: &apos;张三&apos;,    userInfo: []},getters: {    filterData (state) {        return state.data.filter(item =&gt; item &lt; 25)    },    userInfo: state =&gt; state.userInfo},mutations: {    changeArr (state) {        state.arr = data      },    changeArr1 (state, data) {        state.arr = data.data    }},action: {    asynChangeName ({commit}) {         // es6函数参数解构        commit(&apos;changeName&apos;)            // 基本调用    },    asynChangeName1 ({commit}) {         // es6函数参数解构        let data = [            {                name: &apos;加油&apos;,                age: 10            }, {                name: &apos;你是&apos;,                age: 15            }, {                name: &apos;最棒的&apos;,                age: 20            },        ]        setTimeOut(() =&gt; {            commit(&apos;changeName&apos;, data)      // 异步通过这种方式来进行赋值        }, 200)    },    asynChangeName2 ({commit}) {        new Promise((resolve, rejuct) =&gt; {            let random = Math.random()            if (random &gt; 0.5) {                resolve(random)            } else {                rejuct(&apos;小于0.5哦&apos;)            }        })    },    getUserInfo () {    }}</code></pre><p>index.vue</p><pre><code>mounted () {    let num = this.$store.dispatch(&apos;asynChangeName2&apos;)    num.then((resolve) =&gt; {        alert(resolve)    })}</code></pre><p>main.js</p><pre><code>import Vue from &apos;vue&apos;import Vuex from &apos;vuex&apos;import Router from &quot;vue-router&quot;import store from &apos;./store/index&apos;Vue.use(Vuex)               // 全局配置Vue.use(Router)             // 全局路由Router.beforeEach((to, from, next) =&gt; {    if (store.state.userInfo.length === 0) {        next({            path: &apos;/&apos;        })    }    next()})new Vue({    el: &apos;#app&apos;,    router,    store,                  // 导入全局    render: h =&gt; h(App)})一个简单的路由守卫拦截的登录功能，同样具有拦截效果的是axios，具体在后面我会更新</code></pre><h3 id="modules"><a href="#modules" class="headerlink" title="modules"></a>modules</h3><p>当你的项目越来越庞大，store会变的臃肿，所以你需要继续把它拆分出来，更具有可维护性</p><p>store/index.js</p><pre><code>import Vue from &apos;vue&apos;import Vuex from &apos;vuex&apos;import User from &apos;./store/common/user.js&apos;import Other from &apos;./store/common/other.js&apos;Vue.use(Vuex)export default new Vuex.Store({    modules: {        User,        Other    }})</code></pre><p>store/common/user.js</p><pre><code>let User = {    state: {        ...    },    mutations: {    }}export default User</code></pre><p>store/common/other.js</p><pre><code>let Other = {    state: {        ...    },    mutations: {    }}export default Other</code></pre><p>以上是个人理解Vuex，让我们继续努力加油吧！！</p>]]></content>
     
