@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-27T13:04:39.457Z</updated>
+  <updated>2018-07-04T09:16:37.962Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ES6-函数扩展</title>
+    <link href="http://yoursite.com/2018/07/04/ES6-%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/"/>
+    <id>http://yoursite.com/2018/07/04/ES6-函数扩展/</id>
+    <published>2018-07-04T08:29:23.000Z</published>
+    <updated>2018-07-04T09:16:37.962Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加油！<br><a id="more"></a></p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a></p><h3 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h3><pre><code>function fn (x = 2) {    console.log(x)}fn(10)  // 10fn()    // 2</code></pre><p>无法使用Let 和 const再次进行声明，他们是唯一的</p><pre><code>function fn (x = 2) {    let x = 1    console.log(x)}fn(10)// 报错</code></pre><p>同样可是使用解构的方式</p><pre><code>function foo({x, y}) {    console.log(x, y());}foo({x: 1, y: () =&gt; 8})// x 1// y 8</code></pre><p>也可以指定默认值</p><pre><code>function foo({x = 50, y}) {    console.log(x, y());}foo({y: () =&gt; 8})// x 50// y 8</code></pre><h3 id="rest"><a href="#rest" class="headerlink" title="rest"></a>rest</h3><p>基本用法</p><pre><code>function fn(...arr) {    let sum = 0    arr.forEach(item =&gt; {        sum += item    })    return sum}console.log(fn(1, 2, 3))    // 6</code></pre><p>转换数组的方式</p><pre><code>// 方法1 function fn() {    return Array.prototype.slice.call(arguments)}// 方法2 rest function fn1(...arr) {    return arr}// 方法3 Array.from()function fn2() {    console.log(Array.from(arguments))}</code></pre><p>注意 rest后面不能再跟参数，否则会报错</p><pre><code>function fn(one, ...arr, num) {    // ...}fn(1,5,6,2)// 报错</code></pre><h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>箭头函数使用为最多，他不仅语法简洁，降低代码量，同时更具有可读性</p><pre><code>let obj = {name: &apos;aa&apos;}let f = item =&gt; item.nameconsole.log(f(obj))     // aa</code></pre><p>如果没有参数 或者 有多个参数 用圆括号</p><pre><code>let a = () =&gt; 5let b = (num1, num2) =&gt; num1 + num2// 等同于let a = function () {    return 5}let b = function (num1, num2) {    return num1 + num2}</code></pre><p>只有代码为1行时不用写return </p><pre><code>let a = (item) =&gt; {    if (item.id === 1) {        return item    }}</code></pre><p>配合解构</p><pre><code>let obj = {    a: function () {        alert(88)    },    b: 10,    c: 16}let fn = ({a, b}) =&gt; a()    fn(obj) // 88let fn = ({c, b = 7}) =&gt; b + c  fn(obj) // 26</code></pre><p>默认值</p><pre><code>let obj = {    a: function () {        alert(88)    },    c: 16}let fn = ({c, b = 7}) =&gt; b + c  fn(obj)     // 23</code></pre><p>来看这个例子</p><pre><code>function Timer() {    this.s1 = 0;    this.s2 = 0;    // 箭头函数    setInterval(() =&gt; this.s1++, 1000);    // 普通函数    setInterval(function () {        this.s2++;        // alert(this.s2)    }, 1000);}var timer = new Timer();setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100);   // 3setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);   // 0// 使用箭头函数 this会指向定义时的对象，所以s1会在3秒调用3次 为3  s2 的this指向了window的s2 并不存在 3秒内都是window的s2 在++ ，相加为NAN  但是是打印的当前构造函数内的s2，所以值为0</code></pre><p>所以下面为被编译的ES5</p><pre><code>let a = () =&gt; {    setTimeout(() =&gt; {        console.log(this.id)    }, 2000);}let a = function () {    var _this = this    setTimeout(() =&gt; {        console.log(_this.id)    }, 2000);}</code></pre><h3 id="箭头函数总结"><a href="#箭头函数总结" class="headerlink" title="箭头函数总结"></a>箭头函数总结</h3><pre><code>1. 代码简洁，更具有可读性2. this指向定义时的对象，并不是调用时的3. 因为本身并没有this,无法作为构造函数，无法使用New4. 没有arguments对象，不过可以使用rest   ...arr</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;加油！&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ES6-字符串扩展</title>
+    <link href="http://yoursite.com/2018/07/04/ES6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95/"/>
+    <id>http://yoursite.com/2018/07/04/ES6-字符串扩展/</id>
+    <published>2018-07-04T06:23:21.000Z</published>
+    <updated>2018-07-04T08:47:17.075Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加油！<br><a id="more"></a></p><p>遵循二八，只写常用的</p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a></p><h3 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h3><p>在ES5中 查找字符串是否存在使用indexOf 大于-1则存在，ES6出了个方法，includes,改方法返回boolean</p><pre><code>let str = &apos;卫栖梧dqweqwe4152&apos;console.log(str.includes(&apos;5&apos;))      // trueconsole.log(str.includes(&apos;10&apos;))      // falseconsole.log(str.includes(&apos;dqwe&apos;))      // true</code></pre><p>startsWith 第一个是否为某一项<br>endsWith 最后一个是否为某一项</p><pre><code>let str = &apos;卫栖梧dqweqwe4152&apos;console.log(str.startsWith(&apos;5&apos;))    // falseconsole.log(str.endsWith(&apos;2&apos;))      // true</code></pre><p>repeat 重复字符串</p><pre><code>// console.log(&apos;aaa&apos;.repeat(8))         // aaaaaaaaaaaaaaaaaaaaaaaa</code></pre><h3 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h3><p>先看常规拼接字符串</p><pre><code>let a = &apos;谁最帅&apos;let b = &apos;当然是我&apos;console.log(&apos;现在&apos; + a + &apos;,&apos; + b + &apos;啦&apos;)    //现在谁最帅,当然是我啦</code></pre><p>ES6 字符串模板<br>    console.log(<code>现在${a},${b}啦</code>)      //现在谁最帅,当然是我啦</p><p>这样的写法更具有可读性，更加简洁，同时字符串模板支持简单的运算，可写函数返回，还支持隔行</p><pre><code>let a = &apos;拼接&apos;let b = &apos;字符串&apos;function name () {    return &apos;我是函数&apos;}let c = `我在${a}${b}    ${name()}`console.log(c)// 我在拼接字符串        我是函数</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;加油！&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ES6-解构赋值</title>
     <link href="http://yoursite.com/2018/06/27/ES6-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
     <id>http://yoursite.com/2018/06/27/ES6-解构赋值/</id>
     <published>2018-06-27T11:49:59.000Z</published>
-    <updated>2018-06-27T13:04:39.457Z</updated>
+    <updated>2018-07-04T08:09:01.646Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>只想每天学习新的总结那么一点，不想原地踏步<br><a id="more"></a></p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a></p><h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h3><p>解构分为数组解构、对象解构、字符串解构、函数参数解构,还有些不常用的，就不说了</p><h3 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a>数组解构</h3><p>通常我们进行赋值</p><pre><code>let a = &apos;a&apos;let b = &apos;b&apos;let c = &apos;c&apos;</code></pre><p>ES6提供数组解构为</p><pre><code>let [a, b, c] = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]a // &apos;a&apos;b // &apos;b&apos;c // &apos;c&apos;</code></pre><p>从上述可以看得出来，数组组件主要针对位置来进行赋值</p><p>也可写成这样<br>    let [a, [b, c]] = [10, [20, 30]]<br>    a // 10<br>    b // 20<br>    c // 30</p><p>如果对应位置没有对应值，则为undefined<br>    let [a, [b, c]] = [10, [, 30]]<br>    a // 10<br>    b // undefined<br>    c // 30</p><p>也可初始化值</p><pre><code>let [a=5, [b=3, c]] = [10, [, 30]]a // 10b // 3c // 30</code></pre><p>// 需要注意！只有当等于undefined时才会被赋值默认值，注意是全等，严格模式</p><pre><code>let [a=5, [b=3, c]] = [10, [null, 30]]a // 10b // nullc // 30</code></pre><p>赋值必须是可迭代的(iterator)</p><pre><code>let [a=5,b] = 1// 报错</code></pre><h3 id="对象解构"><a href="#对象解构" class="headerlink" title="对象解构"></a>对象解构</h3><p>这样写会抛出错误<br>    let {a:10,b:10} = {a:20,b: 40}</p><p>原因，对象解构与数组解构不同，数组解构是通过对应位置，而对象解构则通过 等号 左边的键 去查找 右侧的键值，在找到后，赋值给右侧的值</p><pre><code>let {a: b,c: d} = {a: 50, c: 90}a //undefinedb // 50c // undefinedd // 90</code></pre><p>看到这应该明白了  也就是收  通过a 到 右边去找到对应的值，然后从新赋值给b  这就是区别</p><p>设定默认值</p><pre><code>let {a: b=10,c: d=4} = {a: undefined, c: undefined}b // 10d // 4</code></pre><h3 id="函数参数解构"><a href="#函数参数解构" class="headerlink" title="函数参数解构"></a>函数参数解构</h3><pre><code>function a () {    alert(&apos;a&apos;)}function b () {    alert(&apos;b&apos;)}function move ([a, b]) {    a()}move([a, b])</code></pre><p>总之,把数组解构 和 对象解构 理解了 其他都差不多</p>]]></content>
     
@@ -364,7 +400,7 @@
     <link href="http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%883%EF%BC%89/"/>
     <id>http://yoursite.com/2018/02/22/github配合hexo建站攻略（3）/</id>
     <published>2018-02-22T12:27:04.000Z</published>
-    <updated>2018-02-23T02:44:11.980Z</updated>
+    <updated>2018-07-04T08:16:50.667Z</updated>
     
     <content type="html"><![CDATA[<h3 id="统计访问量的实现？"><a href="#统计访问量的实现？" class="headerlink" title="统计访问量的实现？"></a>统计访问量的实现？</h3><p>上一篇介绍了如何构建一个基本的网站，但是 是网站他就得有访问量不是~？ 不然怎么能满足咱们内心的蠢动，有木有~~！</p><p><img src="http://img5.imgtn.bdimg.com/it/u=3296605248,3911530965&amp;fm=27&amp;gp=0.jpg" alt="img"></p><p>。。。</p><a id="more"></a><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://www.lookk.cn/2017/12/09/hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/" target="_blank" rel="noopener">hexo yilia主题添加文章访问量统计</a></p><h3 id="太阳当空照-太阳对我眨眼睛"><a href="#太阳当空照-太阳对我眨眼睛" class="headerlink" title="太阳当空照~太阳对我眨眼睛~"></a>太阳当空照~太阳对我眨眼睛~</h3><p>在一开始的时候，我以为很难，可是呢~其实不难，既然这都是第二篇了，大家肯定跟我一样的想法</p><p>统计访问量有这几种：<strong>百度的站长统计</strong> 、 <strong>leancloud</strong> 、 <strong>不蒜子</strong>;</p><p>根据进行比对，不蒜子要简单很多，因为建站的初衷还是在于写博客，自己安慰自己，把学的东西都进行总结和巩固，所以就先它了~！！</p><p>不过首先声明，我使用的主题为yilia</p><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>该代码可以粘贴至themes/yilia/layout/footer.ejs 或者 header.ejs 或者 left-col.ejs下</p><h3 id="站点访问量显示"><a href="#站点访问量显示" class="headerlink" title="站点访问量显示"></a>站点访问量显示</h3><p>因为这个显示是给人家看的，所以个人认为 放在left-col.ejs下，这样在PC进站时能够看到访问量，但是移动端看不到（正在想处理方法）,你也可以放在footer底部，这样虽然都可以看到，但是必须要看完文章后再能看到，感觉有点不太好</p><pre><code>&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt; 本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次&lt;/span&gt;</code></pre><p>计算访问量的方法有两种：<br>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。<br>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。<br>我用的是uv的方式，大家自行选择即可。</p><h3 id="添加文章访问量"><a href="#添加文章访问量" class="headerlink" title="添加文章访问量"></a>添加文章访问量</h3><p>文章的访问量显示在文章里面，所以在themes/yilia/layout/article.ejs里加上文章访问量的标签：</p><pre><code>&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;</code></pre><p>我们直接就这样放在yilia主题中，首页也会显示该网页的访问量，没法正常使用，所以需要一个判断，如果是首页不显示该文章的访问量，下面这段代码添加在/themes/yilia/layout/_partial/article.ejs的header的日期后面：</p><pre><code>&lt;% if ( !index ){ %&gt;        &lt;span class=&quot;archive-article-date&quot;&gt;            阅读量 &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;        &lt;/span&gt;&lt;% } %&gt;</code></pre><p>这样访问量就都有了，是不是很简单？</p><p><img src="http://img0.imgtn.bdimg.com/it/u=3651943344,1246360666&amp;fm=27&amp;gp=0.jpg" alt="img"></p><h4 id="未完，待续-！"><a href="#未完，待续-！" class="headerlink" title="未完，待续~！"></a>未完，待续~！</h4>]]></content>
     
@@ -373,44 +409,6 @@
       &lt;h3 id=&quot;统计访问量的实现？&quot;&gt;&lt;a href=&quot;#统计访问量的实现？&quot; class=&quot;headerlink&quot; title=&quot;统计访问量的实现？&quot;&gt;&lt;/a&gt;统计访问量的实现？&lt;/h3&gt;&lt;p&gt;上一篇介绍了如何构建一个基本的网站，但是 是网站他就得有访问量不是~？ 不然怎么能满足咱们内心的蠢动，有木有~~！&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://img5.imgtn.bdimg.com/it/u=3296605248,3911530965&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;p&gt;。。。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>github配合hexo建站攻略（2）主题及头像上传</title>
-    <link href="http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%882%EF%BC%89%E4%B8%BB%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/02/22/github配合hexo建站攻略（2）主题/</id>
-    <published>2018-02-22T12:01:19.000Z</published>
-    <updated>2018-02-23T02:44:21.462Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h3><p>经过基础建站成功后，大家一定感觉默认的主题实在是太单调了，我看了几个主题,<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>是我比较喜欢的，所以就他了~！</p><p><img src="http://img1.imgtn.bdimg.com/it/u=1453468209,1035067192&amp;fm=27&amp;gp=0.jpg" alt="img"></p><p>。。。 好吧</p><a id="more"></a><p>首先，下载主题</p><pre><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></pre><p>成功后目录为：</p><p><img src="/static/21.png" alt="img"></p><p>进入到根目录下的_config.yml 记住 是根目录下的 修改theme</p><pre><code>theme: yilia</code></pre><p>然后重新执行hexo g来重新生成。</p><p>如果出现一些莫名其妙的问题，可以先执行hexo clean来清理一下public的内容，然后再来重新生成和发布。</p><p>这样主题便已经生成，等个几分钟在进行访问用户名.github.io即可看到</p><h3 id="头像上传"><a href="#头像上传" class="headerlink" title="头像上传"></a>头像上传</h3><p>图片存放在themes/source目录下</p><p>找到主题目录下的_config.yml<br>themes/_config.yml </p><pre><code>avatar: &quot;/图片名&quot; 例 avatar: &quot;/a.png&quot;</code></pre><p>好了，大功告成，是不是看着自己的头像感觉帅帅的~~！</p><p><img src="http://img4.imgtn.bdimg.com/it/u=51900639,198231787&amp;fm=27&amp;gp=0.jpg" alt="img"></p><h4 id="未完，待续-！"><a href="#未完，待续-！" class="headerlink" title="未完，待续~！"></a>未完，待续~！</h4>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;修改主题&quot;&gt;&lt;a href=&quot;#修改主题&quot; class=&quot;headerlink&quot; title=&quot;修改主题&quot;&gt;&lt;/a&gt;修改主题&lt;/h3&gt;&lt;p&gt;经过基础建站成功后，大家一定感觉默认的主题实在是太单调了，我看了几个主题,&lt;a href=&quot;https://github.com/litten/hexo-theme-yilia&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;yilia&lt;/a&gt;是我比较喜欢的，所以就他了~！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://img1.imgtn.bdimg.com/it/u=1453468209,1035067192&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;。。。 好吧&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>github配合hexo建站攻略（1）建站基础</title>
-    <link href="http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%881%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/02/22/github配合hexo建站攻略（1）/</id>
-    <published>2018-02-22T02:51:50.000Z</published>
-    <updated>2018-02-23T08:34:25.538Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="作为一名小白，如何建站？"><a href="#作为一名小白，如何建站？" class="headerlink" title="作为一名小白，如何建站？"></a>作为一名小白，如何建站？</h2><p>可能我和大多数人一样，在听到别人都有自己的博客的时候，自己是多么的羡慕，妒忌，恨~！  但是奈何公司总是加班，根本没有时间去弄别的事情，难得有点时间，还要占用假期来进行研究<br><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1010459245,4006277659&amp;fm=27&amp;gp=0.jpg" alt="avatar"> 哈哈哈！好了 言归正传！<br><a id="more"></a></p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa" target="_blank" rel="noopener">使用hexo+github搭建免费个人博客详细教程</a><br><a href="https://www.cnblogs.com/fengxiongZz/p/7707219.html" target="_blank" rel="noopener">使用Hexo+Github一步步搭建属于自己的博客（基础）</a><br>以上是我参考的两篇大牛的日志，以下是我的总结。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul><li>具有一定的编程能力和足够的耐心！</li><li>github账号一枚，作为一名程序员的标配</li><li>node环境及git的基本知识</li></ul><h3 id="github账号"><a href="#github账号" class="headerlink" title="github账号"></a>github账号</h3><p>没有github账号的同学快去注册吧~ 友情链接<a href="https://github.com/join" target="_blank" rel="noopener">github注册</a></p><h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><h5 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h5><p><img src="/static/1.png" alt="img"></p><h5 id="2-点击new-repository"><a href="#2-点击new-repository" class="headerlink" title="2.点击new repository"></a>2.点击new repository</h5><p><img src="/static/2.png" alt="img"></p><h5 id="3-点击create-repository-仓库建好了"><a href="#3-点击create-repository-仓库建好了" class="headerlink" title="3.点击create repository 仓库建好了"></a>3.点击create repository 仓库建好了</h5><h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p>打开git  右键 git Bash 找到一个文件夹，该文件夹就是你以后写blog的地方</p><pre><code>npm install hexo -g 全局安装</code></pre><p>也可以使用淘宝镜像 cnpm 的小伙伴可以使用cnpm  速度更快一些</p><pre><code>hexo -V 查看是否安装成功hexo init  进行初始化 过程可能会比较慢 稍等一分钟 不要急</code></pre><p><img src="/static/3.png" alt="img"></p><p>出现后才算成功！是不是有点久~~！淡定</p><pre><code>npm install  下载依赖包hexo g 初始化文件hexo s  启动本地服务</code></pre><p><img src="/static/4.png" alt="img"></p><pre><code>localhost:端口号</code></pre><p><img src="/static/5.png" alt="img"></p><p>如果看到上面这个图片说明你已经成功了</p><p>如果本地启动失败，说明端口号被占用了</p><pre><code>hexo server -p 5557 可更改端口号</code></pre><h3 id="与github仓库关联"><a href="#与github仓库关联" class="headerlink" title="与github仓库关联"></a>与github仓库关联</h3><p>使用git Bash</p><pre><code>git config \--global user.name &quot;用户名&quot;git comfig \--global user.email &quot;你的邮箱&quot;</code></pre><p>查看秘钥是否存在，因为你不希望你的仓库可以随意被别人改动</p><pre><code>cd ~/.ssh 进入ssh文件夹</code></pre><p>输入ls查看本地文件是否有id_rsa.pub这个文件，如果没有</p><pre><code>ssh-keygen -t rsa -C &quot;你的邮箱&quot; 连续回车，最后生成id_rsa和id_rsa.pub 文件</code></pre><p><img src="/static/20.png" alt="img"></p><p>看到这说明成功了！</p><pre><code>记得 成功或者失败后github会给你发一份邮件</code></pre><p>.ssh文件 在 C:\用户\Administrator.ssh  下  完了查看着两个文件</p><p>输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent</p><p><img src="/static/7.png" alt="img"></p><p>再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent</p><p><img src="/static/8.png" alt="img"></p><p>打开github</p><p><img src="/static/9.png" alt="img"></p><p><img src="/static/aa.png" alt="img"></p><p> 将 C:\用户\Administrator\/.ssh                id_rsa.pub  文件的内容复制粘贴进来</p><p><img src="/static/11.png" alt="img"></p><pre><code>ssh -T git@github.com  </code></pre><p>出现下图说明已经成功关联</p><p><img src="/static/12.png" alt="img"></p><p>失败 假如ssh-key配置失败，那么只要以下步骤就能完全解决</p><p>首先，清除所有的key-pair<br>ssh-add -D<br>rm -r ~/.ssh<br>删除你在github中的public-key</p><p>重新生成ssh密钥对<br>ssh-keygen -t rsa -C “<a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a>“</p><p>接下来正常操作<br>在github上添加公钥public-key:<br>1、首先在你的终端运行 xclip -sel c ~/.ssh/id_rsa.pub将公钥内容复制到剪切板<br>2、在github上添加公钥时，直接复制即可<br>3、保存</p><p>测试：<br>在终端 ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p><h4 id="配置hexo-根文件-config-yml"><a href="#配置hexo-根文件-config-yml" class="headerlink" title="配置hexo 根文件_config.yml"></a>配置hexo 根文件_config.yml</h4><p>进入github仓库</p><p><img src="/static/13.png" alt="img"></p><p><img src="/static/1a4.png" alt="img"></p><p>将连接复制粘贴进来即可</p><pre><code>deploy:    type: git    repository: git@github.com:yuanhaozzz/yuanhaozzz.github.io.git    branch: master</code></pre><h4 id="新建一篇博客"><a href="#新建一篇博客" class="headerlink" title="新建一篇博客"></a>新建一篇博客</h4><pre><code>hexo new post &quot;博客名&quot;</code></pre><p><img src="/static/15.png" alt="img"></p><pre><code>在source下你会看见</code></pre><p><img src="/static/16.png" alt="img"></p><h4 id="部署及发布"><a href="#部署及发布" class="headerlink" title="部署及发布"></a>部署及发布</h4><p>在生成以及部署文章之前，需要安装一个扩展：npm install hexo-deployer-git --save</p><p>安装完成后即可发布</p><pre><code>hexo d -g </code></pre><p>部署成功后访问你的地址：http://用户名.github.io。就可以看到生成的文章了，是不是很爽！</p><p><img src="/static/18.png" alt="img"></p><p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=48968824,2495411634&amp;fm=27&amp;gp=0.jpg" alt="img"></p><pre><code>这只是个基础，后续会继续更新~！</code></pre><h2 id="未完，待续-！"><a href="#未完，待续-！" class="headerlink" title="未完，待续~！"></a>未完，待续~！</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;作为一名小白，如何建站？&quot;&gt;&lt;a href=&quot;#作为一名小白，如何建站？&quot; class=&quot;headerlink&quot; title=&quot;作为一名小白，如何建站？&quot;&gt;&lt;/a&gt;作为一名小白，如何建站？&lt;/h2&gt;&lt;p&gt;可能我和大多数人一样，在听到别人都有自己的博客的时候，自己是多么的羡慕，妒忌，恨~！  但是奈何公司总是加班，根本没有时间去弄别的事情，难得有点时间，还要占用假期来进行研究&lt;br&gt;&lt;img src=&quot;https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1010459245,4006277659&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;avatar&quot;&gt; 哈哈哈！好了 言归正传！&lt;br&gt;
     
     </summary>
     

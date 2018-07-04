@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/04/ES6-%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/</loc>
+    
+    <lastmod>2018-07-04T09:16:37.962Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/04/ES6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95/</loc>
+    
+    <lastmod>2018-07-04T08:47:17.075Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%883%EF%BC%89/</loc>
+    
+    <lastmod>2018-07-04T08:16:50.667Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/06/27/ES6-%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/</loc>
     
-    <lastmod>2018-06-27T13:04:39.457Z</lastmod>
+    <lastmod>2018-07-04T08:09:01.646Z</lastmod>
     
   </url>
   
@@ -131,13 +152,6 @@
     <loc>http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%882%EF%BC%89%E4%B8%BB%E9%A2%98/</loc>
     
     <lastmod>2018-02-23T02:44:21.462Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%883%EF%BC%89/</loc>
-    
-    <lastmod>2018-02-23T02:44:11.980Z</lastmod>
     
   </url>
   

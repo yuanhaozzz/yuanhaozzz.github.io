@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 渡的个人博客</title>
+  <title>ES6-函数扩展 | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="渡的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/2/index.html">
+  <meta name="description" content="前言加油！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-函数扩展">
+<meta property="og:url" content="http://yoursite.com/2018/07/04/ES6-函数扩展/index.html">
 <meta property="og:site_name" content="渡的个人博客">
+<meta property="og:description" content="前言加油！">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-04T09:16:37.962Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡的个人博客">
+<meta name="twitter:title" content="ES6-函数扩展">
+<meta name="twitter:description" content="前言加油！">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -128,295 +132,303 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ES6-函数扩展" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6-函数扩展
+    </h1>
+  
+
+        
+        <a href="/2018/07/04/ES6-函数扩展/" class="archive-article-date">
+  	<time datetime="2018-07-04T08:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
+</a>
+        
+      </header>
+      
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加油！<br><a id="more"></a></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a></p>
+<h3 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h3><pre><code>function fn (x = 2) {
+    console.log(x)
+}
+fn(10)  // 10
+fn()    // 2
+</code></pre><p>无法使用Let 和 const再次进行声明，他们是唯一的</p>
+<pre><code>function fn (x = 2) {
+    let x = 1
+    console.log(x)
+}
+fn(10)
+// 报错
+</code></pre><p>同样可是使用解构的方式</p>
+<pre><code>function foo({x, y}) {
+    console.log(x, y());
+}
+
+foo({x: 1, y: () =&gt; 8})
+// x 1
+// y 8
+</code></pre><p>也可以指定默认值</p>
+<pre><code>function foo({x = 50, y}) {
+    console.log(x, y());
+}
+
+foo({y: () =&gt; 8})
+// x 50
+// y 8
+</code></pre><h3 id="rest"><a href="#rest" class="headerlink" title="rest"></a>rest</h3><p>基本用法</p>
+<pre><code>function fn(...arr) {
+    let sum = 0
+    arr.forEach(item =&gt; {
+        sum += item
+    })
+    return sum
+}
+console.log(fn(1, 2, 3))    // 6
+</code></pre><p>转换数组的方式</p>
+<pre><code>// 方法1 
+function fn() {
+    return Array.prototype.slice.call(arguments)
+}
+// 方法2 rest 
+function fn1(...arr) {
+    return arr
+}
+// 方法3 Array.from()
+function fn2() {
+    console.log(Array.from(arguments))
+}
+</code></pre><p>注意 rest后面不能再跟参数，否则会报错</p>
+<pre><code>function fn(one, ...arr, num) {
+    // ...
+}
+fn(1,5,6,2)
+// 报错
+</code></pre><h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>箭头函数使用为最多，他不仅语法简洁，降低代码量，同时更具有可读性</p>
+<pre><code>let obj = {name: &apos;aa&apos;}
+let f = item =&gt; item.name
+console.log(f(obj))     // aa
+</code></pre><p>如果没有参数 或者 有多个参数 用圆括号</p>
+<pre><code>let a = () =&gt; 5
+let b = (num1, num2) =&gt; num1 + num2
+
+// 等同于
+let a = function () {
+    return 5
+}
+let b = function (num1, num2) {
+    return num1 + num2
+}
+</code></pre><p>只有代码为1行时不用写return </p>
+<pre><code>let a = (item) =&gt; {
+    if (item.id === 1) {
+        return item
+    }
+}
+</code></pre><p>配合解构</p>
+<pre><code>let obj = {
+    a: function () {
+        alert(88)
+    },
+    b: 10,
+    c: 16
+}
+let fn = ({a, b}) =&gt; a()    fn(obj) // 88
+
+let fn = ({c, b = 7}) =&gt; b + c  fn(obj) // 26
+</code></pre><p>默认值</p>
+<pre><code>let obj = {
+    a: function () {
+        alert(88)
+    },
+    c: 16
+}
+let fn = ({c, b = 7}) =&gt; b + c  fn(obj)     // 23
+</code></pre><p>来看这个例子</p>
+<pre><code>function Timer() {
+    this.s1 = 0;
+    this.s2 = 0;
+    // 箭头函数
+    setInterval(() =&gt; this.s1++, 1000);
+    // 普通函数
+    setInterval(function () {
+        this.s2++;
+        // alert(this.s2)
+    }, 1000);
+}
+
+var timer = new Timer();
+
+setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100);   // 3
+setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);   // 0
+// 使用箭头函数 this会指向定义时的对象，所以s1会在3秒调用3次 为3  s2 的this指向了window的s2 并不存在 3秒内都是window的s2 在++ ，相加为NAN  但是是打印的当前构造函数内的s2，所以值为0
+</code></pre><p>所以下面为被编译的ES5</p>
+<pre><code>let a = () =&gt; {
+    setTimeout(() =&gt; {
+        console.log(this.id)
+    }, 2000);
+}
+
+let a = function () {
+    var _this = this
+    setTimeout(() =&gt; {
+        console.log(_this.id)
+    }, 2000);
+}
+</code></pre><h3 id="箭头函数总结"><a href="#箭头函数总结" class="headerlink" title="箭头函数总结"></a>箭头函数总结</h3><pre><code>1. 代码简洁，更具有可读性
+2. this指向定义时的对象，并不是调用时的
+3. 因为本身并没有this,无法作为构造函数，无法使用New
+4. 没有arguments对象，不过可以使用rest   ...arr
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/static/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/27/换电脑后如何继续写博客/" class="archive-article-date">
-  	<time datetime="2018-04-27T13:26:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/27/换电脑后如何继续写博客/">换电脑后如何继续写博客</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/04/ES6-函数扩展/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/27/2018-04-27-小组会/" class="archive-article-date">
-  	<time datetime="2018-04-27T12:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/04/ES6-字符串扩展/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6-字符串扩展</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/27/2018-04-27-小组会/">2018-04-27 小组会</a>
-    </h1>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2158002"></script>
+<!-- UY END -->
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/22/时间戳转换年月日小月问题/" class="archive-article-date">
-  	<time datetime="2018-04-22T11:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/22/时间戳转换年月日小月问题/">时间戳转换年月日小月问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/阿西吧/" class="archive-article-date">
-  	<time datetime="2018-04-15T12:06:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/阿西吧/">阿西吧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/14/git日常基本指令/" class="archive-article-date">
-  	<time datetime="2018-03-14T05:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/14/git日常基本指令/">git日常基本指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/03/浅谈原型链-prototype-proto/" class="archive-article-date">
-  	<time datetime="2018-03-03T03:16:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/03/浅谈原型链-prototype-proto/">浅谈原型链 prototype __proto__</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/26/flex布局-移动端布局利器/" class="archive-article-date">
-  	<time datetime="2018-02-26T12:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/26/flex布局-移动端布局利器/">flex布局 移动端布局利器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/" class="archive-article-date">
-  	<time datetime="2018-02-24T13:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/">前端基础算法 冒泡排序 选择排序 快速排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/23/github配合hexo建站攻略（4）域名绑定/" class="archive-article-date">
-  	<time datetime="2018-02-23T02:45:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/23/github配合hexo建站攻略（4）域名绑定/">github配合hexo建站攻略（4）域名与github绑定</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/22/github配合hexo建站攻略（3）/" class="archive-article-date">
-  	<time datetime="2018-02-22T12:27:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/22/github配合hexo建站攻略（3）/">github配合hexo建站攻略（3）统计访问量</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -441,8 +453,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
