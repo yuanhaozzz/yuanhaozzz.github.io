@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/09/ES6-%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/</loc>
+    
+    <lastmod>2018-07-09T11:54:47.910Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/06/ES6-%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95/</loc>
+    
+    <lastmod>2018-07-09T11:46:40.642Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/07/04/ES6-%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/</loc>
     
-    <lastmod>2018-07-04T09:16:37.962Z</lastmod>
+    <lastmod>2018-07-06T08:45:49.614Z</lastmod>
     
   </url>
   

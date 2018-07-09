@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-04T09:16:37.962Z</updated>
+  <updated>2018-07-09T11:54:47.910Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ES6-对象扩展</title>
+    <link href="http://yoursite.com/2018/07/09/ES6-%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/"/>
+    <id>http://yoursite.com/2018/07/09/ES6-对象扩展/</id>
+    <published>2018-07-09T11:45:02.000Z</published>
+    <updated>2018-07-09T11:54:47.910Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a><br><a id="more"></a></p><h3 id="属性的简介表示法"><a href="#属性的简介表示法" class="headerlink" title="属性的简介表示法"></a>属性的简介表示法</h3><p>ES6允许直接写入变量名 与 函数名 来作为对象的属性 和 方法  这样使语法更加简介</p><pre><code>let x = 40function y () {    alert(1)}let obj = {x, y}console.log(obj)    // {x: 40, y: function}obj.y()             // 1function fn(x, y) {    return {x, y}}// 等同于function fn(x, y) {    return {x: x, y: y}}</code></pre><p>函数也同样<br>    let age = 18</p><pre><code>const Person = {    name: &apos;张三&apos;,    age,    // age: age    fn () {         // fn: function ....        console.log(this.age)    }}</code></pre><h3 id="Objuct-is-弥补-的不足-自动转换为数组类型-NAN都不相等-判断是否相等"><a href="#Objuct-is-弥补-的不足-自动转换为数组类型-NAN都不相等-判断是否相等" class="headerlink" title="Objuct.is() 弥补 == === 的不足  == 自动转换为数组类型  ===  NAN都不相等     判断是否相等"></a>Objuct.is() 弥补 == === 的不足  == 自动转换为数组类型  ===  NAN都不相等     判断是否相等</h3><pre><code>console.log(Object.is(1, &apos;1&apos;))         // false     // 同样是严格模式console.log(Object.is(1, 1))         // true console.log(Object.is({}, {}))         // false     let obj = {    name: [        {            c: &apos;aa&apos;        }    ],    b: 12}let obj1 = [...obj.name]console.log(obj.name == obj1)      // false</code></pre><h3 id="Object-assign-合并对象"><a href="#Object-assign-合并对象" class="headerlink" title="Object.assign()     合并对象"></a>Object.assign()     合并对象</h3><pre><code>// 注：assign 是浅拷贝let a = {a: &apos;a&apos;}let b = {b: &apos;b&apos;}           let obj = Object.assign(a, b)    // {a: &apos;a&apos;, b: &apos;b&apos;}// 如果有相同的键值，则后面的值会覆盖前面的let c = {b: &apos;c&apos;}   let obj = Object.assign(a, b, c)          // {a: &apos;a&apos;, b: &apos;c&apos;}let obj = Object.assign({}, a, b, c)console.log(a) 第一个参数为目标对象 指定为一个空,这样不会破坏原对象，同时，他只会拷贝原对象自身属性 ， 用处很多  不管是给对象新增属性 还是 方法 都很方便对象同样具有扩展运算符let obj = {a: 1, b: 2}let obj1 = {...obj}console.log(obj1)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/destructuring&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ECMAScript 6入门&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ES6-数组扩展</title>
+    <link href="http://yoursite.com/2018/07/06/ES6-%E6%95%B0%E7%BB%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://yoursite.com/2018/07/06/ES6-数组扩展/</id>
+    <published>2018-07-06T08:46:53.000Z</published>
+    <updated>2018-07-09T11:46:40.642Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a><br><a id="more"></a></p><h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3><p>基本用法</p><pre><code>扩展用算符是三个点，好比rest函数参数一样let arr = [1, 2, 3]console.log(...arr)     1 2 3console.log([...arr])     1 2 3</code></pre><p>使用扩展运算符传参</p><pre><code>function num(x, y, b) {     return x + y + b}let arr = [1,2,3]console.log(num(...arr))     // 6</code></pre><p>使用max求最大值</p><pre><code>console.log(Math.max(1,5,4,1,9,8))     // 9// 使用数组需要转console.log(Math.max([1, 5, 6, 4]))     // NAN// 使用扩展运算符更加简洁，方便console.log(Math.max(...[1,5,4,1,9,8]))     // 9</code></pre><p>push方法    数组的合并</p><pre><code>let [x, y] = [[1, 2, 3], [4, 5, 6]] 方法一console.log(x.concat(y))    // [1, 2, 3, 4, 5, 6]方法二x.push(...y)console.log(x)              // [1, 2, 3, 4, 5, 6]</code></pre><h3 id="扩展运算符的应用"><a href="#扩展运算符的应用" class="headerlink" title="扩展运算符的应用"></a>扩展运算符的应用</h3><ol><li><p>复制数组</p><p> let arr1 = [1, 2];<br> let arr2 = arr1<br> arr2[0] = 2<br> console.log(arr1)   // [2, 2]<br> 上面代码中,只是多了一个指针，但是在内存当中都指向同一块空间，所以任意改变都会修改原数组</p><p> let arr1 = [1, 2];<br> arr2[0] = 2<br> // ES5解决<br> // let arr2 = arr1.concat()     // [1, 2]<br> // ES6解决<br> let arr2 = […arr1]            // [1, 2]<br> // Array.from()<br> let arr2 = Array.from(arr1)     // [1, 2]<br> arr2[0] = 2</p></li></ol><p>上述方法都可实现深拷贝</p><p>配合解构</p><pre><code>const [first, ...rest] = [1, 2, 3, 4, 5];first // 1rest // [2, 3, 4, 5]let arr5 = [[1, 5], [2, 9]]...arr5     // [1, 5] [2, 9]</code></pre><h3 id="Array-from-用于将两种类数组转换为真正的数组"><a href="#Array-from-用于将两种类数组转换为真正的数组" class="headerlink" title="Array.from()    用于将两种类数组转换为真正的数组"></a>Array.from()    用于将两种类数组转换为真正的数组</h3><ol><li>有length的类数组     例如 document.getElementByTagName(‘div’)</li><li>可迭代的对象</li></ol><pre><code>let arrayLike = {&apos;0&apos;: &apos;a&apos;,&apos;1&apos;: &apos;b&apos;,&apos;2&apos;: &apos;c&apos;,length: 3}let arr2 = Array.from(arrayLike); // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</code></pre><p>第二参数</p><pre><code>// Array.from  接受第二个参数  类似于 maplet arr = [1, 2, 3]console.log(Array.from(arr, (item) =&gt; item * item))     // [1, 4, 9]</code></pre><h3 id="Array-isArray-用于判断是否为一个真正的数组"><a href="#Array-isArray-用于判断是否为一个真正的数组" class="headerlink" title="Array.isArray()     用于判断是否为一个真正的数组"></a>Array.isArray()     用于判断是否为一个真正的数组</h3><pre><code>function isArray () {    return arguments}let fn = isArray(1, 5)console.log(Array.isArray(fn))                  // falseconsole.log(Array.isArray(Array.from(fn)))      // true</code></pre><h3 id="Array-of-用来创建数组并给其指定值"><a href="#Array-of-用来创建数组并给其指定值" class="headerlink" title="Array.of()  用来创建数组并给其指定值"></a>Array.of()  用来创建数组并给其指定值</h3><pre><code>一般声明数组console.log(new Array(5))      // [, , , ,]console.log(new Array(5, 2))             // [5, 2]console.log(new Array())                 // []console.log(Array.of(5))      // [5]console.log(Array.of(5, 2))             // [5, 2]console.log(new Array())                 // []使用其好处在于都进行了一个统一</code></pre><h3 id="Array-find-找到数组中包含某一项"><a href="#Array-find-找到数组中包含某一项" class="headerlink" title="Array.find() 找到数组中包含某一项"></a>Array.find() 找到数组中包含某一项</h3><p>[].findIndex()  用法与find一样   返回查找数组下标   这两个方法弥补了indexOf 方法的不足  都可以发现NAN</p><pre><code>console.log([1,8,5,6,9].find(x =&gt; x === 5))      // 5let arr = [    {        name: &apos;a&apos;    },    {        name: &apos;b&apos;    }]// 可接受三个参数  每一项, 下标, 原数组console.log(arr.find((x, index, arr) =&gt; {    console.log(index)    console.log(arr)    return x.name === &apos;b&apos;}))</code></pre><p>find方法只会返回一次，如果为空返回undefined</p><h3 id="Array-fill-装填，给数组指定默认值"><a href="#Array-fill-装填，给数组指定默认值" class="headerlink" title="Array.fill()    装填，给数组指定默认值"></a>Array.fill()    装填，给数组指定默认值</h3><pre><code>let arr = new Array(3).fill(&apos;&apos;)     // [&apos;&apos;, &apos;&apos;, &apos;&apos;]let arr = new Array(3).fill(5)     // [5, 5, 5]</code></pre><p>它有三个参数  参数 开始位置 结束位置</p><pre><code>console.log([1, 8, 6, 4].fill(2, 1, 2))     // [1, 2, 6, 4]console.log([1, 8, 6, 4].fill(2, 1, 8))     // [1, 2, 2, 2]</code></pre><h3 id="Array-entries-返回数组的键值"><a href="#Array-entries-返回数组的键值" class="headerlink" title="Array.entries()     返回数组的键值"></a>Array.entries()     返回数组的键值</h3><pre><code>let arr = [1, 2, 3, 5]for(let [index, item] of arr.entries()) {    console.log(&apos;value&apos; + item)    console.log(&apos;index&apos; + index)}使用了解构的方式进行赋值    [0, 1] [1, 2] [2, 3] [3, 5]</code></pre><h3 id="Array-keys-返回数组的键"><a href="#Array-keys-返回数组的键" class="headerlink" title="Array.keys()     返回数组的键"></a>Array.keys()     返回数组的键</h3><pre><code>let arr = [1, 2, 3, 8]for(let a of arr.keys()) {    console.log(&apos;index             &apos; + a)   // 下标}</code></pre><h3 id="includes-查找数组中是否包含某一项"><a href="#includes-查找数组中是否包含某一项" class="headerlink" title="includes()  查找数组中是否包含某一项"></a>includes()  查找数组中是否包含某一项</h3><pre><code>console.log([1, 2, 3].includes(2))      //true// 第二个参数 从该下标处开始查  如果大于当前数组长度 则 为默认值0  负数代表查找最后一个console.log([1, 2, 3].includes(2, 2))      //falseconsole.log([1, 2, 3].includes(3, -1))      //false</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://es6.ruanyifeng.com/#docs/destructuring&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ECMAScript 6入门&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ES6-函数扩展</title>
     <link href="http://yoursite.com/2018/07/04/ES6-%E5%87%BD%E6%95%B0%E6%89%A9%E5%B1%95/"/>
     <id>http://yoursite.com/2018/07/04/ES6-函数扩展/</id>
     <published>2018-07-04T08:29:23.000Z</published>
-    <updated>2018-07-04T09:16:37.962Z</updated>
+    <updated>2018-07-06T08:45:49.614Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加油！<br><a id="more"></a></p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a></p><h3 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h3><pre><code>function fn (x = 2) {    console.log(x)}fn(10)  // 10fn()    // 2</code></pre><p>无法使用Let 和 const再次进行声明，他们是唯一的</p><pre><code>function fn (x = 2) {    let x = 1    console.log(x)}fn(10)// 报错</code></pre><p>同样可是使用解构的方式</p><pre><code>function foo({x, y}) {    console.log(x, y());}foo({x: 1, y: () =&gt; 8})// x 1// y 8</code></pre><p>也可以指定默认值</p><pre><code>function foo({x = 50, y}) {    console.log(x, y());}foo({y: () =&gt; 8})// x 50// y 8</code></pre><h3 id="rest"><a href="#rest" class="headerlink" title="rest"></a>rest</h3><p>基本用法</p><pre><code>function fn(...arr) {    let sum = 0    arr.forEach(item =&gt; {        sum += item    })    return sum}console.log(fn(1, 2, 3))    // 6</code></pre><p>转换数组的方式</p><pre><code>// 方法1 function fn() {    return Array.prototype.slice.call(arguments)}// 方法2 rest function fn1(...arr) {    return arr}// 方法3 Array.from()function fn2() {    console.log(Array.from(arguments))}</code></pre><p>注意 rest后面不能再跟参数，否则会报错</p><pre><code>function fn(one, ...arr, num) {    // ...}fn(1,5,6,2)// 报错</code></pre><h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>箭头函数使用为最多，他不仅语法简洁，降低代码量，同时更具有可读性</p><pre><code>let obj = {name: &apos;aa&apos;}let f = item =&gt; item.nameconsole.log(f(obj))     // aa</code></pre><p>如果没有参数 或者 有多个参数 用圆括号</p><pre><code>let a = () =&gt; 5let b = (num1, num2) =&gt; num1 + num2// 等同于let a = function () {    return 5}let b = function (num1, num2) {    return num1 + num2}</code></pre><p>只有代码为1行时不用写return </p><pre><code>let a = (item) =&gt; {    if (item.id === 1) {        return item    }}</code></pre><p>配合解构</p><pre><code>let obj = {    a: function () {        alert(88)    },    b: 10,    c: 16}let fn = ({a, b}) =&gt; a()    fn(obj) // 88let fn = ({c, b = 7}) =&gt; b + c  fn(obj) // 26</code></pre><p>默认值</p><pre><code>let obj = {    a: function () {        alert(88)    },    c: 16}let fn = ({c, b = 7}) =&gt; b + c  fn(obj)     // 23</code></pre><p>来看这个例子</p><pre><code>function Timer() {    this.s1 = 0;    this.s2 = 0;    // 箭头函数    setInterval(() =&gt; this.s1++, 1000);    // 普通函数    setInterval(function () {        this.s2++;        // alert(this.s2)    }, 1000);}var timer = new Timer();setTimeout(() =&gt; console.log(&apos;s1: &apos;, timer.s1), 3100);   // 3setTimeout(() =&gt; console.log(&apos;s2: &apos;, timer.s2), 3100);   // 0// 使用箭头函数 this会指向定义时的对象，所以s1会在3秒调用3次 为3  s2 的this指向了window的s2 并不存在 3秒内都是window的s2 在++ ，相加为NAN  但是是打印的当前构造函数内的s2，所以值为0</code></pre><p>所以下面为被编译的ES5</p><pre><code>let a = () =&gt; {    setTimeout(() =&gt; {        console.log(this.id)    }, 2000);}let a = function () {    var _this = this    setTimeout(() =&gt; {        console.log(_this.id)    }, 2000);}</code></pre><h3 id="箭头函数总结"><a href="#箭头函数总结" class="headerlink" title="箭头函数总结"></a>箭头函数总结</h3><pre><code>1. 代码简洁，更具有可读性2. this指向定义时的对象，并不是调用时的3. 因为本身并没有this,无法作为构造函数，无法使用New4. 没有arguments对象，不过可以使用rest   ...arr</code></pre>]]></content>
     
@@ -369,46 +405,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;作为一名合格的前端不仅对自身业务能力的要求，还必须具有一定的算法知识，虽然博主数学就没及过格~,但是没办法，还是要学，这不，年前两天没啥事儿，看了看我最头痛的算法，当然，都是基本的，各位同学看到肯定一下就明白了，好了，进入正题~！&lt;br&gt;&lt;img src=&quot;https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3305254330,4081387098&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>github配合hexo建站攻略（4）域名与github绑定</title>
-    <link href="http://yoursite.com/2018/02/23/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%884%EF%BC%89%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A/"/>
-    <id>http://yoursite.com/2018/02/23/github配合hexo建站攻略（4）域名绑定/</id>
-    <published>2018-02-23T02:45:31.000Z</published>
-    <updated>2018-02-24T14:08:10.523Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="开场"><a href="#开场" class="headerlink" title="开场"></a>开场</h3><p>域名这玩儿，我申请了几天终于下来了，这不~，趁热打铁，一并写出来与大家一块分享，本人域名<a href="www.hushnow.cn">www.hushnow.cn</a>，望各位大佬捧场，谢谢~~！</p><p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2464799472,2104441980&amp;fm=27&amp;gp=0.jpg" alt="img"></p><p>嗯！<br><a id="more"></a></p><h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>首先，你得先去注册个域名不是，看了看网上的大牛，大多都是<a href="https://sg.godaddy.com/zh?isc=gennbacn29&amp;countryview=1&amp;currencytype=CNY&amp;utm_source=baidu&amp;utm_medium=cpc&amp;utm_campaign=zh-cn_corp_sem_base_brand_bz&amp;utm_content=adgroup+-+20171124&amp;utm_term=Title&amp;mkwid={mediatype}WS66RcZ2_pcrid_{creative}_pdv__" target="_blank" rel="noopener">goDaddy</a>,这是一个新加坡网站，我就在这里购买的域名</p><p>1、注册什么的就不多说了，先去注册</p><p>2、搜一个域名</p><p><img src="/static/41.png" alt="img"></p><p>3、添加至购物车</p><p><img src="/static/42.png" alt="img"></p><p>4、剩下的就是登陆一下，选<strong>goDaddy</strong>是因为他支持支付宝付款，等你付完款后，他会进行实名认证，接下来你就至需要等几天，这个全程只需要关注邮箱即可！</p><h3 id="DNSpod"><a href="#DNSpod" class="headerlink" title="DNSpod"></a>DNSpod</h3><p>在这里我使用的是<strong>DNSpod</strong>来进行管理域名，有以下几点原因：<br>1、域名提供商提供的往往不够稳定。</p><p>2、域名提供商免费提供不的支持多线解析，但dnspod提供，即智能解析。支持网通电信教育国外等多种线路，更是支持分省解析。</p><p>3、域名提供商提供的由于用户众多，解析很慢，但dnspod很快，特别是vip用户，在保证稳定的前提下可以比域名提供商的快10倍以上。</p><p>4、功能的多样化。提供包括宕机检测，分省解析，访问量统计，分组管理，挂马扫描等在内的多种附加服务，保证网站的安全稳定。 5、DNS对大用户来说，影响是十分大的，所以很多网站都用dnspod。</p><p><strong>传送门</strong> <a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSpod</a></p><p>1、 注册不用多说</p><p>2、 先绑定域名，NS是你DNS解析域名，你需要绑定两条A<strong>记录类型</strong>，分别为<strong>@</strong>、<strong>www</strong>，打开cmd，ping 用户名.github.io 然后你会看到ip地址，<strong>记录纸</strong>为你ping 出来的ip地址,下图为我本机的地址</p><p><img src="/static/43.png" alt="img"></p><p>3、 去goDaddy中绑定DNS ，点击我的账户 =&gt; 域名 =&gt; DNS管理</p><p><img src="/static/45.png" alt="img"></p><p>4、 将域名服务器进行更改，改为DNSpod的DNS来进行解析</p><p><img src="/static/44.png" alt="img"></p><p>5、 最后一步，在根目录下的sourse文件中新建CNAME文件，一定要大写，写上你申请的域名，不要加www!<br>eg:</p><pre><code>hushnow.cn</code></pre><p>好了，泡杯咖啡等10分钟再去访问你的域名，是不是很赞劲~~!</p><p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2069975793,865929935&amp;fm=27&amp;gp=0.jpg" alt="img"></p><h4 id="完结！"><a href="#完结！" class="headerlink" title="完结！"></a>完结！</h4>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;开场&quot;&gt;&lt;a href=&quot;#开场&quot; class=&quot;headerlink&quot; title=&quot;开场&quot;&gt;&lt;/a&gt;开场&lt;/h3&gt;&lt;p&gt;域名这玩儿，我申请了几天终于下来了，这不~，趁热打铁，一并写出来与大家一块分享，本人域名&lt;a href=&quot;www.hushnow.cn&quot;&gt;www.hushnow.cn&lt;/a&gt;，望各位大佬捧场，谢谢~~！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2464799472,2104441980&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;嗯！&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>github配合hexo建站攻略（3）统计访问量</title>
-    <link href="http://yoursite.com/2018/02/22/github%E9%85%8D%E5%90%88hexo%E5%BB%BA%E7%AB%99%E6%94%BB%E7%95%A5%EF%BC%883%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/02/22/github配合hexo建站攻略（3）/</id>
-    <published>2018-02-22T12:27:04.000Z</published>
-    <updated>2018-07-04T08:16:50.667Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="统计访问量的实现？"><a href="#统计访问量的实现？" class="headerlink" title="统计访问量的实现？"></a>统计访问量的实现？</h3><p>上一篇介绍了如何构建一个基本的网站，但是 是网站他就得有访问量不是~？ 不然怎么能满足咱们内心的蠢动，有木有~~！</p><p><img src="http://img5.imgtn.bdimg.com/it/u=3296605248,3911530965&amp;fm=27&amp;gp=0.jpg" alt="img"></p><p>。。。</p><a id="more"></a><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://www.lookk.cn/2017/12/09/hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/" target="_blank" rel="noopener">hexo yilia主题添加文章访问量统计</a></p><h3 id="太阳当空照-太阳对我眨眼睛"><a href="#太阳当空照-太阳对我眨眼睛" class="headerlink" title="太阳当空照~太阳对我眨眼睛~"></a>太阳当空照~太阳对我眨眼睛~</h3><p>在一开始的时候，我以为很难，可是呢~其实不难，既然这都是第二篇了，大家肯定跟我一样的想法</p><p>统计访问量有这几种：<strong>百度的站长统计</strong> 、 <strong>leancloud</strong> 、 <strong>不蒜子</strong>;</p><p>根据进行比对，不蒜子要简单很多，因为建站的初衷还是在于写博客，自己安慰自己，把学的东西都进行总结和巩固，所以就先它了~！！</p><p>不过首先声明，我使用的主题为yilia</p><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><pre><code>&lt;script async src=&quot;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>该代码可以粘贴至themes/yilia/layout/footer.ejs 或者 header.ejs 或者 left-col.ejs下</p><h3 id="站点访问量显示"><a href="#站点访问量显示" class="headerlink" title="站点访问量显示"></a>站点访问量显示</h3><p>因为这个显示是给人家看的，所以个人认为 放在left-col.ejs下，这样在PC进站时能够看到访问量，但是移动端看不到（正在想处理方法）,你也可以放在footer底部，这样虽然都可以看到，但是必须要看完文章后再能看到，感觉有点不太好</p><pre><code>&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt; 本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次&lt;/span&gt;</code></pre><p>计算访问量的方法有两种：<br>算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。<br>算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。<br>我用的是uv的方式，大家自行选择即可。</p><h3 id="添加文章访问量"><a href="#添加文章访问量" class="headerlink" title="添加文章访问量"></a>添加文章访问量</h3><p>文章的访问量显示在文章里面，所以在themes/yilia/layout/article.ejs里加上文章访问量的标签：</p><pre><code>&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;</code></pre><p>我们直接就这样放在yilia主题中，首页也会显示该网页的访问量，没法正常使用，所以需要一个判断，如果是首页不显示该文章的访问量，下面这段代码添加在/themes/yilia/layout/_partial/article.ejs的header的日期后面：</p><pre><code>&lt;% if ( !index ){ %&gt;        &lt;span class=&quot;archive-article-date&quot;&gt;            阅读量 &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;        &lt;/span&gt;&lt;% } %&gt;</code></pre><p>这样访问量就都有了，是不是很简单？</p><p><img src="http://img0.imgtn.bdimg.com/it/u=3651943344,1246360666&amp;fm=27&amp;gp=0.jpg" alt="img"></p><h4 id="未完，待续-！"><a href="#未完，待续-！" class="headerlink" title="未完，待续~！"></a>未完，待续~！</h4>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;统计访问量的实现？&quot;&gt;&lt;a href=&quot;#统计访问量的实现？&quot; class=&quot;headerlink&quot; title=&quot;统计访问量的实现？&quot;&gt;&lt;/a&gt;统计访问量的实现？&lt;/h3&gt;&lt;p&gt;上一篇介绍了如何构建一个基本的网站，但是 是网站他就得有访问量不是~？ 不然怎么能满足咱们内心的蠢动，有木有~~！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://img5.imgtn.bdimg.com/it/u=3296605248,3911530965&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;。。。&lt;/p&gt;
     
     </summary>
     

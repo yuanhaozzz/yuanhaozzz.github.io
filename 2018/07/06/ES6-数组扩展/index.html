@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 渡的个人博客</title>
+  <title>ES6-数组扩展 | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="渡的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="参考文献ECMAScript 6入门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-数组扩展">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/ES6-数组扩展/index.html">
 <meta property="og:site_name" content="渡的个人博客">
+<meta property="og:description" content="参考文献ECMAScript 6入门">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-09T11:46:40.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡的个人博客">
+<meta name="twitter:title" content="ES6-数组扩展">
+<meta name="twitter:description" content="参考文献ECMAScript 6入门">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -128,295 +132,286 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ES6-数组扩展" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/ES6-对象扩展/" class="archive-article-date">
-  	<time datetime="2018-07-09T11:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/ES6-对象扩展/">ES6-对象扩展</a>
+    <h1 class="article-title" itemprop="name">
+      ES6-数组扩展
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/06/ES6-数组扩展/" class="archive-article-date">
+        
+        <a href="/2018/07/06/ES6-数组扩展/" class="archive-article-date">
   	<time datetime="2018-07-06T08:46:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/06/ES6-数组扩展/">ES6-数组扩展</a>
-    </h1>
-  
+        
+      </header>
+      
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a><br><a id="more"></a></p>
+<h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3><p>基本用法</p>
+<pre><code>扩展用算符是三个点，好比rest函数参数一样
+let arr = [1, 2, 3]
+console.log(...arr)     1 2 3
+console.log([...arr])     1 2 3
+</code></pre><p>使用扩展运算符传参</p>
+<pre><code>function num(x, y, b) {
+     return x + y + b
+}
+let arr = [1,2,3]
+console.log(num(...arr))     // 6
+</code></pre><p>使用max求最大值</p>
+<pre><code>console.log(Math.max(1,5,4,1,9,8))     // 9
+// 使用数组需要转
+console.log(Math.max([1, 5, 6, 4]))     // NAN
+// 使用扩展运算符更加简洁，方便
+console.log(Math.max(...[1,5,4,1,9,8]))     // 9
+</code></pre><p>push方法    数组的合并</p>
+<pre><code>let [x, y] = [[1, 2, 3], [4, 5, 6]] 
+方法一
+console.log(x.concat(y))    // [1, 2, 3, 4, 5, 6]
+方法二
+x.push(...y)
+console.log(x)              // [1, 2, 3, 4, 5, 6]
+</code></pre><h3 id="扩展运算符的应用"><a href="#扩展运算符的应用" class="headerlink" title="扩展运算符的应用"></a>扩展运算符的应用</h3><ol>
+<li><p>复制数组</p>
+<p> let arr1 = [1, 2];<br> let arr2 = arr1<br> arr2[0] = 2<br> console.log(arr1)   // [2, 2]<br> 上面代码中,只是多了一个指针，但是在内存当中都指向同一块空间，所以任意改变都会修改原数组</p>
+<p> let arr1 = [1, 2];<br> arr2[0] = 2<br> // ES5解决<br> // let arr2 = arr1.concat()     // [1, 2]<br> // ES6解决<br> let arr2 = […arr1]            // [1, 2]<br> // Array.from()<br> let arr2 = Array.from(arr1)     // [1, 2]<br> arr2[0] = 2</p>
+</li>
+</ol>
+<p>上述方法都可实现深拷贝</p>
+<p>配合解构</p>
+<pre><code>const [first, ...rest] = [1, 2, 3, 4, 5];
+first // 1
+rest // [2, 3, 4, 5]
 
-        <div class="article-info info-on-right">
-          
-          
+let arr5 = [[1, 5], [2, 9]]
+...arr5     // [1, 5] [2, 9]
+</code></pre><h3 id="Array-from-用于将两种类数组转换为真正的数组"><a href="#Array-from-用于将两种类数组转换为真正的数组" class="headerlink" title="Array.from()    用于将两种类数组转换为真正的数组"></a>Array.from()    用于将两种类数组转换为真正的数组</h3><ol>
+<li>有length的类数组     例如 document.getElementByTagName(‘div’)</li>
+<li>可迭代的对象</li>
+</ol>
+<pre><code>let arrayLike = {
+&apos;0&apos;: &apos;a&apos;,
+&apos;1&apos;: &apos;b&apos;,
+&apos;2&apos;: &apos;c&apos;,
+length: 3
+}
+let arr2 = Array.from(arrayLike); // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]
+</code></pre><p>第二参数</p>
+<pre><code>// Array.from  接受第二个参数  类似于 map
 
+let arr = [1, 2, 3]
+console.log(Array.from(arr, (item) =&gt; item * item))     // [1, 4, 9]
+</code></pre><h3 id="Array-isArray-用于判断是否为一个真正的数组"><a href="#Array-isArray-用于判断是否为一个真正的数组" class="headerlink" title="Array.isArray()     用于判断是否为一个真正的数组"></a>Array.isArray()     用于判断是否为一个真正的数组</h3><pre><code>function isArray () {
+    return arguments
+}
+let fn = isArray(1, 5)
+console.log(Array.isArray(fn))                  // false
+console.log(Array.isArray(Array.from(fn)))      // true
+</code></pre><h3 id="Array-of-用来创建数组并给其指定值"><a href="#Array-of-用来创建数组并给其指定值" class="headerlink" title="Array.of()  用来创建数组并给其指定值"></a>Array.of()  用来创建数组并给其指定值</h3><pre><code>一般声明数组
+console.log(new Array(5))      // [, , , ,]
+console.log(new Array(5, 2))             // [5, 2]
+console.log(new Array())                 // []
+
+console.log(Array.of(5))      // [5]
+console.log(Array.of(5, 2))             // [5, 2]
+console.log(new Array())                 // []
+使用其好处在于都进行了一个统一
+</code></pre><h3 id="Array-find-找到数组中包含某一项"><a href="#Array-find-找到数组中包含某一项" class="headerlink" title="Array.find() 找到数组中包含某一项"></a>Array.find() 找到数组中包含某一项</h3><p>[].findIndex()  用法与find一样   返回查找数组下标   这两个方法弥补了indexOf 方法的不足  都可以发现NAN</p>
+<pre><code>console.log([1,8,5,6,9].find(x =&gt; x === 5))      // 5
+
+let arr = [
+    {
+        name: &apos;a&apos;
+    },
+    {
+        name: &apos;b&apos;
+    }
+]
+// 可接受三个参数  每一项, 下标, 原数组
+console.log(arr.find((x, index, arr) =&gt; {
+    console.log(index)
+    console.log(arr)
+    return x.name === &apos;b&apos;
+}))
+</code></pre><p>find方法只会返回一次，如果为空返回undefined</p>
+<h3 id="Array-fill-装填，给数组指定默认值"><a href="#Array-fill-装填，给数组指定默认值" class="headerlink" title="Array.fill()    装填，给数组指定默认值"></a>Array.fill()    装填，给数组指定默认值</h3><pre><code>let arr = new Array(3).fill(&apos;&apos;)     // [&apos;&apos;, &apos;&apos;, &apos;&apos;]
+let arr = new Array(3).fill(5)     // [5, 5, 5]
+</code></pre><p>它有三个参数  参数 开始位置 结束位置</p>
+<pre><code>console.log([1, 8, 6, 4].fill(2, 1, 2))     // [1, 2, 6, 4]
+console.log([1, 8, 6, 4].fill(2, 1, 8))     // [1, 2, 2, 2]
+</code></pre><h3 id="Array-entries-返回数组的键值"><a href="#Array-entries-返回数组的键值" class="headerlink" title="Array.entries()     返回数组的键值"></a>Array.entries()     返回数组的键值</h3><pre><code>let arr = [1, 2, 3, 5]
+for(let [index, item] of arr.entries()) {
+    console.log(&apos;value&apos; + item)
+    console.log(&apos;index&apos; + index)
+}
+使用了解构的方式进行赋值    [0, 1] [1, 2] [2, 3] [3, 5]
+</code></pre><h3 id="Array-keys-返回数组的键"><a href="#Array-keys-返回数组的键" class="headerlink" title="Array.keys()     返回数组的键"></a>Array.keys()     返回数组的键</h3><pre><code>let arr = [1, 2, 3, 8]
+for(let a of arr.keys()) {
+    console.log(&apos;index             &apos; + a)   // 下标
+}
+</code></pre><h3 id="includes-查找数组中是否包含某一项"><a href="#includes-查找数组中是否包含某一项" class="headerlink" title="includes()  查找数组中是否包含某一项"></a>includes()  查找数组中是否包含某一项</h3><pre><code>console.log([1, 2, 3].includes(2))      //true
+// 第二个参数 从该下标处开始查  如果大于当前数组长度 则 为默认值0  负数代表查找最后一个
+console.log([1, 2, 3].includes(2, 2))      //false
+console.log([1, 2, 3].includes(3, -1))      //false
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/static/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/06/ES6-数组扩展/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/04/ES6-函数扩展/" class="archive-article-date">
-  	<time datetime="2018-07-04T08:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/07/09/ES6-对象扩展/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ES6-对象扩展
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/04/ES6-函数扩展/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6-函数扩展</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/04/ES6-函数扩展/">ES6-函数扩展</a>
-    </h1>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2158002"></script>
+<!-- UY END -->
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/04/ES6-字符串扩展/" class="archive-article-date">
-  	<time datetime="2018-07-04T06:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/04/ES6-字符串扩展/">ES6-字符串扩展</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/27/ES6-解构赋值/" class="archive-article-date">
-  	<time datetime="2018-06-27T11:49:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/27/ES6-解构赋值/">ES6-解构赋值</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/08/Vue，公共tab跳转不同路由页面样式切换/" class="archive-article-date">
-  	<time datetime="2018-06-08T08:53:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/08/Vue，公共tab跳转不同路由页面样式切换/">Vue，公共tab跳转不同路由页面样式切换</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/07/v-html/" class="archive-article-date">
-  	<time datetime="2018-06-07T07:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/07/v-html/">v-html</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/25/vuex/" class="archive-article-date">
-  	<time datetime="2018-05-25T11:45:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/25/vuex/">vuex</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/21/gulp/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:19:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/21/gulp/">gulp</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/" class="archive-article-date">
-  	<time datetime="2018-05-19T14:58:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/">我要对陈晨大声的说:我~~爱~~~你！</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -441,8 +436,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
