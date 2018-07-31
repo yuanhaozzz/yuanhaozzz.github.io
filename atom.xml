@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-09T11:54:47.910Z</updated>
+  <updated>2018-07-31T08:44:53.316Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>滚动顶部或底部出现白色边缘</title>
+    <link href="http://yoursite.com/2018/07/31/%E6%BB%9A%E5%8A%A8%E9%A1%B6%E9%83%A8%E6%88%96%E5%BA%95%E9%83%A8%E5%87%BA%E7%8E%B0%E7%99%BD%E8%89%B2%E8%BE%B9%E7%BC%98/"/>
+    <id>http://yoursite.com/2018/07/31/滚动顶部或底部出现白色边缘/</id>
+    <published>2018-07-31T07:40:05.000Z</published>
+    <updated>2018-07-31T08:44:53.316Z</updated>
+    
+    <content type="html"><![CDATA[<p>###前言</p><p>这是困扰我很久的一个问题<br><a id="more"></a></p><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>大家都知道，在ios下fixed定位失效问题，为了解决这一问题，必须自己制作滚动条，也就是说比如头部需要固定，把滚动条给内容就好，实际则是内容滚动</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>height:100%<br>overflow-y: scroll<br>给其元素添加这个属性即可</p><p>###彩蛋</p><p>因为ios不支持fixed定位，但如果中间有吸顶效果怎么办？</p><h3 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h3><p>按照一般思路 监听滚动时间scrollTop，当scrollTop &gt; el.offsetTop时 改为fixed定位，否则为absolute</p><p>但是在ios下,滚动事件并不是实时的, 手指滚动 =&gt; 滚动开始 =&gt; 滚动停止 =&gt; 触发事件，所以这个也不靠谱</p><p>position: -webkit-sticky<br>position:sticky     神器属性 需要写兼容</p><p>一定注意，滚动条一定设置overflow-y: scroll 属性</p><p>该粘性定位在滚动时正常滚动，但当滚动条超过时，自动变为固定定位</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###前言&lt;/p&gt;
+&lt;p&gt;这是困扰我很久的一个问题&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ES6-对象扩展</title>
     <link href="http://yoursite.com/2018/07/09/ES6-%E5%AF%B9%E8%B1%A1%E6%89%A9%E5%B1%95/"/>
     <id>http://yoursite.com/2018/07/09/ES6-对象扩展/</id>
     <published>2018-07-09T11:45:02.000Z</published>
-    <updated>2018-07-09T11:54:47.910Z</updated>
+    <updated>2018-07-31T08:33:27.704Z</updated>
     
     <content type="html"><![CDATA[<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a><br><a id="more"></a></p><h3 id="属性的简介表示法"><a href="#属性的简介表示法" class="headerlink" title="属性的简介表示法"></a>属性的简介表示法</h3><p>ES6允许直接写入变量名 与 函数名 来作为对象的属性 和 方法  这样使语法更加简介</p><pre><code>let x = 40function y () {    alert(1)}let obj = {x, y}console.log(obj)    // {x: 40, y: function}obj.y()             // 1function fn(x, y) {    return {x, y}}// 等同于function fn(x, y) {    return {x: x, y: y}}</code></pre><p>函数也同样<br>    let age = 18</p><pre><code>const Person = {    name: &apos;张三&apos;,    age,    // age: age    fn () {         // fn: function ....        console.log(this.age)    }}</code></pre><h3 id="Objuct-is-弥补-的不足-自动转换为数组类型-NAN都不相等-判断是否相等"><a href="#Objuct-is-弥补-的不足-自动转换为数组类型-NAN都不相等-判断是否相等" class="headerlink" title="Objuct.is() 弥补 == === 的不足  == 自动转换为数组类型  ===  NAN都不相等     判断是否相等"></a>Objuct.is() 弥补 == === 的不足  == 自动转换为数组类型  ===  NAN都不相等     判断是否相等</h3><pre><code>console.log(Object.is(1, &apos;1&apos;))         // false     // 同样是严格模式console.log(Object.is(1, 1))         // true console.log(Object.is({}, {}))         // false     let obj = {    name: [        {            c: &apos;aa&apos;        }    ],    b: 12}let obj1 = [...obj.name]console.log(obj.name == obj1)      // false</code></pre><h3 id="Object-assign-合并对象"><a href="#Object-assign-合并对象" class="headerlink" title="Object.assign()     合并对象"></a>Object.assign()     合并对象</h3><pre><code>// 注：assign 是浅拷贝let a = {a: &apos;a&apos;}let b = {b: &apos;b&apos;}           let obj = Object.assign(a, b)    // {a: &apos;a&apos;, b: &apos;b&apos;}// 如果有相同的键值，则后面的值会覆盖前面的let c = {b: &apos;c&apos;}   let obj = Object.assign(a, b, c)          // {a: &apos;a&apos;, b: &apos;c&apos;}let obj = Object.assign({}, a, b, c)console.log(a) 第一个参数为目标对象 指定为一个空,这样不会破坏原对象，同时，他只会拷贝原对象自身属性 ， 用处很多  不管是给对象新增属性 还是 方法 都很方便对象同样具有扩展运算符let obj = {a: 1, b: 2}let obj1 = {...obj}console.log(obj1)</code></pre>]]></content>
     
@@ -387,24 +406,6 @@
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;作为一名前端开发人员，不仅要有睿智的大脑，更要想办法去提高工作效率，在传统布局中&lt;strong&gt;float&lt;/strong&gt;、&lt;strong&gt;display:inline-block&lt;/strong&gt;，使用后是不是总感觉要么向上多一点，要么向下多一点，还要使用margin或者padding来进行调，不然总感觉怪怪的！&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://img5.imgtn.bdimg.com/it/u=2212265039,2568628666&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
 &lt;p&gt;哈哈哈，进入正题！&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前端基础算法 冒泡排序 选择排序 快速排序</title>
-    <link href="http://yoursite.com/2018/02/24/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    <id>http://yoursite.com/2018/02/24/前端基础算法-冒泡排序-选择排序-快速排序/</id>
-    <published>2018-02-24T13:02:53.000Z</published>
-    <updated>2018-02-24T14:08:27.620Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名合格的前端不仅对自身业务能力的要求，还必须具有一定的算法知识，虽然博主数学就没及过格~,但是没办法，还是要学，这不，年前两天没啥事儿，看了看我最头痛的算法，当然，都是基本的，各位同学看到肯定一下就明白了，好了，进入正题~！<br><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3305254330,4081387098&amp;fm=27&amp;gp=0.jpg" alt="img"></p><a id="more"></a><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序算是最基本的了，也是效率最低的，但是他很稳定，对于一些小玩意儿还是可以，先上代码~</p><pre><code>//TODO 冒泡排序//TODO 首先就是两层循环，这样才能够拿一个和所有的值进行比对var item;for(var i=0;i &lt; arr.length;i++){    for(var j=0;j &lt; arr.length - 1 - i;j++){        //TODO 如果当前值大于当前第二个值 进行交换        if(arr[j] &lt; arr[j+1]){            item = arr[j];            arr[j] = arr[j+1];            arr[j+1] = item;        }    }}</code></pre><p>例如:</p><pre><code>var arr = [5,6,3,2,7];第一层5 6             6大    6 3           6大        6 2         6大            6 7       7大现在arr = [5,3,2,6,7]第二层5 3             5大    5 2           5大        5 6         6大现在arr = [3,2,5,6,7]依次类推~</code></pre><p>而且是不是发现循环次数越来越小,那是因为j循环的条件 j &lt; arr.length - 1 - i,当每次循环后，i会++ 所以，循环此时也会减小，提高性能，因为最大数已经排列到后续。</p><pre><code>item = arr[j];arr[j] = arr[j+1];arr[j+1] = item;</code></pre><p>此处为值的交换，使用变量来保存当前值，然后通过索引来找到对应的值进行交换。</p><h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>对于选择排序其实与冒泡排序出入并不大，两者都是算法当中的<strong>慢排</strong>，上代码！</p><pre><code>//TODO 选择排序//TODO item 存储值 minIndex 存储索引var item,minIndex;for(var i=0;i &lt; arr.length;i++){    //默认为第0个索引    minIndex = i;    for(var j=i+1;j&lt;arr.length;j++){        //发现比minIndex小，从新进行赋值        if(arr[j] &gt; arr[minIndex]){            minIndex = j;        }    }    //交换值    item = arr[i];    arr[i] = arr[minIndex];    arr[minIndex] = item;}</code></pre><p>不同点：</p><ul><li>冒泡不管是大还是小，都是从后往前排列，而选择排序则不管大小都是从前往后排列，当然，这个根据自己喜好走的，只需要改变条件和初始值即可</li><li>选择排序采用一个变量几率索引来进行控制最小值。</li></ul><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>听名字就知道很快咯，是算法效率高的一种!</p><pre><code>//TODO 快速排序function biu(arr){    if(arr.length &lt;= 1) return arr    //TODO 获取当前一半下标的位置    let pivotIndex = Math.floor(arr.length/2);    //TODO 通过获取到的位置获取到当下下标位置的值    let pivot = arr.splice(pivotIndex,1)[0];    //TODO 定义好两个数组    let left = [];    let right = [];    for(var i=0;i &lt; arr.length;i++){        if(arr[i] &gt; pivot){            right.push(arr[i])        }else{            left.push(arr[i]);        }    }    return biu(left).concat([pivot],biu(right));}</code></pre><p>快速排序第一次看到也是研究了一下</p><ul><li>找到当前数组中间的下标，获取到对应下标的值</li><li>分别定义left right 数组用于承接<strong>小于小标的值</strong>和<strong>大于下标的值</strong></li><li>通过递归的方式继续上两步，直到符合条件进行return</li></ul><p>例：<br>    var arr = [1,8,2,7,3];</p><p>[1,8,<font color="red">2</font>,7,3]</p><p>[1][<font color="red">2</font>][8,7,3]</p><p>[1][2][8,<font color="red">7</font>,3]</p><p>[1,2,3,7,8]</p><p>拆分在合并 小于拆分值的在左边 大于拆分值的在右边 合并在拆分  一直重复递归，这就是快速排序，算法高效率之一！</p><p>好了，暂时就先介绍对着三种算法的理解，如果有问题的话，希望各位及时反馈给我~！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;作为一名合格的前端不仅对自身业务能力的要求，还必须具有一定的算法知识，虽然博主数学就没及过格~,但是没办法，还是要学，这不，年前两天没啥事儿，看了看我最头痛的算法，当然，都是基本的，各位同学看到肯定一下就明白了，好了，进入正题~！&lt;br&gt;&lt;img src=&quot;https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3305254330,4081387098&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
     
     </summary>
     
