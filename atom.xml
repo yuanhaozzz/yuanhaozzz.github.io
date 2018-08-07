@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-31T08:44:53.316Z</updated>
+  <updated>2018-08-07T09:32:27.372Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CSS: 伪类 focus-within</title>
+    <link href="http://yoursite.com/2018/08/06/CSS-%E4%BC%AA%E7%B1%BB-focus-within/"/>
+    <id>http://yoursite.com/2018/08/06/CSS-伪类-focus-within/</id>
+    <published>2018-08-06T09:44:53.000Z</published>
+    <updated>2018-08-07T09:32:27.372Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>css确实很强大，能够实现一些js也能完成的特殊功能<br>比如现在要说的表单元素 focus-within属性，这也是我从前端大全公众号里面看到的，大家可以关注下，干货真的很多<br><a id="more"></a><br><a href="https://mp.weixin.qq.com/s/q-OaYqJfm08803-E5PJOhA" target="_blank" rel="noopener">传送门！！！</a></p><h3 id="正主-focus-within"><a href="#正主-focus-within" class="headerlink" title="正主 focus-within"></a>正主 focus-within</h3><p>在上面的连接中，已经详细的介绍了，我就不重复他的话了 我只做一些自己的理解</p><p>首先，该元素只适用于 <strong>表单元素</strong> ,他跟js的冒泡原理一样，一级一级往上冒，也就说 你可以通过这个原理来进行操作同级或者父级元素样式，从而来实现css的各种特效/样式</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;css确实很强大，能够实现一些js也能完成的特殊功能&lt;br&gt;比如现在要说的表单元素 focus-within属性，这也是我从前端大全公众号里面看到的，大家可以关注下，干货真的很多&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>滚动顶部或底部出现白色边缘</title>
     <link href="http://yoursite.com/2018/07/31/%E6%BB%9A%E5%8A%A8%E9%A1%B6%E9%83%A8%E6%88%96%E5%BA%95%E9%83%A8%E5%87%BA%E7%8E%B0%E7%99%BD%E8%89%B2%E8%BE%B9%E7%BC%98/"/>
     <id>http://yoursite.com/2018/07/31/滚动顶部或底部出现白色边缘/</id>
     <published>2018-07-31T07:40:05.000Z</published>
-    <updated>2018-07-31T08:44:53.316Z</updated>
+    <updated>2018-08-06T09:43:29.284Z</updated>
     
     <content type="html"><![CDATA[<p>###前言</p><p>这是困扰我很久的一个问题<br><a id="more"></a></p><h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>大家都知道，在ios下fixed定位失效问题，为了解决这一问题，必须自己制作滚动条，也就是说比如头部需要固定，把滚动条给内容就好，实际则是内容滚动</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>height:100%<br>overflow-y: scroll<br>给其元素添加这个属性即可</p><p>###彩蛋</p><p>因为ios不支持fixed定位，但如果中间有吸顶效果怎么办？</p><h3 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h3><p>按照一般思路 监听滚动时间scrollTop，当scrollTop &gt; el.offsetTop时 改为fixed定位，否则为absolute</p><p>但是在ios下,滚动事件并不是实时的, 手指滚动 =&gt; 滚动开始 =&gt; 滚动停止 =&gt; 触发事件，所以这个也不靠谱</p><p>position: -webkit-sticky<br>position:sticky     神器属性 需要写兼容</p><p>一定注意，滚动条一定设置overflow-y: scroll 属性</p><p>该粘性定位在滚动时正常滚动，但当滚动条超过时，自动变为固定定位</p>]]></content>
     
@@ -386,26 +404,6 @@
     
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;hi，这两天都比较忙，好不容易有点时间立刻就来更新啦~，因为项目都是由Vue进行开发的，一直想看看源码，但是又限于自己的原因，所以先来对面向对象来总结总结！~&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://img5.imgtn.bdimg.com/it/u=2822639283,850849670&amp;amp;fm=11&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>flex布局 移动端布局利器</title>
-    <link href="http://yoursite.com/2018/02/26/flex%E5%B8%83%E5%B1%80-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80%E5%88%A9%E5%99%A8/"/>
-    <id>http://yoursite.com/2018/02/26/flex布局-移动端布局利器/</id>
-    <published>2018-02-26T12:09:49.000Z</published>
-    <updated>2018-02-26T14:13:04.469Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>作为一名前端开发人员，不仅要有睿智的大脑，更要想办法去提高工作效率，在传统布局中<strong>float</strong>、<strong>display:inline-block</strong>，使用后是不是总感觉要么向上多一点，要么向下多一点，还要使用margin或者padding来进行调，不然总感觉怪怪的！</p><p><img src="http://img5.imgtn.bdimg.com/it/u=2212265039,2568628666&amp;fm=27&amp;gp=0.jpg" alt="img"></p><p>哈哈哈，进入正题！<br><a id="more"></a></p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="noopener">Flex 布局教程:语法篇 - 阮一峰的网络日志</a></p><h3 id="简介flex"><a href="#简介flex" class="headerlink" title="简介flex"></a>简介flex</h3><p>flex布局是W3C提出的一种新型的布局方案，目前大部分浏览器都支持，但是仍然有兼容性问题，但是对于H5开发工程师来说，这不是个问题，因为基于chrome内核,当然，也需要添加display:-webkit-flex;</p><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071003.jpg" alt="img"></p><p>在传统布局中，水平方向<strong>块</strong>使用<font color="red">margin: 0 auto</font> | <font color="aqua">left:50% transform:translateX(-50%)</font>实现，<strong>行内</strong><font color="aqua">text-align:center</font>即可实现，可是对于垂直居中实现就比较麻烦</p><p>flex是Flexible Box的缩写，意为”弹性布局”,提供该盒子提供更大的灵活度。</p><p>任何一个容器都可以使用flex,谷歌内核必须添加-webkit-</p><pre><code>.box{    display:-webkit-flex;    display:flex;}</code></pre><h3 id="flex基本介绍"><a href="#flex基本介绍" class="headerlink" title="flex基本介绍"></a>flex基本介绍</h3><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt="img"></p><p>容器默认存在两根轴：水平的<strong>主轴</strong>（main axis）和垂直的<strong>交叉轴</strong>（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。<br>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p><h3 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h3><ul><li>flex-direction</li><li>flex-wrap</li><li>justify-content</li><li>align-items</li><li>align-content</li><li>flex-flow</li></ul><font size="5">一、flex-direction(主轴)</font><p>在容器内，决定水平方向的排列</p><pre><code>1. flex-direction:row;左 =&gt; 右</code></pre><p><img src="/static/flx1.png" alt="img"></p><pre><code>2. flex-direction:row-reverse;右 =&gt; 左</code></pre><p><img src="/static/flex2.png" alt="img"></p><pre><code>3. flex-direction:column;上 =&gt; 下</code></pre><p><img src="/static/flex3.png" alt="img"></p><pre><code>4. flex-direction:column-reverse;下 =&gt; 上</code></pre><p><img src="/static/flex4.png" alt="img"></p><font size="5">二、flex-wrap(主轴)</font> <p>在容器内，决定水平方向是否换行</p><pre><code>1.flex-wrap:nowrap;不换行</code></pre><p><img src="/static/flex5.png" alt="img"></p><pre><code>2.flex-wrap:wrap;换行</code></pre><p><img src="/static/flex6.png" alt="img"></p><pre><code>3.flex-wrap:wrap-reverse;换行换位</code></pre><p><img src="/static/flex7.png" alt="img"></p><font size="5">三、justify-content(主轴)</font> <p>在容器内，决定水平方向的对齐方式</p><pre><code>1.justify-content:flex-start;在主轴开始位置对齐</code></pre><p><img src="/static/flex8.png" alt="img"></p><pre><code>2.justify-content:flex-end;在主轴结束位置对齐</code></pre><p><img src="/static/flex9.png" alt="img"></p><pre><code>3.justify-content:center;在主轴居中</code></pre><p><img src="/static/flex10.png" alt="img"></p><pre><code>4.justify-content:space-around;两边空白间隙排列</code></pre><p><img src="/static/flex11.png" alt="img"></p><pre><code>5.justify-content:space-between;无空白居中间隙排列</code></pre><p><img src="/static/flex12.png" alt="img"></p><font size="5">四、align-items(交叉轴)</font> <p>在容器内，决定垂直方向的排列</p><pre><code>1.align-items:flex-start;上</code></pre><p><img src="/static/flex13.png" alt="img"></p><pre><code>2.align-items:flex-end;下</code></pre><p><img src="/static/flex14.png" alt="img"></p><pre><code>3.align-items:center;垂直方向居中</code></pre><p><img src="/static/flex15.png" alt="img"></p><font size="5">四、align-content(交叉轴)</font><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071012.png" alt="img"></p><ul><li>flex-start：与交叉轴的起点对齐。</li><li>flex-end：与交叉轴的终点对齐。</li><li>center：与交叉轴的中点对齐。</li><li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li><li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li><li>stretch（默认值）：轴线占满整个交叉轴。</li></ul><h3 id="未完，待续-！"><a href="#未完，待续-！" class="headerlink" title="未完，待续~！"></a>未完，待续~！</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;作为一名前端开发人员，不仅要有睿智的大脑，更要想办法去提高工作效率，在传统布局中&lt;strong&gt;float&lt;/strong&gt;、&lt;strong&gt;display:inline-block&lt;/strong&gt;，使用后是不是总感觉要么向上多一点，要么向下多一点，还要使用margin或者padding来进行调，不然总感觉怪怪的！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://img5.imgtn.bdimg.com/it/u=2212265039,2568628666&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;哈哈哈，进入正题！&lt;br&gt;
     
     </summary>
     
