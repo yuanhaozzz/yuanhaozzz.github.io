@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-07T09:32:27.372Z</updated>
+  <updated>2018-08-07T11:55:59.468Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>跨平台交互神器 DSbridge</title>
+    <link href="http://yoursite.com/2018/08/07/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E4%BA%A4%E4%BA%92%E7%A5%9E%E5%99%A8-DSbridge/"/>
+    <id>http://yoursite.com/2018/08/07/跨平台交互神器-DSbridge/</id>
+    <published>2018-08-07T09:46:01.000Z</published>
+    <updated>2018-08-07T11:55:59.468Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我在上家公司没怎么与APP交互，但是网上也看了看其他跨平台的插件，确实很麻烦，并且都不支持异步，但是在DSbridge中支持异步调用 是个很好用的跨平台插件</p><a id="more"></a><h3 id="dsbridge"><a href="#dsbridge" class="headerlink" title="dsbridge"></a>dsbridge</h3><ol><li><p>安装依赖</p><p> npm install –save dsbridge</p></li><li><p>在src下创建utils文件夹创建client.js</p></li></ol><p>3.引入dsbridge</p><pre><code>import dsbrige from &apos;dsbridge&apos;</code></pre><h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h3 id="dsbrige-call-methods-arg-callback"><a href="#dsbrige-call-methods-arg-callback" class="headerlink" title="dsbrige.call(methods,[arg, callback])"></a>dsbrige.call(methods,[arg, callback])</h3><p>此方法用于调用客户端的方法</p><ol><li><p>methods<br>与客户端定义好的方法，可以是命名空间</p></li><li><p>arg 传递的参数，可选</p></li><li><p>callback 回调函数 可选</p></li></ol><h3 id="dsbridge-register-methods-callback"><a href="#dsbridge-register-methods-callback" class="headerlink" title="dsbridge.register(methods, callback)"></a>dsbridge.register(methods, callback)</h3><p>此方法用于客户端调js的方法 同步方法</p><ol><li><p>methods<br>js定义的方法名</p></li><li><p>回调函数，执行js的逻辑</p></li></ol><h3 id="dsbridge-registersnyc-methods-callback"><a href="#dsbridge-registersnyc-methods-callback" class="headerlink" title="dsbridge.registersnyc(methods, callback)"></a>dsbridge.registersnyc(methods, callback)</h3><p>此方法没有在场景当中用过，不做说明</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;我在上家公司没怎么与APP交互，但是网上也看了看其他跨平台的插件，确实很麻烦，并且都不支持异步，但是在DSbridge中支持异步调用 是个很好用的跨平台插件&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>CSS: 伪类 focus-within</title>
@@ -385,25 +403,6 @@
     
       &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;好久没有更新了，这段时间也忙也闲，金三银四，大家都在各自的公司因为各种原因都在进行着面试，我也一样，上周收到了offer，这周就赶紧进行交接，心情也还不错，可惜就是我的团队我很不舍得离开，大家都对我很好，哎，好不舍，但是现实就是这样，没有不散的宴席，大家加油吧，我相信你们会更好的！&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://img1.imgtn.bdimg.com/it/u=2417507986,147620643&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈原型链 prototype __proto__</title>
-    <link href="http://yoursite.com/2018/03/03/%E6%B5%85%E8%B0%88%E5%8E%9F%E5%9E%8B%E9%93%BE-prototype-proto/"/>
-    <id>http://yoursite.com/2018/03/03/浅谈原型链-prototype-proto/</id>
-    <published>2018-03-03T03:16:01.000Z</published>
-    <updated>2018-03-03T04:06:59.520Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>hi，这两天都比较忙，好不容易有点时间立刻就来更新啦~，因为项目都是由Vue进行开发的，一直想看看源码，但是又限于自己的原因，所以先来对面向对象来总结总结！~</p><p><img src="http://img5.imgtn.bdimg.com/it/u=2822639283,850849670&amp;fm=11&amp;gp=0.jpg" alt="img"></p><a id="more"></a><h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3><p>相信大家对于对象来说都很熟悉了，在js当中万物皆对象嘛！</p><p>对于prototype大家都知道，每一个函数都会有一个prototype属性，但是<strong>proto</strong>是个什么呢？</p><p>请看下面一段代码</p><pre><code>let obj = {};obj.prototype.a = function(){       //解析到这会报错,实例中是无法使用prototype}obj.a();</code></pre><p><img src="/static/o1.png" alt="img"></p><p>为什么呢？ 因为prototype是只有函数拥有的属性，在对象实例中是无法使用的，那如何实现呢？</p><pre><code>function Man(height){    this.height = height}let obj = new Man(178);Man.prototype.a = function(){    alert(this.height)}obj.a();</code></pre><p>代码运行正常</p><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>每一个对象都拥有<strong>proto</strong>属性，这个属性是用来指向构造函数的prototype的<br>每一个函数都拥有prototype属性，通过<strong>proto</strong>来指向prototype来实现<strong>继承</strong><br>每一个函数都拥有constructor属性，指向所有原型实例的构造函数</p><p>找一个实例的属性 会进行递归操作：</p><p>实例属性 =&gt; __proto =&gt; 实例属性构造函数的prototype =&gt; obj.prototype 为止</p><h3 id="图解："><a href="#图解：" class="headerlink" title="图解："></a>图解：</h3><p><img src="https://segmentfault.com/img/bVT7ae?w=423&amp;h=513" alt="img"></p><p>暂时更新这么多啦，一起加油！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;hi，这两天都比较忙，好不容易有点时间立刻就来更新啦~，因为项目都是由Vue进行开发的，一直想看看源码，但是又限于自己的原因，所以先来对面向对象来总结总结！~&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://img5.imgtn.bdimg.com/it/u=2822639283,850849670&amp;amp;fm=11&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
     
     </summary>
     
