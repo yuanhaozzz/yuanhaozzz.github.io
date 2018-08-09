@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-07T11:55:59.468Z</updated>
+  <updated>2018-08-08T02:36:07.573Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自己对自己说的话</title>
+    <link href="http://yoursite.com/2018/08/08/%E8%87%AA%E5%B7%B1%E5%AF%B9%E8%87%AA%E5%B7%B1%E8%AF%B4%E7%9A%84%E8%AF%9D/"/>
+    <id>http://yoursite.com/2018/08/08/自己对自己说的话/</id>
+    <published>2018-08-08T02:14:59.000Z</published>
+    <updated>2018-08-08T02:36:07.573Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题</p><p>越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了</p><p>人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙</p><p>我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任，当时为什么要生我，可能当时没有想过以后吧</p><p>有时候听到别人说人家家庭挺好的时候，心里略闪过一丝不爽，可是心里一想，那也是他家的，不是他挣来了，总是这样来安慰自己，但是到了真正用钱，或者结婚的话，确实很需要，没办法，我是男人，只能自己扛吧</p><p>在我北漂的日子里，说实话，我过得很好，周围人都挺好，不管每天工作的多晚，总能学到很多的东西，充实自己</p><p>在抖音上看到一句话，我努力赚钱只是为了<strong>以后不会因为钱来失去些什么东西！</strong>，很现实的一句话，我也会多努力，为了以后能让她幸福</p><p>写这篇文章的目的在于放松下自己，同时给自己前进的动力，加油吧少年，愿一切安好！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题&lt;/p&gt;
+&lt;p&gt;越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了&lt;/p&gt;
+&lt;p&gt;人生就是减法，吃一顿少一顿
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>自己所遇到过的坑</title>
+    <link href="http://yoursite.com/2018/08/08/%E8%87%AA%E5%B7%B1%E6%89%80%E9%81%87%E5%88%B0%E8%BF%87%E7%9A%84%E5%9D%91/"/>
+    <id>http://yoursite.com/2018/08/08/自己所遇到过的坑/</id>
+    <published>2018-08-08T02:12:40.000Z</published>
+    <updated>2018-08-09T01:46:46.425Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p><a id="more"></a><p>#CSS</p><h3 id="ios下fixed定位失效解决方法"><a href="#ios下fixed定位失效解决方法" class="headerlink" title="ios下fixed定位失效解决方法"></a>ios下fixed定位失效解决方法</h3><p>针对这个问题只能自己做滚动条让中间的一部分来进行滚动</p><h3 id="如何制作滚动条"><a href="#如何制作滚动条" class="headerlink" title="如何制作滚动条"></a>如何制作滚动条</h3><p>解决：overflow-y: scroll</p><h3 id="ios下滚动条卡顿"><a href="#ios下滚动条卡顿" class="headerlink" title="ios下滚动条卡顿"></a>ios下滚动条卡顿</h3><p>自己做的滚动条在ios下会有卡顿问题<br>解决：-webkit-overflow-scrolling: touch     给滚动条元素</p><h3 id="如何隐藏滚动条"><a href="#如何隐藏滚动条" class="headerlink" title="如何隐藏滚动条"></a>如何隐藏滚动条</h3><p>因为在加了-webkit-overflow-scrolling: touch 属性后，隐藏滚动条的css会失效，只能另想他法<br>解决：父级overflow:hidden<br>让滚动条里面的高度/宽度超出父级，这样就可以隐藏滚动条</p><h3 id="ios下吸顶效果"><a href="#ios下吸顶效果" class="headerlink" title="ios下吸顶效果"></a>ios下吸顶效果</h3><p>ios不支持fixed定位，按照之前的套路，scroll事件监听scrollTop =&gt; 获取元素的offsetTop =&gt; scrollTop &gt; offsetTop 改为fixed定位<br>解决：<br>position: sticky;<br>position: -webkit-sticky;</p><p>粘性定位，滚动条未滚动到该元素时，absolute,当滚动过指定元素时,为fixed，ios对于这个属性还是支持的，虽然为从DOM上看是fixed，但是管用</p><h3 id="虚拟键盘挡住输入框"><a href="#虚拟键盘挡住输入框" class="headerlink" title="虚拟键盘挡住输入框"></a>虚拟键盘挡住输入框</h3><p>android系统上，获取焦点后弹出虚拟键盘会挡住输入框，个人猜测，他是先不占用空间，在弹出后占用当前空间<br>解决：setTimeOut(() =&gt; {<br>    document.scrollTop = 元素.offsetTop - 50<br>},500)<br>-50的目的在于不至于贴到顶部</p><p>#HTML</p><p>#JS</p><p>#综合问题</p><h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>跨平台交互神器 DSbridge</title>
@@ -229,7 +271,7 @@
     <link href="http://yoursite.com/2018/05/21/gulp/"/>
     <id>http://yoursite.com/2018/05/21/gulp/</id>
     <published>2018-05-21T11:19:16.000Z</published>
-    <updated>2018-05-25T11:44:42.290Z</updated>
+    <updated>2018-08-09T01:25:43.369Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在被大老大一顿嘲讽后，恶补了一下gulp,看了看  真的很简单呀<br>    gulp拥有简洁的API，使用者能够轻易上手，Gulp是一个自动化构建工具，具有强大的插件，只要搭配合适，能够大大提高我们工作中开发的效率。gulp更加强调的是开发流程，通过taskAPI可以定义符合自己的流程。<br>    webpack主要是模块化的规范，更加强调模块化，把各种文件看成模块，用过loader,最终打包为css/js/html/图片等</p><a id="more"></a><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://www.cnblogs.com/2050/p/4198792.html" target="_blank" rel="noopener">前端构建工具gulpjs的使用介绍及技巧 - 无双 - 博客园</a></p><h3 id="gulp-工作模式"><a href="#gulp-工作模式" class="headerlink" title="gulp 工作模式"></a>gulp 工作模式</h3><p>gulp是基于nodejs的stream流的概念，通过pipe()来导入到你想要让他去的地方，是一个抽象的概念，比如gulp.src获取到相关内容，通过.pipe导入到插件中，在通过插件处理后，在通过pipe导入，通过gulp.dest来指定到相应位置</p><h3 id="四大API"><a href="#四大API" class="headerlink" title="四大API"></a>四大API</h3><p><strong>一 gulp.src(glob, [, option])</strong><br>    该方法主要获取到你的文件源，通过这个路径来找到对应的文件</p><ol><li>glob类似于正则表达式，主要通过这个来找到文件</li><li>option 可选参数，通常不需要用到</li></ol><p>主要讲讲glob</p><pre><code>*                   // 匹配0个或多个字符，但不会匹配到路径分隔符**                  // 匹配所有字符，包括路径分隔符?                   // 匹配文件中的一个字符，不包含路径分隔符[...]               // 匹配方括号中的所有路径，如果出现^或者!，则匹配时不会去找相应文件</code></pre><p>例子：</p><pre><code>*                   // 能匹配a.js/b.css/d.html/aa    但不包含b/a.js*.*                 // 能匹配.后缀名所有的文件**                  // 能匹配所有文件，包含b/a.js c/d.css*/*/*.*             // 能匹配a/b/a.js / c/d/b.css[&apos;*/abc/*.js&apos;]      // 匹配c/abc/e.js / v/abc/ss.js[&apos;!c/abc/*.js&apos;, &apos;c/abc/*.css&apos;]     // 不会匹配c/abc/下的所有js</code></pre><p><strong>二 gulp.dest(path, [, option])</strong><br>该方法主要把经过<strong>插件处理</strong> 或 <strong>gulp.src命令</strong>中的stream流写入到指定的文件路径</p><ol><li>path指定路径</li><li>option 可选参数，通常不需要用到</li></ol><p>例子：<br>    gulp.task(‘default’, function () {<br>        gulp.src(‘src/css/*.css’)<br>            .pipe(gulp.dest(‘dist/css’))<br>    })</p><p>task命令稍后会讲，以上功能只是一个简单的复制功能，就是找到src/css下所有css文件，通过dest命令写入dist/css文件中</p><p><strong>三 gulp.task(name, [, deps], fn)</strong><br>task方法用于定义命令</p><ol><li>name为命令的名称</li><li>deps依赖任务的队列，如果你对执行顺序有要求，以数组的方式依次写入顺序即可</li><li>fn业务逻辑</li></ol><p>创建一个依赖队列的任务执行<br>gulp.task(‘test’, [‘a’, ‘b’, ‘c’, ‘d’], function () {<br>    // …..<br>})</p><p>这个命令也没啥好讲的，不过要记住你得定义一个空的命令用来执行你定义的task命令就好</p><p>异步的三种解决方法，暂时还没有遇到异步的，等遇到了在进行补充！</p><p><strong>四 gulp.watch(glob, [, deps], [tasks])</strong><br>watch用于监听某个路径下的文件，当发生改变后会进行触发</p><ol><li>glob用法与gulp.src相同</li><li>deps可选参数，通常不需要用到</li><li>tasks是一个数组，里面是你task定义的命令，当监听被触发后，会执行定义在这里的任务</li></ol><p>gulp.task(‘copyCss’, function () {<br>    gulp.src(‘src/<em>/</em>.css’)<br>        .pipe(gulp.dest(‘dist/css))<br>})<br>gulp.task(‘dev’, function () {<br>    gulp.watch(‘src/<em>/</em>.css’, [‘copyCss’])<br>})</p><p>在package.json中 scripts中 写入 “dev”: “gulp dev” 命令</p><pre><code>npm run dev         启动命令</code></pre><p>当修改src下的css文件后，会执行copyCss命令，你在dist文件下的css就会实时更新了</p><h3 id="gulp常用插件"><a href="#gulp常用插件" class="headerlink" title="gulp常用插件"></a>gulp常用插件</h3><p><strong>gulp-load-plugins  自动载入插件</strong></p><p>安装：<br>        cnpm install --save-dev gulp-load-plugins       </p><p>功能：<br>    该插件主要解决繁多的命名空间和代码整洁度<br>    例子：<br>    var gulp = require(‘gulp’),<br>    //一些gulp插件,abcd这些命名只是用来举个例子<br>    a = require(‘gulp-a’),<br>    b = require(‘gulp-b’),<br>    c = require(‘gulp-c’),<br>    d = require(‘gulp-d’),<br>    e = require(‘gulp-e’),<br>    f = require(‘gulp-f’),<br>    g = require(‘gulp-g’)</p><p>用法：<br>    var gulp = require(‘gulp’),<br>        plugins = require(‘gulp-load-plugins’)()    //调用下方法</p><pre><code>gulp.task(&apos;default&apos;, function () {    // 例如你有个js压缩插件    gulp.src(&apos;src/js/*.js&apos;)        // gulp-uglify      //调用时值仅需要uglify即可，如果后面还有中划线，以驼峰的方式 例:gulp-minify-css  plugins.minifyCss        .pipe(plugins.uglify())        .pipe(gulp.dest(&apos;dist/js&apos;))})</code></pre><p><strong>browserSnyc  热更新</strong></p><p>安装browserSync</p><p>使用它只需要记住 在每个执行命令中需要调用一次reload方法就好，具体先看下文档~</p>]]></content>
     
@@ -363,46 +405,6 @@
         &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;从今天开始，更新文章只针对于功能块进行更新，可能一次几个标题，这样能够在后面的日子中可以找到相关问题，规范一下&lt;/p&gt;
 &lt;h3 id=&quot;需求
       
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>阿西吧</title>
-    <link href="http://yoursite.com/2018/04/15/%E9%98%BF%E8%A5%BF%E5%90%A7/"/>
-    <id>http://yoursite.com/2018/04/15/阿西吧/</id>
-    <published>2018-04-15T12:06:56.000Z</published>
-    <updated>2018-04-15T12:35:58.472Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>不知不觉的，已经一个月没有更新了，最近工作真的很忙，简直没有时间，不过，在这段时间内，老大对于我的纠正，我也学会了很多的东西，比如element UI算是熟悉了，对于Jquery的操作也基本都会了（以前真的没怎么用过），主要来说，我的问题还是在命名规范的上面，简直被老大喷的不要不要的，不过老大对我很好，每次都是好好的说，对于前端UI上面的设计也算是有点体会了。</p><h3 id="Element-form自带验证"><a href="#Element-form自带验证" class="headerlink" title="Element form自带验证"></a>Element form自带验证</h3><p>刚开始解除，对于这种验证格式真的没有解除过，导致返工了很多的东西，Element 对于 form表单验证做的还是比较的齐全的</p><p><img src="/static/04-15-1.png" alt="img"></p><p>引入各种就不多说了现在只说下用法</p><p><el-form :rules="rules" ref="form" :model="ruleForm"></el-form></p><p>:model 表单数据对象<br>:rules 表单验证规则<br>ref 需要调用Element 封装的内部方法</p><p>以上三者为必须！</p><p>model 就是你data里面需要初始化的值</p><p>eg:ruleForm: {<br>          name: ‘’,<br>        }</p><p>在v-model当中写入对应的即可<br>rules 验证方式分为两种，一种为行内，一种写在data当中</p><p><strong>行内</strong><br>    <el-form-item prop="name" rules="[        { required: true, message: '请输入姓名', trigger: 'blur' },    ]"></el-form-item><br>其中，required为必填项,也就是左边那个##*##样式</p><p><strong>data中定义</strong></p><pre><code>data () {    return {        rules:{            name: { type: &apos;String&apos;, required: true, message: &apos;请选择名称&apos;, trigger: &apos;blur&apos; }        }    }}</code></pre><p>以上为rules的定义规则</p><p>这里还要说一下自定义验证<br>    data () {<br>        var nameVerification = function (rule, value, callback) {<br>            // 业务逻辑</p><pre><code>        value 失去焦点的值        callback 一定要记住，不管你的验证是否通过都必须有callback调用，否则在点击确定按钮将会无效！！！！    }     return {        rules:{             name: { validator: nameVerification, trigger: &apos;blur&apos; }        }    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;不知不觉的，已经一个月没有更新了，最近工作真的很忙，简直没有时间，不过，在这段时间内，老大对于我的纠正，我也学会了很多的东西，比如eleme
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git日常基本指令</title>
-    <link href="http://yoursite.com/2018/03/14/git%E6%97%A5%E5%B8%B8%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4/"/>
-    <id>http://yoursite.com/2018/03/14/git日常基本指令/</id>
-    <published>2018-03-14T05:33:33.000Z</published>
-    <updated>2018-03-14T05:50:09.540Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久没有更新了，这段时间也忙也闲，金三银四，大家都在各自的公司因为各种原因都在进行着面试，我也一样，上周收到了offer，这周就赶紧进行交接，心情也还不错，可惜就是我的团队我很不舍得离开，大家都对我很好，哎，好不舍，但是现实就是这样，没有不散的宴席，大家加油吧，我相信你们会更好的！</p><p><img src="http://img1.imgtn.bdimg.com/it/u=2417507986,147620643&amp;fm=27&amp;gp=0.jpg" alt="img"></p><a id="more"></a><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>对于现在的协同开发者工具<strong>Git</strong>、<strong>SVN</strong>大家应该都已经很熟悉了，当然，现在还是Git使用的更多一些，并且也有很多的优势，安装什么的就不说，只是简单的复习一下简单的命令，不喜勿喷</p><pre><code>git add .               提交全部文件git commit -m &quot;注释&quot;    提交到本地git pull                拉取代码，解决冲突git add .git commit -m &quot;注释&quot;git push                进行远程推送的仓库当中git push origin 分支名  也可完成推送</code></pre><p>这是简单的提交</p><p>创建分支</p><pre><code>git checkout -b &quot;分知名&quot;git push origin &quot;创建的分知名&quot;    推送到远端</code></pre><p>查看分支</p><pre><code>git branch</code></pre><p>合并分支</p><pre><code>git merge 分支名</code></pre><p>注：合并分支后先进行解决冲突</p><p>查看日志</p><pre><code>git log         查看全部日志git log -p      查看已提交详情的修改git log -p -2   查看最近两次的详情修改</code></pre><p>回退版本</p><pre><code>git reset --hard 版本号</code></pre><p>注：在这里回退的版本后，使用git log 只能打印到你回退版本的时间记录处，所以，大家一定要做好备份！！！！！！！！！！！！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;好久没有更新了，这段时间也忙也闲，金三银四，大家都在各自的公司因为各种原因都在进行着面试，我也一样，上周收到了offer，这周就赶紧进行交接，心情也还不错，可惜就是我的团队我很不舍得离开，大家都对我很好，哎，好不舍，但是现实就是这样，没有不散的宴席，大家加油吧，我相信你们会更好的！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://img1.imgtn.bdimg.com/it/u=2417507986,147620643&amp;amp;fm=27&amp;amp;gp=0.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
     
     </summary>
     

@@ -130,6 +130,168 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-阿西吧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/15/阿西吧/">阿西吧</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/15/阿西吧/" class="archive-article-date">
+  	<time datetime="2018-04-15T12:06:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>不知不觉的，已经一个月没有更新了，最近工作真的很忙，简直没有时间，不过，在这段时间内，老大对于我的纠正，我也学会了很多的东西，比如element UI算是熟悉了，对于Jquery的操作也基本都会了（以前真的没怎么用过），主要来说，我的问题还是在命名规范的上面，简直被老大喷的不要不要的，不过老大对我很好，每次都是好好的说，对于前端UI上面的设计也算是有点体会了。</p>
+<h3 id="Element-form自带验证"><a href="#Element-form自带验证" class="headerlink" title="Element form自带验证"></a>Element form自带验证</h3><p>刚开始解除，对于这种验证格式真的没有解除过，导致返工了很多的东西，Element 对于 form表单验证做的还是比较的齐全的</p>
+<p><img src="/static/04-15-1.png" alt="img"></p>
+<p>引入各种就不多说了现在只说下用法</p>
+<p><el-form :rules="rules" ref="form" :model="ruleForm"></el-form></p>
+<p>:model 表单数据对象<br>:rules 表单验证规则<br>ref 需要调用Element 封装的内部方法</p>
+<p>以上三者为必须！</p>
+<p>model 就是你data里面需要初始化的值</p>
+<p>eg:ruleForm: {<br>          name: ‘’,<br>        }</p>
+<p>在v-model当中写入对应的即可<br>rules 验证方式分为两种，一种为行内，一种写在data当中</p>
+<p><strong>行内</strong><br>    <el-form-item prop="name" rules="[
+        { required: true, message: '请输入姓名', trigger: 'blur' },
+    ]"></el-form-item><br>其中，required为必填项,也就是左边那个##*##样式</p>
+<p><strong>data中定义</strong></p>
+<pre><code>data () {
+    return {
+        rules:{
+            name: { type: &apos;String&apos;, required: true, message: &apos;请选择名称&apos;, trigger: &apos;blur&apos; }
+        }
+    }
+}
+</code></pre><p>以上为rules的定义规则</p>
+<p>这里还要说一下自定义验证<br>    data () {<br>        var nameVerification = function (rule, value, callback) {<br>            // 业务逻辑</p>
+<pre><code>        value 失去焦点的值
+        callback 一定要记住，不管你的验证是否通过都必须有callback调用，否则在点击确定按钮将会无效！！！！
+    }
+     return {
+        rules:{
+             name: { validator: nameVerification, trigger: &apos;blur&apos; }
+        }
+    }
+}
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/15/阿西吧/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-git日常基本指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/14/git日常基本指令/">git日常基本指令</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/14/git日常基本指令/" class="archive-article-date">
+  	<time datetime="2018-03-14T05:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好久没有更新了，这段时间也忙也闲，金三银四，大家都在各自的公司因为各种原因都在进行着面试，我也一样，上周收到了offer，这周就赶紧进行交接，心情也还不错，可惜就是我的团队我很不舍得离开，大家都对我很好，哎，好不舍，但是现实就是这样，没有不散的宴席，大家加油吧，我相信你们会更好的！</p>
+<p><img src="http://img1.imgtn.bdimg.com/it/u=2417507986,147620643&amp;fm=27&amp;gp=0.jpg" alt="img"></p>
+        
+          <a class="article-more-a" href="/2018/03/14/git日常基本指令/#more">^(*￣(oo)￣)^ >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/14/git日常基本指令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浅谈原型链-prototype-proto" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

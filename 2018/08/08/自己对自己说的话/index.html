@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>渡的个人博客</title>
+  <title>自己对自己说的话 | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="渡的个人博客">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题 越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了 人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙 我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自己对自己说的话">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/自己对自己说的话/index.html">
 <meta property="og:site_name" content="渡的个人博客">
+<meta property="og:description" content="很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题 越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了 人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙 我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-08T02:36:07.573Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="渡的个人博客">
+<meta name="twitter:title" content="自己对自己说的话">
+<meta name="twitter:description" content="很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题 越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了 人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙 我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -128,44 +132,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Vue，公共tab跳转不同路由页面样式切换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-自己对自己说的话" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/08/Vue，公共tab跳转不同路由页面样式切换/">Vue，公共tab跳转不同路由页面样式切换</a>
+    <h1 class="article-title" itemprop="name">
+      自己对自己说的话
     </h1>
   
 
         
-        <a href="/2018/06/08/Vue，公共tab跳转不同路由页面样式切换/" class="archive-article-date">
-  	<time datetime="2018-06-08T08:53:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-08</time>
+        <a href="/2018/08/08/自己对自己说的话/" class="archive-article-date">
+  	<time datetime="2018-08-08T02:14:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
 </a>
         
       </header>
       
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>先有一个公共tab组件用来分别跳转不同路由的页面</p>
-<p>例<br>    a 公共组件<br>    b 点击跳转页面<br>    c 点击跳转页面</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>两种方法解决选中样式问题</p>
-<ol>
-<li>router-link标签 （推荐）<br><router-link to="/a" active-class="active"><br><router-link to="/b" active-class="active"></router-link></router-link></li>
-</ol>
-<p>active为选中的样式</p>
-<ol start="2">
-<li>通过路由当前参数来进行判断</li>
-</ol>
-<p>data () {<br>    return {<br>        active: this.$route.query.index || 0<br>    }<br>}</p>
-<p>在跳转时传递不同参数  选项卡通过当前active来进行判断，实现样式的切换</p>
+        <a id="more"></a>
+<p>很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题</p>
+<p>越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了</p>
+<p>人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙</p>
+<p>我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任，当时为什么要生我，可能当时没有想过以后吧</p>
+<p>有时候听到别人说人家家庭挺好的时候，心里略闪过一丝不爽，可是心里一想，那也是他家的，不是他挣来了，总是这样来安慰自己，但是到了真正用钱，或者结婚的话，确实很需要，没办法，我是男人，只能自己扛吧</p>
+<p>在我北漂的日子里，说实话，我过得很好，周围人都挺好，不管每天工作的多晚，总能学到很多的东西，充实自己</p>
+<p>在抖音上看到一句话，我努力赚钱只是为了<strong>以后不会因为钱来失去些什么东西！</strong>，很现实的一句话，我也会多努力，为了以后能让她幸福</p>
+<p>写这篇文章的目的在于放松下自己，同时给自己前进的动力，加油吧少年，愿一切安好！</p>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/static/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -174,16 +203,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/08/Vue，公共tab跳转不同路由页面样式切换/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/08/自己对自己说的话/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/08/自己所遇到过的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自己所遇到过的坑</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -203,652 +291,20 @@
 
 
 
-
   
-    <article id="post-v-html" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2158002"></script>
+<!-- UY END -->
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/07/v-html/">v-html</a>
-    </h1>
   
-
-        
-        <a href="/2018/06/07/v-html/" class="archive-article-date">
-  	<time datetime="2018-06-07T07:50:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-07</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>v-html 渲染出来的标签无法修改样式</p>
-<p>结构</p>
-<pre><code>&lt;div class=&quot;wrap&quot;&gt;
-    &lt;div v-html=&quot;text&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>解决</p>
-<pre><code>.wrap &gt;&gt;&gt;div{
-    //.....
-}
-.wrap &gt;&gt;&gt;span{
-    //.....
-}
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/07/v-html/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-vuex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/25/vuex/">vuex</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/25/vuex/" class="archive-article-date">
-  	<time datetime="2018-05-25T11:45:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-25</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>vuex,个人理解为一个提供全局公用的属性及方法，是中大型开发项目架构中不可缺少的一部分，他的设计及使用都很方便，便于协同开发。</p>
-        
-          <a class="article-more-a" href="/2018/05/25/vuex/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/25/vuex/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gulp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/21/gulp/">gulp</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/21/gulp/" class="archive-article-date">
-  	<time datetime="2018-05-21T11:19:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-21</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在被大老大一顿嘲讽后，恶补了一下gulp,看了看  真的很简单呀<br>    gulp拥有简洁的API，使用者能够轻易上手，Gulp是一个自动化构建工具，具有强大的插件，只要搭配合适，能够大大提高我们工作中开发的效率。gulp更加强调的是开发流程，通过taskAPI可以定义符合自己的流程。<br>    webpack主要是模块化的规范，更加强调模块化，把各种文件看成模块，用过loader,最终打包为css/js/html/图片等</p>
-        
-          <a class="article-more-a" href="/2018/05/21/gulp/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/21/gulp/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我要对陈晨大声的说-我-爱-你！" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/">我要对陈晨大声的说:我~~爱~~~你！</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/" class="archive-article-date">
-  	<time datetime="2018-05-19T14:58:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="相信我！"><a href="#相信我！" class="headerlink" title="相信我！"></a>相信我！</h3>
-        
-          <a class="article-more-a" href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/19/我要对陈晨大声的说-我-爱-你！/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-node环境变量配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/16/node环境变量配置/">node环境变量配置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/16/node环境变量配置/" class="archive-article-date">
-  	<time datetime="2018-05-16T13:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这个环境变量实在是有点坑，前面倒腾了几次，还是有问题，现在这个问题终于解决了，我来阐述下我的配置及踩过的坑</p>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><pre><code>vue -V 不是内部命令
-node -v 不是内部命令
-npm -v 不是内部命令等
-</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>出现以上场景都是因为你的npm路径有问题，所以导致不是命令，接下来将会配置npm</p>
-<pre><code>1. 指定npm全局路径 
-</code></pre><p>我会在E盘创建nodejs文件目录，在下面分别创建node_global和node_cache文件夹</p>
-<pre><code>2. 命令
-npm config set prefix &quot;d:\nodejs\node_global&quot;
-npm config set prefix &quot;d:\nodejs\node_cache&quot;
-</code></pre><p>以上命令指定npm的路径为刚刚创建的文件路径<br>    3.配置环境变量<br>环境变量分为系统变量和用户变量<br>    系统变量中新建变量名：NODE_PATH，变量值：D:\nodejs\node_global\node_modules<br>    路径还是刚刚创建时的路径<br>    用户变量中的PATH中添加：D:\nodejs\node_global</p>
-<p>一定记得 不要在系统变量中的PATH去写，我之前就是踩的这个深坑，怎么找都找不出来，加油！！！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/16/node环境变量配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-手机select展示样式不同" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/16/手机select展示样式不同/">手机select展示样式不同</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/16/手机select展示样式不同/" class="archive-article-date">
-  	<time datetime="2018-05-16T13:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-16</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="下拉框"><a href="#下拉框" class="headerlink" title="下拉框"></a>下拉框</h3><p>虽然今天心情不好，但是也算是学到了点东西</p>
-<p>select在手机当中展示的样式不同，所以，为了还原UI，需要按照UI样式写</p>
-<pre><code>将select下拉框使用定位盖在UI上面，透明度给0就可以实现，通过change事件的改变在来改变UI的DOM，此方法为最合适的方法
-</code></pre><p>一定要注意变通，而且不管干什么一定要注意过脑子</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/16/手机select展示样式不同/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-换电脑后如何继续写博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/27/换电脑后如何继续写博客/">换电脑后如何继续写博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/27/换电脑后如何继续写博客/" class="archive-article-date">
-  	<time datetime="2018-04-27T13:26:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为有写博客的习惯，但是公司的事儿太忙了，耽搁了好久，每次回家都挺累，所以决定还是每天在公司写一篇博客吧，其实倒是有点像是日记了，不过对于每天的总结还是很有帮助的，blog文章命名一定要以功能来进行命名，这样在以后如果有类似的话很好找</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><strong>传送门</strong> <a href="https://blog.csdn.net/eternity1118_/article/details/71194395?ref=myread" target="_blank" rel="noopener">换电脑后如何继续写博客</a></p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>1.找到你原来写blog的文件夹，找到<strong>_config.yml</strong>、<strong>themes</strong>、<strong>source</strong>、<strong>scaffolds</strong>、<strong>package.json</strong></p>
-<p>2.copy到你本地  例： /hexo文件中</p>
-<h5 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h5><pre><code>npm install hexo -g   
-</code></pre><h5 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h5><pre><code>npm install  
-npm install hexo-deployer-git --save
-npm install hexo-generator-feed --save
-npm install hexo-generator-sitemap --save
-</code></pre><h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><pre><code>hexo g
-hexo deploy
-</code></pre><h3 id="加油，你不是最弱的"><a href="#加油，你不是最弱的" class="headerlink" title="加油，你不是最弱的"></a>加油，你不是最弱的</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/27/换电脑后如何继续写博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018-04-27-小组会" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/27/2018-04-27-小组会/">2018-04-27 小组会</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/27/2018-04-27-小组会/" class="archive-article-date">
-  	<time datetime="2018-04-27T12:58:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-27</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>来了快两个月了，因为平时比较忙，大家都比较忙，距离上次开会大概是三周前了</p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>不足之处</p>
-<pre><code>1. 针对于现在h5移动端调试问题只能使用手机终端进行调试，影响效率
-</code></pre><p>答： 因为需要与客户端交互，需要客户端的数据，暂时只能使用抓包工具在store当中把数据先写死进行调试</p>
-<pre><code>2. 命名规范问题
-</code></pre><p>答： css遵从BEM规范进行命名</p>
-<pre><code>3. git规范开发流程
-</code></pre><p>答： 首先，环境有dev(本地测试)、alpha(测试人员测试)、rc(预上线测试人员测试)、pro(正式环境)<br>git开发分支：本地创建feature/projuct  ==&gt;  提测合并alpha分支（发送邮件）  ==&gt;  测试通过合并develop分支 ==&gt;  develop分支合并至rc分支并且删除本地分支，如果有bug从rc拉取bugfix/bug分支（develop分支为一个中转站 发送邮件）  ==&gt;  测试通过合并至pro分支（在测试的邮件中回复全部发送运维）<br>需要注意的是邮件的<strong>准确性</strong></p>
-<pre><code>4. .vue单文件组件命名方式
-</code></pre><p>答： 该文件命名规范为大驼峰例：List.vue BaseInfo.vue</p>
-<p>老大说的几句话挺对的</p>
-<pre><code>1. 设计简单合理
-2. UI设计，审美观念
-3. 提高自我价值，变强
-4. 愿意接受改变，接受别人的建议
-5. 当封装公共组件时，最好大家一起讨论下设计思想，能够减少返工时间，提高开发效率
-</code></pre><p>在设计的时候最好有至少两种的设计理念，并且当拿到需求时，一定要先自己设计一遍，不要埋头就干，不过我对着这个还是有满满的自信的，对于审美方面，也许是我自己太死板了，没有用心，没有把自己当成一个客户，可能比较随意，这点我会改正，加油吧！！！</p>
-<h3 id="不管如何，你都要去克服，去接受，把它变为自己的"><a href="#不管如何，你都要去克服，去接受，把它变为自己的" class="headerlink" title="不管如何，你都要去克服，去接受，把它变为自己的"></a>不管如何，你都要去克服，去接受，把它变为自己的</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/27/2018-04-27-小组会/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-时间戳转换年月日小月问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/22/时间戳转换年月日小月问题/">时间戳转换年月日小月问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/22/时间戳转换年月日小月问题/" class="archive-article-date">
-  	<time datetime="2018-04-22T11:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>从今天开始，更新文章只针对于功能块进行更新，可能一次几个标题，这样能够在后面的日子中可以找到相关问题，规范一下</p>
-<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>针对于时间转换的问题在工作当中可是用的很多的，比如这次的时间需求，1.##格式正确##，2.##结束时间不能大于开始时间##，3.##有效时间##</p>
-<h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><p>new Date(‘2017/02/02 00:00:00’)</p>
-<p>对于这种时间 我是将格式放入new Date当中进行装换，这样的话问题1，2都可解决，对于问题三就是今天得重点</p>
-<p>大家都知道有大小月，问题在于用这个转换小月的话还是会合法，比如2018/02/31</p>
-<p><img src="/static/04-22-1.png" alt="img"></p>
-<p>大家看到问题了吧，对！就是在小月31日时也是合法，但是会转换为别的日期</p>
-<p>解决，在转换前和转换后进行对比就好。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/22/时间戳转换年月日小月问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
   
 
 
@@ -872,8 +328,8 @@ hexo deploy
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
