@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-08T02:36:07.573Z</updated>
+  <updated>2018-08-23T11:28:35.712Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阅读源码之swiper(一)</title>
+    <link href="http://yoursite.com/2018/08/23/%E9%98%85%E8%AF%BB%E6%BA%90%E7%A0%81%E4%B9%8Bswiper-%E4%B8%80/"/>
+    <id>http://yoursite.com/2018/08/23/阅读源码之swiper-一/</id>
+    <published>2018-08-23T07:56:32.000Z</published>
+    <updated>2018-08-23T11:28:35.712Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前就想着阅读源码，但是看到密密麻麻几千行代码的时候，我甚至不知道该从何下手，所以也就放弃了，但是中途有好几次有这种想法的时候，但是没能坚持下去，在我看了视频以及百度后，发现原来我的方法是有问题的，我就是扣的太细，整体的一个架构都不是很了解，所以也就慢慢的坚持不下去了<br><a id="more"></a><br>今天，我再次鼓足勇气来进行阅读源码，因为大神们说话，最能提高自身能力得就是阅读源码，看看别人写代码的风格以及作者的思路，可以累积很多的知识，并且，如果你想要高薪，想要进阶，这是每个高级程序员必走的一条路，所以，我必须要努力，因为什么 你自己心里明白</p><h3 id="选择？"><a href="#选择？" class="headerlink" title="选择？"></a>选择？</h3><p>为什么要选择swiper，原因在于该框架具备的能力能高，也就是，阅读它，不仅能让你对设计架构能力得提升，同时对于动画的理解也有很大帮助，所以，他只是第一步，不管如何，我必须要去征服她，为了她，以及她，我都必须的努力下去，加油吧，少年！！！</p><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>首先不能继续在范我原来的错误，一定要先粗读一遍，把整体架构分析出来，对于业务也一定要熟悉，了解做的当时写这个情况，为什么会这么写</p><ol><li>项目的整体架构，各个模块的功能</li><li>一定要先把代码都删掉，然后一点一点的添加来进行阅读</li><li>遇到不会的，百度</li><li>断点追踪</li></ol><h3 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h3><pre><code>/*    typeof exports === &apos;object&apos; &amp;&amp; typeof module !== &apos;undefined&apos;    判断是否为common.js环境中运行，比如Nodejs，则使用module.exports 导出    typeof define === &apos;function&apos;    define 为AMD规范中的函数，判断该函数是否存在，如果存在，则处于AMD运行环境中，define.amd 也是AMD函数，则带入函数中 define(...)    如果以上环境都不存在，说明运行在浏览器中，给window添加该全局对象*/(function (global, factory){    typeof exports === &quot;Object&quot; &amp;&amp; typeof module !== &quot;undefined&quot; ? module.exports = factory() :     typeof define === &quot;function&quot; &amp;&amp; define.amd ? define(factory) :     (window.Swiper = factory())}(this, function() {    var swiper = {}    // ...  //业务逻辑    return swiper}))</code></pre><p>这样做的用处就是 无论是commonjs  还是  AMD  或  seaJS 都可以运行</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;之前就想着阅读源码，但是看到密密麻麻几千行代码的时候，我甚至不知道该从何下手，所以也就放弃了，但是中途有好几次有这种想法的时候，但是没能坚持下去，在我看了视频以及百度后，发现原来我的方法是有问题的，我就是扣的太细，整体的一个架构都不是很了解，所以也就慢慢的坚持不下去了&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>自己对自己说的话</title>
@@ -45,9 +63,9 @@
     <link href="http://yoursite.com/2018/08/08/%E8%87%AA%E5%B7%B1%E6%89%80%E9%81%87%E5%88%B0%E8%BF%87%E7%9A%84%E5%9D%91/"/>
     <id>http://yoursite.com/2018/08/08/自己所遇到过的坑/</id>
     <published>2018-08-08T02:12:40.000Z</published>
-    <updated>2018-08-09T09:44:16.020Z</updated>
+    <updated>2018-08-27T03:33:44.338Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p><a id="more"></a><p>#CSS</p><h3 id="ios下fixed定位失效解决方法"><a href="#ios下fixed定位失效解决方法" class="headerlink" title="ios下fixed定位失效解决方法"></a>ios下fixed定位失效解决方法</h3><p>针对这个问题只能自己做滚动条让中间的一部分来进行滚动</p><h3 id="如何制作滚动条"><a href="#如何制作滚动条" class="headerlink" title="如何制作滚动条"></a>如何制作滚动条</h3><p>解决：overflow-y: scroll</p><h3 id="ios下滚动条卡顿"><a href="#ios下滚动条卡顿" class="headerlink" title="ios下滚动条卡顿"></a>ios下滚动条卡顿</h3><p>自己做的滚动条在ios下会有卡顿问题<br>解决：-webkit-overflow-scrolling: touch     给滚动条元素</p><h3 id="如何隐藏滚动条"><a href="#如何隐藏滚动条" class="headerlink" title="如何隐藏滚动条"></a>如何隐藏滚动条</h3><p>因为在加了-webkit-overflow-scrolling: touch 属性后，隐藏滚动条的css会失效，只能另想他法<br>解决：父级overflow:hidden<br>让滚动条里面的高度/宽度超出父级，这样就可以隐藏滚动条</p><h3 id="ios下吸顶效果"><a href="#ios下吸顶效果" class="headerlink" title="ios下吸顶效果"></a>ios下吸顶效果</h3><p>ios不支持fixed定位，按照之前的套路，scroll事件监听scrollTop =&gt; 获取元素的offsetTop =&gt; scrollTop &gt; offsetTop 改为fixed定位<br>解决：<br>position: sticky;<br>position: -webkit-sticky;</p><p>粘性定位，滚动条未滚动到该元素时，absolute,当滚动过指定元素时,为fixed，ios对于这个属性还是支持的，虽然为从DOM上看是fixed，但是管用</p><h3 id="虚拟键盘挡住输入框"><a href="#虚拟键盘挡住输入框" class="headerlink" title="虚拟键盘挡住输入框"></a>虚拟键盘挡住输入框</h3><p>android系统上，获取焦点后弹出虚拟键盘会挡住输入框，个人猜测，他是先不占用空间，在弹出后占用当前空间<br>解决：setTimeOut(() =&gt; {<br>    document.scrollTop = 元素.offsetTop - 50<br>},500)<br>-50的目的在于不至于贴到顶部</p><p>#HTML</p><p>#JS</p><h3 id="如何判断是一个空对象"><a href="#如何判断是一个空对象" class="headerlink" title="如何判断是一个空对象"></a>如何判断是一个空对象</h3><p>解决：</p><ol><li><p>for … in 循环</p></li><li><p>JSON.stringify(obj) === ‘{}’</p></li><li><p>ES6      Object.keys(obj).length &gt; 0</p></li></ol><p>#综合问题</p><h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>]]></content>
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p><a id="more"></a><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>router.beforeEach((to, from, next) =&gt; {<br>    to      // 要进入的路由<br>    from    // 要离开的路由<br>    next()  // 方法，必须调用，否则无法进入<br>})<br>router.afterEach() // 用法同上<br>主要是业务逻辑需要，在进入路由前或离开前 需要干点什么事儿</p><p><strong>坑</strong>： 例如判断如果当前用户没有进行登录，跳转至登录页面进行登录</p><pre><code>router.beforeEach((to, from, next) =&gt; {    let token = localStorage.getItem(&apos;getToken&apos;)    if (token) {        next()    } else {        router.push({            path: &apos;/login&apos;        })        next()    }})</code></pre><p>大致一眼看上去没有问题，但是此处缺陷入了死循环</p><p>原因：因为在进入了/login页面时，又进行了触发beforeEach这个方法，next虽然调用，但是依然陷入了死循环当中</p><p>next方法<br><img src="/static/18-08-27.png" alt="img"></p><p>第三条，就是说，只要使用了跳转后，next会进行一个新导航，所以这样才导致了死循环</p><p>解决：</p><pre><code>router.beforeEach((to, from, next) =&gt; {    let token = localStorage.getItem(&apos;getToken&apos;)    if (to.name === &apos;Login&apos; || token) {        next()    } else {        router.push({            path: &apos;/login&apos;        })        next()    }})</code></pre><h3 id="跳转路由标题"><a href="#跳转路由标题" class="headerlink" title="跳转路由标题"></a>跳转路由标题</h3><p>let router = new Router({<br>    mode: ‘history’,<br>    routes: [<br>        {<br>            path: ‘/‘,<br>            meta: {<br>                title: ‘主页’<br>            },<br>            redirect: ‘/login’,      // 重定向<br>        }<br>    ]<br>})<br>这里 主页的标题 可以利用路由守卫来写</p><p>router.beforeEach((to, from, next) =&gt; {<br>    document.title = to.meta.title<br>})</p><h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><p>#CSS</p><h3 id="ios下fixed定位失效解决方法"><a href="#ios下fixed定位失效解决方法" class="headerlink" title="ios下fixed定位失效解决方法"></a>ios下fixed定位失效解决方法</h3><p>针对这个问题只能自己做滚动条让中间的一部分来进行滚动</p><h3 id="如何制作滚动条"><a href="#如何制作滚动条" class="headerlink" title="如何制作滚动条"></a>如何制作滚动条</h3><p>解决：overflow-y: scroll</p><h3 id="ios下滚动条卡顿"><a href="#ios下滚动条卡顿" class="headerlink" title="ios下滚动条卡顿"></a>ios下滚动条卡顿</h3><p>自己做的滚动条在ios下会有卡顿问题<br>解决：-webkit-overflow-scrolling: touch     给滚动条元素</p><h3 id="如何隐藏滚动条"><a href="#如何隐藏滚动条" class="headerlink" title="如何隐藏滚动条"></a>如何隐藏滚动条</h3><p>因为在加了-webkit-overflow-scrolling: touch 属性后，隐藏滚动条的css会失效，只能另想他法<br>解决：父级overflow:hidden<br>让滚动条里面的高度/宽度超出父级，这样就可以隐藏滚动条</p><h3 id="ios下吸顶效果"><a href="#ios下吸顶效果" class="headerlink" title="ios下吸顶效果"></a>ios下吸顶效果</h3><p>ios不支持fixed定位，按照之前的套路，scroll事件监听scrollTop =&gt; 获取元素的offsetTop =&gt; scrollTop &gt; offsetTop 改为fixed定位<br>解决：<br>position: sticky;<br>position: -webkit-sticky;</p><p>粘性定位，滚动条未滚动到该元素时，absolute,当滚动过指定元素时,为fixed，ios对于这个属性还是支持的，虽然为从DOM上看是fixed，但是管用</p><h3 id="虚拟键盘挡住输入框"><a href="#虚拟键盘挡住输入框" class="headerlink" title="虚拟键盘挡住输入框"></a>虚拟键盘挡住输入框</h3><p>android系统上，获取焦点后弹出虚拟键盘会挡住输入框，个人猜测，他是先不占用空间，在弹出后占用当前空间<br>解决：setTimeOut(() =&gt; {<br>    document.scrollTop = 元素.offsetTop - 50<br>},500)<br>-50的目的在于不至于贴到顶部</p><h3 id="textarea-实现自适应"><a href="#textarea-实现自适应" class="headerlink" title="textarea 实现自适应"></a>textarea 实现自适应</h3><ol><li><p><div contenteditable="true"></div><br>问题：在ios有兼容性问题</p></li><li><p>js 解决</p></li></ol><p>角色：input事件，scrollHeight 获取当前滚动条高度</p><p>在input事件中，在每次输入时获取到textarea滚动高度，让其height 等于 scrollHeight + ‘px’，记住 前面一定要加height: auto 这个属性，否则你加了高度后高度回不去了</p><p>el.style.height = ‘auto’<br>el.style.height = el.scrollHeight + ‘px’</p><h3 id="获取最终css样式"><a href="#获取最终css样式" class="headerlink" title="获取最终css样式"></a>获取最终css样式</h3><p>// 这两者有兼容性问题，currentStyle 兼容IE  getComputedStyle() 兼容谷歌火狐等….<br>el.currentStyle[‘height’]  </p><p>getComputedStyle(el, null).height</p><p>#HTML</p><p>#JS</p><h3 id="立即执行函数的写法"><a href="#立即执行函数的写法" class="headerlink" title="立即执行函数的写法"></a>立即执行函数的写法</h3><ol><li>常见写法<br>(function () {</li></ol><p>})()</p><ol start="2"><li>包在里面<br>(function () {</li></ol><p>}())</p><ol start="3"><li>!<br>!function () {</li></ol><p>}()</p><h3 id="浏览器支持事件"><a href="#浏览器支持事件" class="headerlink" title="浏览器支持事件"></a>浏览器支持事件</h3><p>IE6 7 8     attachEvent()<br>主流浏览器   addEventListener()</p><h3 id="如何判断是一个空对象"><a href="#如何判断是一个空对象" class="headerlink" title="如何判断是一个空对象"></a>如何判断是一个空对象</h3><p>解决：</p><ol><li><p>for … in 循环</p></li><li><p>JSON.stringify(obj) === ‘{}’</p></li><li><p>ES6      Object.keys(obj).length &gt; 0</p></li></ol><h3 id="Object-definedProperty-obj-val-descriptor"><a href="#Object-definedProperty-obj-val-descriptor" class="headerlink" title="Object.definedProperty(obj, val, descriptor)"></a>Object.definedProperty(obj, val, descriptor)</h3><p>obj 需要绑定的对象<br>val 对象内的key<br>descriptor  选项参数</p><ol><li>get              当访问该属性触发</li><li>set              当更新该属性触发</li><li>configurable     是否可以删除      默认 true</li><li>enumerable       费否可m<br>#综合问题</li></ol><h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>]]></content>
     
     <summary type="html">
     
@@ -382,28 +400,6 @@
       
         &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;来了快两个月了，因为平时比较忙，大家都比较忙，距离上次开会大概是三周前了&lt;/p&gt;
 &lt;h3 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; cla
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>时间戳转换年月日小月问题</title>
-    <link href="http://yoursite.com/2018/04/22/%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E6%8D%A2%E5%B9%B4%E6%9C%88%E6%97%A5%E5%B0%8F%E6%9C%88%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/04/22/时间戳转换年月日小月问题/</id>
-    <published>2018-04-22T11:55:43.000Z</published>
-    <updated>2018-04-22T12:21:21.760Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>从今天开始，更新文章只针对于功能块进行更新，可能一次几个标题，这样能够在后面的日子中可以找到相关问题，规范一下</p><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>针对于时间转换的问题在工作当中可是用的很多的，比如这次的时间需求，1.##格式正确##，2.##结束时间不能大于开始时间##，3.##有效时间##</p><h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><p>new Date(‘2017/02/02 00:00:00’)</p><p>对于这种时间 我是将格式放入new Date当中进行装换，这样的话问题1，2都可解决，对于问题三就是今天得重点</p><p>大家都知道有大小月，问题在于用这个转换小月的话还是会合法，比如2018/02/31</p><p><img src="/static/04-22-1.png" alt="img"></p><p>大家看到问题了吧，对！就是在小月31日时也是合法，但是会转换为别的日期</p><p>解决，在转换前和转换后进行对比就好。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;从今天开始，更新文章只针对于功能块进行更新，可能一次几个标题，这样能够在后面的日子中可以找到相关问题，规范一下&lt;/p&gt;
-&lt;h3 id=&quot;需求
       
     
     </summary>

@@ -15,10 +15,12 @@
 <meta property="og:site_name" content="渡的个人博客">
 <meta property="og:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-09T09:44:16.020Z">
+<meta property="og:image" content="http://yoursite.com/static/18-08-27.png">
+<meta property="og:updated_time" content="2018-08-27T03:33:44.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己所遇到过的坑">
 <meta name="twitter:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
+<meta name="twitter:image" content="http://yoursite.com/static/18-08-27.png">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -159,7 +161,38 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p>
 <a id="more"></a>
-<p>#CSS</p>
+<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>router.beforeEach((to, from, next) =&gt; {<br>    to      // 要进入的路由<br>    from    // 要离开的路由<br>    next()  // 方法，必须调用，否则无法进入<br>})<br>router.afterEach() // 用法同上<br>主要是业务逻辑需要，在进入路由前或离开前 需要干点什么事儿</p>
+<p><strong>坑</strong>： 例如判断如果当前用户没有进行登录，跳转至登录页面进行登录</p>
+<pre><code>router.beforeEach((to, from, next) =&gt; {
+    let token = localStorage.getItem(&apos;getToken&apos;)
+    if (token) {
+        next()
+    } else {
+        router.push({
+            path: &apos;/login&apos;
+        })
+        next()
+    }
+})
+</code></pre><p>大致一眼看上去没有问题，但是此处缺陷入了死循环</p>
+<p>原因：因为在进入了/login页面时，又进行了触发beforeEach这个方法，next虽然调用，但是依然陷入了死循环当中</p>
+<p>next方法<br><img src="/static/18-08-27.png" alt="img"></p>
+<p>第三条，就是说，只要使用了跳转后，next会进行一个新导航，所以这样才导致了死循环</p>
+<p>解决：</p>
+<pre><code>router.beforeEach((to, from, next) =&gt; {
+    let token = localStorage.getItem(&apos;getToken&apos;)
+    if (to.name === &apos;Login&apos; || token) {
+        next()
+    } else {
+        router.push({
+            path: &apos;/login&apos;
+        })
+        next()
+    }
+})
+</code></pre><h3 id="跳转路由标题"><a href="#跳转路由标题" class="headerlink" title="跳转路由标题"></a>跳转路由标题</h3><p>let router = new Router({<br>    mode: ‘history’,<br>    routes: [<br>        {<br>            path: ‘/‘,<br>            meta: {<br>                title: ‘主页’<br>            },<br>            redirect: ‘/login’,      // 重定向<br>        }<br>    ]<br>})<br>这里 主页的标题 可以利用路由守卫来写</p>
+<p>router.beforeEach((to, from, next) =&gt; {<br>    document.title = to.meta.title<br>})</p>
+<h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><p>#CSS</p>
 <h3 id="ios下fixed定位失效解决方法"><a href="#ios下fixed定位失效解决方法" class="headerlink" title="ios下fixed定位失效解决方法"></a>ios下fixed定位失效解决方法</h3><p>针对这个问题只能自己做滚动条让中间的一部分来进行滚动</p>
 <h3 id="如何制作滚动条"><a href="#如何制作滚动条" class="headerlink" title="如何制作滚动条"></a>如何制作滚动条</h3><p>解决：overflow-y: scroll</p>
 <h3 id="ios下滚动条卡顿"><a href="#ios下滚动条卡顿" class="headerlink" title="ios下滚动条卡顿"></a>ios下滚动条卡顿</h3><p>自己做的滚动条在ios下会有卡顿问题<br>解决：-webkit-overflow-scrolling: touch     给滚动条元素</p>
@@ -167,8 +200,32 @@
 <h3 id="ios下吸顶效果"><a href="#ios下吸顶效果" class="headerlink" title="ios下吸顶效果"></a>ios下吸顶效果</h3><p>ios不支持fixed定位，按照之前的套路，scroll事件监听scrollTop =&gt; 获取元素的offsetTop =&gt; scrollTop &gt; offsetTop 改为fixed定位<br>解决：<br>position: sticky;<br>position: -webkit-sticky;</p>
 <p>粘性定位，滚动条未滚动到该元素时，absolute,当滚动过指定元素时,为fixed，ios对于这个属性还是支持的，虽然为从DOM上看是fixed，但是管用</p>
 <h3 id="虚拟键盘挡住输入框"><a href="#虚拟键盘挡住输入框" class="headerlink" title="虚拟键盘挡住输入框"></a>虚拟键盘挡住输入框</h3><p>android系统上，获取焦点后弹出虚拟键盘会挡住输入框，个人猜测，他是先不占用空间，在弹出后占用当前空间<br>解决：setTimeOut(() =&gt; {<br>    document.scrollTop = 元素.offsetTop - 50<br>},500)<br>-50的目的在于不至于贴到顶部</p>
+<h3 id="textarea-实现自适应"><a href="#textarea-实现自适应" class="headerlink" title="textarea 实现自适应"></a>textarea 实现自适应</h3><ol>
+<li><p><div contenteditable="true"></div><br>问题：在ios有兼容性问题</p>
+</li>
+<li><p>js 解决</p>
+</li>
+</ol>
+<p>角色：input事件，scrollHeight 获取当前滚动条高度</p>
+<p>在input事件中，在每次输入时获取到textarea滚动高度，让其height 等于 scrollHeight + ‘px’，记住 前面一定要加height: auto 这个属性，否则你加了高度后高度回不去了</p>
+<p>el.style.height = ‘auto’<br>el.style.height = el.scrollHeight + ‘px’</p>
+<h3 id="获取最终css样式"><a href="#获取最终css样式" class="headerlink" title="获取最终css样式"></a>获取最终css样式</h3><p>// 这两者有兼容性问题，currentStyle 兼容IE  getComputedStyle() 兼容谷歌火狐等….<br>el.currentStyle[‘height’]  </p>
+<p>getComputedStyle(el, null).height</p>
 <p>#HTML</p>
 <p>#JS</p>
+<h3 id="立即执行函数的写法"><a href="#立即执行函数的写法" class="headerlink" title="立即执行函数的写法"></a>立即执行函数的写法</h3><ol>
+<li>常见写法<br>(function () {</li>
+</ol>
+<p>})()</p>
+<ol start="2">
+<li>包在里面<br>(function () {</li>
+</ol>
+<p>}())</p>
+<ol start="3">
+<li>!<br>!function () {</li>
+</ol>
+<p>}()</p>
+<h3 id="浏览器支持事件"><a href="#浏览器支持事件" class="headerlink" title="浏览器支持事件"></a>浏览器支持事件</h3><p>IE6 7 8     attachEvent()<br>主流浏览器   addEventListener()</p>
 <h3 id="如何判断是一个空对象"><a href="#如何判断是一个空对象" class="headerlink" title="如何判断是一个空对象"></a>如何判断是一个空对象</h3><p>解决：</p>
 <ol>
 <li><p>for … in 循环</p>
@@ -178,7 +235,13 @@
 <li><p>ES6      Object.keys(obj).length &gt; 0</p>
 </li>
 </ol>
-<p>#综合问题</p>
+<h3 id="Object-definedProperty-obj-val-descriptor"><a href="#Object-definedProperty-obj-val-descriptor" class="headerlink" title="Object.definedProperty(obj, val, descriptor)"></a>Object.definedProperty(obj, val, descriptor)</h3><p>obj 需要绑定的对象<br>val 对象内的key<br>descriptor  选项参数</p>
+<ol>
+<li>get              当访问该属性触发</li>
+<li>set              当更新该属性触发</li>
+<li>configurable     是否可以删除      默认 true</li>
+<li>enumerable       费否可m<br>#综合问题</li>
+</ol>
 <h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>
 
       

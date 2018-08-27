@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>自己对自己说的话 | 渡的个人博客</title>
+  <title>阅读源码之swiper(一) | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题 越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了 人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙 我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任">
+  <meta name="description" content="前言之前就想着阅读源码，但是看到密密麻麻几千行代码的时候，我甚至不知道该从何下手，所以也就放弃了，但是中途有好几次有这种想法的时候，但是没能坚持下去，在我看了视频以及百度后，发现原来我的方法是有问题的，我就是扣的太细，整体的一个架构都不是很了解，所以也就慢慢的坚持不下去了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自己对自己说的话">
-<meta property="og:url" content="http://yoursite.com/2018/08/08/自己对自己说的话/index.html">
+<meta property="og:title" content="阅读源码之swiper(一)">
+<meta property="og:url" content="http://yoursite.com/2018/08/23/阅读源码之swiper-一/index.html">
 <meta property="og:site_name" content="渡的个人博客">
-<meta property="og:description" content="很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题 越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了 人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙 我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任">
+<meta property="og:description" content="前言之前就想着阅读源码，但是看到密密麻麻几千行代码的时候，我甚至不知道该从何下手，所以也就放弃了，但是中途有好几次有这种想法的时候，但是没能坚持下去，在我看了视频以及百度后，发现原来我的方法是有问题的，我就是扣的太细，整体的一个架构都不是很了解，所以也就慢慢的坚持不下去了">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-08T02:36:07.573Z">
+<meta property="og:updated_time" content="2018-08-23T11:28:35.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自己对自己说的话">
-<meta name="twitter:description" content="很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题 越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了 人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙 我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任">
+<meta name="twitter:title" content="阅读源码之swiper(一)">
+<meta name="twitter:description" content="前言之前就想着阅读源码，但是看到密密麻麻几千行代码的时候，我甚至不知道该从何下手，所以也就放弃了，但是中途有好几次有这种想法的时候，但是没能坚持下去，在我看了视频以及百度后，发现原来我的方法是有问题的，我就是扣的太细，整体的一个架构都不是很了解，所以也就慢慢的坚持不下去了">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -132,20 +132,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-自己对自己说的话" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-阅读源码之swiper-一" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      自己对自己说的话
+      阅读源码之swiper(一)
     </h1>
   
 
         
-        <a href="/2018/08/08/自己对自己说的话/" class="archive-article-date">
-  	<time datetime="2018-08-08T02:14:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
+        <a href="/2018/08/23/阅读源码之swiper-一/" class="archive-article-date">
+  	<time datetime="2018-08-23T07:56:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
 </a>
         
       </header>
@@ -157,15 +157,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<p>很久没有写过自己的心里事儿了，这个博客也是相对于自己的，所以不存在公开的问题</p>
-<p>越长大，越孤单到时一点也没有错，渐渐的开始为以后着想，渐渐的开始为以后考虑，不再是只顾着玩儿的那个小孩了</p>
-<p>人生就是减法，吃一顿少一顿，见一面少一面，大家都在忙</p>
-<p>我呢，也一直在努力，就是想让以后的生活会好点，说实话，我的家庭很不好，我打小就从来没有想过来依靠他们，当然，也没啥可以能依靠的，有时候甚至在想他们真的很不负责任，当时为什么要生我，可能当时没有想过以后吧</p>
-<p>有时候听到别人说人家家庭挺好的时候，心里略闪过一丝不爽，可是心里一想，那也是他家的，不是他挣来了，总是这样来安慰自己，但是到了真正用钱，或者结婚的话，确实很需要，没办法，我是男人，只能自己扛吧</p>
-<p>在我北漂的日子里，说实话，我过得很好，周围人都挺好，不管每天工作的多晚，总能学到很多的东西，充实自己</p>
-<p>在抖音上看到一句话，我努力赚钱只是为了<strong>以后不会因为钱来失去些什么东西！</strong>，很现实的一句话，我也会多努力，为了以后能让她幸福</p>
-<p>写这篇文章的目的在于放松下自己，同时给自己前进的动力，加油吧少年，愿一切安好！</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前就想着阅读源码，但是看到密密麻麻几千行代码的时候，我甚至不知道该从何下手，所以也就放弃了，但是中途有好几次有这种想法的时候，但是没能坚持下去，在我看了视频以及百度后，发现原来我的方法是有问题的，我就是扣的太细，整体的一个架构都不是很了解，所以也就慢慢的坚持不下去了<br><a id="more"></a><br>今天，我再次鼓足勇气来进行阅读源码，因为大神们说话，最能提高自身能力得就是阅读源码，看看别人写代码的风格以及作者的思路，可以累积很多的知识，并且，如果你想要高薪，想要进阶，这是每个高级程序员必走的一条路，所以，我必须要努力，因为什么 你自己心里明白</p>
+<h3 id="选择？"><a href="#选择？" class="headerlink" title="选择？"></a>选择？</h3><p>为什么要选择swiper，原因在于该框架具备的能力能高，也就是，阅读它，不仅能让你对设计架构能力得提升，同时对于动画的理解也有很大帮助，所以，他只是第一步，不管如何，我必须要去征服她，为了她，以及她，我都必须的努力下去，加油吧，少年！！！</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>首先不能继续在范我原来的错误，一定要先粗读一遍，把整体架构分析出来，对于业务也一定要熟悉，了解做的当时写这个情况，为什么会这么写</p>
+<ol>
+<li>项目的整体架构，各个模块的功能</li>
+<li>一定要先把代码都删掉，然后一点一点的添加来进行阅读</li>
+<li>遇到不会的，百度</li>
+<li>断点追踪</li>
+</ol>
+<h3 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h3><pre><code>/*
+    typeof exports === &apos;object&apos; &amp;&amp; typeof module !== &apos;undefined&apos;
+    判断是否为common.js环境中运行，比如Nodejs，则使用module.exports 导出
+
+    typeof define === &apos;function&apos;
+    define 为AMD规范中的函数，判断该函数是否存在，如果存在，则处于AMD运行环境中，define.amd 也是AMD函数，则带入函数中 define(...)
+
+    如果以上环境都不存在，说明运行在浏览器中，给window添加该全局对象
+
+*/
+
+(function (global, factory){
+
+    typeof exports === &quot;Object&quot; &amp;&amp; typeof module !== &quot;undefined&quot; ? module.exports = factory() : 
+    typeof define === &quot;function&quot; &amp;&amp; define.amd ? define(factory) : 
+    (window.Swiper = factory())
+
+}(this, function() {
+    var swiper = {}
+
+    // ...  //业务逻辑
+
+    return swiper
+}))
+</code></pre><p>这样做的用处就是 无论是commonjs  还是  AMD  或  seaJS 都可以运行</p>
 
       
 
@@ -250,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/08/自己对自己说的话/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/23/阅读源码之swiper-一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,18 +289,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/23/阅读源码之swiper-一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          阅读源码之swiper(一)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/08/自己所遇到过的坑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">自己所遇到过的坑</div>
+    <a href="/2018/08/08/自己对自己说的话/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自己对自己说的话</div>
       <i class="icon-circle-right"></i>
     </a>
   
