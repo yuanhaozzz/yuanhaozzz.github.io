@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/static/18-08-27.png">
-<meta property="og:updated_time" content="2018-08-27T03:33:44.338Z">
+<meta property="og:updated_time" content="2018-10-16T09:24:17.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己所遇到过的坑">
 <meta name="twitter:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
@@ -161,7 +161,8 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p>
 <a id="more"></a>
-<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>router.beforeEach((to, from, next) =&gt; {<br>    to      // 要进入的路由<br>    from    // 要离开的路由<br>    next()  // 方法，必须调用，否则无法进入<br>})<br>router.afterEach() // 用法同上<br>主要是业务逻辑需要，在进入路由前或离开前 需要干点什么事儿</p>
+<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h3 id="Vue出现偶发赋值不上的问题"><a href="#Vue出现偶发赋值不上的问题" class="headerlink" title="Vue出现偶发赋值不上的问题"></a>Vue出现偶发赋值不上的问题</h3><p>原因：具体还没查到什么原因，有可能视图更新有队列,没赶上<br>解决：将ajax换成同步的可以解决</p>
+<h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>router.beforeEach((to, from, next) =&gt; {<br>    to      // 要进入的路由<br>    from    // 要离开的路由<br>    next()  // 方法，必须调用，否则无法进入<br>})<br>router.afterEach() // 用法同上<br>主要是业务逻辑需要，在进入路由前或离开前 需要干点什么事儿</p>
 <p><strong>坑</strong>： 例如判断如果当前用户没有进行登录，跳转至登录页面进行登录</p>
 <pre><code>router.beforeEach((to, from, next) =&gt; {
     let token = localStorage.getItem(&apos;getToken&apos;)
@@ -243,6 +244,8 @@
 <li>enumerable       费否可m<br>#综合问题</li>
 </ol>
 <h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>
+<h3 id="CORS-跨域解决问题"><a href="#CORS-跨域解决问题" class="headerlink" title="CORS 跨域解决问题"></a>CORS 跨域解决问题</h3><p>原因：跨域问题，一直说CORS来进行解决，缺并不知道怎么来解决<br>解决：在响应头中添加字段<br>    ‘Access-Control-Allow-origin’: ‘*’,             // 都可请求<br>    ‘Access-Control-Allow-Methods’: ‘GET, POST’     // GET、POST方法</p>
+<h3 id="node-中间件"><a href="#node-中间件" class="headerlink" title="node 中间件"></a>node 中间件</h3><p>作用：可以进行统一的配置接口，例如，给所有接口做CORS共享<br>坑：记住 一定要调用next函数，否则无法进行下一步！！！而且报错不提示</p>
 
       
 

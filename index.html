@@ -130,6 +130,208 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-utils" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/12/utils/">utils</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/12/utils/" class="archive-article-date">
+  	<time datetime="2018-10-12T07:46:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h1><h3 id="蓝灯地址，翻墙神器"><a href="#蓝灯地址，翻墙神器" class="headerlink" title="蓝灯地址，翻墙神器"></a>蓝灯地址，翻墙神器</h3><p><a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">https://github.com/getlantern/lantern</a></p>
+<h3 id="时间过滤器"><a href="#时间过滤器" class="headerlink" title="时间过滤器"></a>时间过滤器</h3><p>format (time, fmt) {<br>    fmt = fmt || ‘yyyy-MM-dd hh:mm’<br>    let date = new Date(time)</p>
+<pre><code>if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(
+        RegExp.$1, (date.getFullYear() + &apos;&apos;).substr(4 - RegExp.$1.length)
+    )
+}
+
+let dt = {
+    &apos;M+&apos;: date.getMonth() + 1,
+    &apos;d+&apos;: date.getDate(),
+    &apos;h+&apos;: date.getHours(),
+    &apos;m+&apos;: date.getMinutes(),
+    &apos;s+&apos;: date.getSeconds()
+}
+
+for (let key in dt) {
+    if (new RegExp(`(${key})`).test(fmt)) {
+        let str = dt[key] + &apos;&apos;
+        fmt = fmt.replace(RegExp.$1,
+            (RegExp.$1.length === 1) ? str : (&apos;00&apos; + str).substr(str.length)
+        )
+    }
+}
+return fmt
+</code></pre><p>}</p>
+<h3 id="正则-匹配数字-和-英文逗号"><a href="#正则-匹配数字-和-英文逗号" class="headerlink" title="正则 匹配数字 和 英文逗号"></a>正则 匹配数字 和 英文逗号</h3><p>/[^\d\,]/g</p>
+<h3 id="过滤对象空字符"><a href="#过滤对象空字符" class="headerlink" title="过滤对象空字符"></a>过滤对象空字符</h3><p>// 过滤为空的字段<br>filterData (data) {<br>    for (const key in data) {<br>        if (data[key] === ‘’ || data[key] === undefined) {<br>            delete data[key]<br>        }<br>    }<br>    return data<br>},</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/12/utils/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mtj-wx-sdk.config" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        /**
+ * @file 百度移动统计配置文件
+ */
+
+module.exports = {
+    /**
+     * 从百度移动统计获取的AppKey
+     * @type {string}
+     */
+    appKey: '',
+
+    /**
+     * 是否获取当前的地理位置、速度
+     * @type {boolean}
+     */
+    getLocation: false
+};
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/mtj-wx-sdk.config/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mtj-wx-sdk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        !function(){"use strict";var c="1.4.3",a={ns:null,boxjs:null},i={},u={},f={logServerUrl:"https://hmma.baidu.com/mini.gif",maxRequestRetryCount:5,requestRetryFirstDelay:1e3,requestRetryMultiple:4,maxRequestDataLength:204800,maxUint8:255,maxUint32:4294967295,enabledEvents:{app:["show","hide","error"],page:["show","hide","ready"],share:["action","success","fail"],event:"*"},storageKeys:{appId:"mtj_appid",key:"mtj_key",uuid:"mtj_uuid",shareCount:"mtj_scnt"}},o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},l=function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,o=void 0;try{for(var s,c=e[Symbol.iterator]();!(r=(s=c.next()).done)&&(n.push(s.value),!t||n.length!==t);r=!0);}catch(e){a=!0,o=e}finally{try{!r&&c.return&&c.return()}finally{if(a)throw o}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")},r=function(){return"undefined"!=typeof crypto&&crypto.getRandomValues?crypto.getRandomValues(new Uint32Array(1))[0]:Math.floor(Math.random()*f.maxUint32)},s=function(e,t){return"[object "+t+"]"==={}.toString.call(e)},h=function n(r){return(s(r,"Object")||s(r,"Array"))&&Object.keys(r).forEach(function(e){var t=r[e];s(t,"Object")||s(t,"Array")?r[e]=n(t):r[e]=""+t}),r},p=new Set,d=[],n=0,t=function(e){if(e.data=e.data||{},e.data.v=c,e.data.rqc=++n,t=e.data,!(JSON.stringify(t).length<=f.maxrequestdatalength))return n--,void(e.fail&&e.fail(new="" error("invalid="" data")));var="" t;!function="" t(n){var="" r="1<arguments.length&&void" 0!="=arguments[1]?arguments[1]:f.requestRetryFirstDelay;return" a.ns.request({url:n.url,data:n.data,header:object.assign({"content-type":"application="" json"},n.header),method:n.method||"post",datatype:n.datatype||"json",success:function(e){delete="" n.data.rtc,n.success&&n.success(e)},fail:function(e){n.data.rtc="(n.data.rtc||0)+1,n.data.rtc<=f.maxRequestRetryCount?setTimeout(function(){return" t(n,r*f.requestretrymultiple)},r):(delete="" n.data.rtc,n.fail&&n.fail(e))}})}(e)},y="function(){return" p.has("app.launch")&&p.has("app.show")},g="function(){d.forEach(function(e){e.data=Object.assign({},i,e.data),"show"!==e.data.en&&"share"!==e.data.et&&"event"!==e.data.et||Object.assign(e.data,u),t(e)}),d.length=0},m={sendRequest:t,trackEvent:function(e){var" t="this;if(p.add(e.et+"."+e.en),"app"===e.et&&"launch"===e.en&&y()&&g(),"*"===f.enabledEvents[e.et]||-1!==f.enabledEvents[e.et].indexOf(e.en)){e.rid=r(),e.aso=e.aso||{};var" n="{url:f.logServerUrl,dataType:"string",data:Object.assign({},i,e),fail:function(e){return" t.trackerror("sendrequest",e)}};y()?(this.sendrequest(n),"app"="==e.et&&"show"===e.en&&g()):(i.path&&(n.data.path=i.path),i.query&&(n.data.query=i.query),"app"===e.et&&"show"===e.en?d.unshift(n):d.push(n))}},trackError:function(e,t){var" a.ns.getstoragesync(e)}catch(e){m.trackerror("getstoragesync",e)}},s="function(e,t){try{a.ns.setStorageSync(e,t)}catch(e){m.trackError("setStorageSync",e)}},b=function(){return" promise.resolve().then(function(){return="" new="" promise(function(e,t){var="" e(n);n="([1e7]+1e3+4e3+8e3+1e11).replace(/[018]/g,function(e){return(e^("undefined"!=typeof" crypto&&crypto.getrandomvalues?crypto.getrandomvalues(new="" uint8array(1))[0]:math.floor(math.random()*f.maxuint8))&15="">>e/4).toString(16)}),S(f.storageKeys.uuid,n),e(n)})})},k=function(n){return Promise.resolve().then(function(){return new Promise(function(t,e){if(!n)return t();try{a.ns.getShareInfo({shareTicket:n,success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getShareInfo",e),t({})}})})},w={onLaunch:function(){var e=require("./mtj-wx-sdk.config");return e.appKey?(i.key=e.appKey,Promise.all([b(),Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getSetting({success:function(e){e.authSetting&&e.authSetting["scope.userInfo"]?a.ns.checkSession({success:function(e){e&&!1===e.result?t({}):a.ns.getUserInfo({success:function(e){delete e.userInfo.errMsg,t(e.userInfo)},fail:function(){t({})}})},fail:function(){t({})}}):t({})},fail:function(){t({})}})}catch(e){m.trackError("getUserInfo",e),t({})}})}),Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getSystemInfo({success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getSystemInfo",e),t({})}})}),Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getNetworkType({success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getNetworkType",e),t({})}})}),e.getLocation?Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getLocation({type:"wgs84",success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getLocation",e),t({})}})}):Promise.resolve()]).then(function(e){var t=l(e,5),n=t[0],r=t[1],a=t[2],o=t[3],s=t[4];i.uuid=n,u.user=h(r),u.system=h(a),u.network=h(o),s&&(u.location=h(s)),"devtools"===a.platform&&f.latestVersion&&function(e,t){for(var n=e.split("."),r=t.split("."),a=0;a</=f.maxrequestdatalength))return>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/mtj-wx-sdk/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-阅读源码之swiper-一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -599,207 +801,9 @@
 
 
   
-    <article id="post-ES6-数组扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/06/ES6-数组扩展/">ES6-数组扩展</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/06/ES6-数组扩展/" class="archive-article-date">
-  	<time datetime="2018-07-06T08:46:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">ECMAScript 6入门</a><br>
-        
-          <a class="article-more-a" href="/2018/07/06/ES6-数组扩展/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/06/ES6-数组扩展/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6-函数扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/ES6-函数扩展/">ES6-函数扩展</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/04/ES6-函数扩展/" class="archive-article-date">
-  	<time datetime="2018-07-04T08:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加油！<br>
-        
-          <a class="article-more-a" href="/2018/07/04/ES6-函数扩展/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/04/ES6-函数扩展/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ES6-字符串扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/ES6-字符串扩展/">ES6-字符串扩展</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/04/ES6-字符串扩展/" class="archive-article-date">
-  	<time datetime="2018-07-04T06:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>加油！<br>
-        
-          <a class="article-more-a" href="/2018/07/04/ES6-字符串扩展/#more">^(*￣(oo)￣)^ >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/04/ES6-字符串扩展/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

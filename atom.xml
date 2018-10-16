@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-23T11:28:35.712Z</updated>
+  <updated>2018-10-16T09:27:08.099Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>utils</title>
+    <link href="http://yoursite.com/2018/10/12/utils/"/>
+    <id>http://yoursite.com/2018/10/12/utils/</id>
+    <published>2018-10-12T07:46:15.000Z</published>
+    <updated>2018-10-16T09:27:08.099Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h1><h3 id="蓝灯地址，翻墙神器"><a href="#蓝灯地址，翻墙神器" class="headerlink" title="蓝灯地址，翻墙神器"></a>蓝灯地址，翻墙神器</h3><p><a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">https://github.com/getlantern/lantern</a></p><h3 id="时间过滤器"><a href="#时间过滤器" class="headerlink" title="时间过滤器"></a>时间过滤器</h3><p>format (time, fmt) {<br>    fmt = fmt || ‘yyyy-MM-dd hh:mm’<br>    let date = new Date(time)</p><pre><code>if (/(y+)/.test(fmt)) {    fmt = fmt.replace(        RegExp.$1, (date.getFullYear() + &apos;&apos;).substr(4 - RegExp.$1.length)    )}let dt = {    &apos;M+&apos;: date.getMonth() + 1,    &apos;d+&apos;: date.getDate(),    &apos;h+&apos;: date.getHours(),    &apos;m+&apos;: date.getMinutes(),    &apos;s+&apos;: date.getSeconds()}for (let key in dt) {    if (new RegExp(`(${key})`).test(fmt)) {        let str = dt[key] + &apos;&apos;        fmt = fmt.replace(RegExp.$1,            (RegExp.$1.length === 1) ? str : (&apos;00&apos; + str).substr(str.length)        )    }}return fmt</code></pre><p>}</p><h3 id="正则-匹配数字-和-英文逗号"><a href="#正则-匹配数字-和-英文逗号" class="headerlink" title="正则 匹配数字 和 英文逗号"></a>正则 匹配数字 和 英文逗号</h3><p>/[^\d\,]/g</p><h3 id="过滤对象空字符"><a href="#过滤对象空字符" class="headerlink" title="过滤对象空字符"></a>过滤对象空字符</h3><p>// 过滤为空的字段<br>filterData (data) {<br>    for (const key in data) {<br>        if (data[key] === ‘’ || data[key] === undefined) {<br>            delete data[key]<br>        }<br>    }<br>    return data<br>},</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;工具库&quot;&gt;&lt;a href=&quot;#工具库&quot; class=&quot;headerlink&quot; title=&quot;工具库&quot;&gt;&lt;/a&gt;工具库&lt;/h1&gt;&lt;h3 id=&quot;蓝灯地址，翻墙神器&quot;&gt;&lt;a href=&quot;#蓝灯地址，翻墙神器&quot; class=&quot;headerlink&quot; title=&quot;蓝灯地
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/09/18/mtj-wx-sdk.config/"/>
+    <id>http://yoursite.com/2018/09/18/mtj-wx-sdk.config/</id>
+    <published>2018-09-18T12:09:00.417Z</published>
+    <updated>2018-09-18T12:09:00.419Z</updated>
+    
+    <content type="html"><![CDATA[/** * @file 百度移动统计配置文件 */module.exports = {    /**     * 从百度移动统计获取的AppKey     * @type {string}     */    appKey: '',    /**     * 是否获取当前的地理位置、速度     * @type {boolean}     */    getLocation: false};]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        /**
+ * @file 百度移动统计配置文件
+ */
+
+module.exports = {
+    /**
+     * 从百度移动统计获取的AppKey
+     * @type {string}
+     */
+    appKey: &#39;&#39;,
+
+    /**
+     
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/09/18/mtj-wx-sdk/"/>
+    <id>http://yoursite.com/2018/09/18/mtj-wx-sdk/</id>
+    <published>2018-09-18T12:08:42.056Z</published>
+    <updated>2018-09-18T12:08:42.137Z</updated>
+    
+    <content type="html"><![CDATA[!function(){"use strict";var c="1.4.3",a={ns:null,boxjs:null},i={},u={},f={logServerUrl:"https://hmma.baidu.com/mini.gif",maxRequestRetryCount:5,requestRetryFirstDelay:1e3,requestRetryMultiple:4,maxRequestDataLength:204800,maxUint8:255,maxUint32:4294967295,enabledEvents:{app:["show","hide","error"],page:["show","hide","ready"],share:["action","success","fail"],event:"*"},storageKeys:{appId:"mtj_appid",key:"mtj_key",uuid:"mtj_uuid",shareCount:"mtj_scnt"}},o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},l=function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,o=void 0;try{for(var s,c=e[Symbol.iterator]();!(r=(s=c.next()).done)&&(n.push(s.value),!t||n.length!==t);r=!0);}catch(e){a=!0,o=e}finally{try{!r&&c.return&&c.return()}finally{if(a)throw o}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")},r=function(){return"undefined"!=typeof crypto&&crypto.getRandomValues?crypto.getRandomValues(new Uint32Array(1))[0]:Math.floor(Math.random()*f.maxUint32)},s=function(e,t){return"[object "+t+"]"==={}.toString.call(e)},h=function n(r){return(s(r,"Object")||s(r,"Array"))&&Object.keys(r).forEach(function(e){var t=r[e];s(t,"Object")||s(t,"Array")?r[e]=n(t):r[e]=""+t}),r},p=new Set,d=[],n=0,t=function(e){if(e.data=e.data||{},e.data.v=c,e.data.rqc=++n,t=e.data,!(JSON.stringify(t).length<=f.maxrequestdatalength))return n--,void(e.fail&&e.fail(new="" error("invalid="" data")));var="" t;!function="" t(n){var="" r="1<arguments.length&&void" 0!="=arguments[1]?arguments[1]:f.requestRetryFirstDelay;return" a.ns.request({url:n.url,data:n.data,header:object.assign({"content-type":"application="" json"},n.header),method:n.method||"post",datatype:n.datatype||"json",success:function(e){delete="" n.data.rtc,n.success&&n.success(e)},fail:function(e){n.data.rtc="(n.data.rtc||0)+1,n.data.rtc<=f.maxRequestRetryCount?setTimeout(function(){return" t(n,r*f.requestretrymultiple)},r):(delete="" n.data.rtc,n.fail&&n.fail(e))}})}(e)},y="function(){return" p.has("app.launch")&&p.has("app.show")},g="function(){d.forEach(function(e){e.data=Object.assign({},i,e.data),"show"!==e.data.en&&"share"!==e.data.et&&"event"!==e.data.et||Object.assign(e.data,u),t(e)}),d.length=0},m={sendRequest:t,trackEvent:function(e){var" t="this;if(p.add(e.et+"."+e.en),"app"===e.et&&"launch"===e.en&&y()&&g(),"*"===f.enabledEvents[e.et]||-1!==f.enabledEvents[e.et].indexOf(e.en)){e.rid=r(),e.aso=e.aso||{};var" n="{url:f.logServerUrl,dataType:"string",data:Object.assign({},i,e),fail:function(e){return" t.trackerror("sendrequest",e)}};y()?(this.sendrequest(n),"app"="==e.et&&"show"===e.en&&g()):(i.path&&(n.data.path=i.path),i.query&&(n.data.query=i.query),"app"===e.et&&"show"===e.en?d.unshift(n):d.push(n))}},trackError:function(e,t){var" a.ns.getstoragesync(e)}catch(e){m.trackerror("getstoragesync",e)}},s="function(e,t){try{a.ns.setStorageSync(e,t)}catch(e){m.trackError("setStorageSync",e)}},b=function(){return" promise.resolve().then(function(){return="" new="" promise(function(e,t){var="" e(n);n="([1e7]+1e3+4e3+8e3+1e11).replace(/[018]/g,function(e){return(e^("undefined"!=typeof" crypto&&crypto.getrandomvalues?crypto.getrandomvalues(new="" uint8array(1))[0]:math.floor(math.random()*f.maxuint8))&15="">>e/4).toString(16)}),S(f.storageKeys.uuid,n),e(n)})})},k=function(n){return Promise.resolve().then(function(){return new Promise(function(t,e){if(!n)return t();try{a.ns.getShareInfo({shareTicket:n,success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getShareInfo",e),t({})}})})},w={onLaunch:function(){var e=require("./mtj-wx-sdk.config");return e.appKey?(i.key=e.appKey,Promise.all([b(),Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getSetting({success:function(e){e.authSetting&&e.authSetting["scope.userInfo"]?a.ns.checkSession({success:function(e){e&&!1===e.result?t({}):a.ns.getUserInfo({success:function(e){delete e.userInfo.errMsg,t(e.userInfo)},fail:function(){t({})}})},fail:function(){t({})}}):t({})},fail:function(){t({})}})}catch(e){m.trackError("getUserInfo",e),t({})}})}),Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getSystemInfo({success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getSystemInfo",e),t({})}})}),Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getNetworkType({success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getNetworkType",e),t({})}})}),e.getLocation?Promise.resolve().then(function(){return new Promise(function(t,e){try{a.ns.getLocation({type:"wgs84",success:function(e){delete e.errMsg,t(e)},fail:function(e){t({})}})}catch(e){m.trackError("getLocation",e),t({})}})}):Promise.resolve()]).then(function(e){var t=l(e,5),n=t[0],r=t[1],a=t[2],o=t[3],s=t[4];i.uuid=n,u.user=h(r),u.system=h(a),u.network=h(o),s&&(u.location=h(s)),"devtools"===a.platform&&f.latestVersion&&function(e,t){for(var n=e.split("."),r=t.split("."),a=0;a</=f.maxrequestdatalength))return>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        !function(){&quot;use strict&quot;;var c=&quot;1.4.3&quot;,a={ns:null,boxjs:null},i={},u={},f={logServerUrl:&quot;https://hmma.baidu.com/mini.gif&quot;,maxRequestRetryCou
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>阅读源码之swiper(一)</title>
@@ -63,9 +138,9 @@
     <link href="http://yoursite.com/2018/08/08/%E8%87%AA%E5%B7%B1%E6%89%80%E9%81%87%E5%88%B0%E8%BF%87%E7%9A%84%E5%9D%91/"/>
     <id>http://yoursite.com/2018/08/08/自己所遇到过的坑/</id>
     <published>2018-08-08T02:12:40.000Z</published>
-    <updated>2018-08-27T03:33:44.338Z</updated>
+    <updated>2018-10-16T09:24:17.214Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p><a id="more"></a><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>router.beforeEach((to, from, next) =&gt; {<br>    to      // 要进入的路由<br>    from    // 要离开的路由<br>    next()  // 方法，必须调用，否则无法进入<br>})<br>router.afterEach() // 用法同上<br>主要是业务逻辑需要，在进入路由前或离开前 需要干点什么事儿</p><p><strong>坑</strong>： 例如判断如果当前用户没有进行登录，跳转至登录页面进行登录</p><pre><code>router.beforeEach((to, from, next) =&gt; {    let token = localStorage.getItem(&apos;getToken&apos;)    if (token) {        next()    } else {        router.push({            path: &apos;/login&apos;        })        next()    }})</code></pre><p>大致一眼看上去没有问题，但是此处缺陷入了死循环</p><p>原因：因为在进入了/login页面时，又进行了触发beforeEach这个方法，next虽然调用，但是依然陷入了死循环当中</p><p>next方法<br><img src="/static/18-08-27.png" alt="img"></p><p>第三条，就是说，只要使用了跳转后，next会进行一个新导航，所以这样才导致了死循环</p><p>解决：</p><pre><code>router.beforeEach((to, from, next) =&gt; {    let token = localStorage.getItem(&apos;getToken&apos;)    if (to.name === &apos;Login&apos; || token) {        next()    } else {        router.push({            path: &apos;/login&apos;        })        next()    }})</code></pre><h3 id="跳转路由标题"><a href="#跳转路由标题" class="headerlink" title="跳转路由标题"></a>跳转路由标题</h3><p>let router = new Router({<br>    mode: ‘history’,<br>    routes: [<br>        {<br>            path: ‘/‘,<br>            meta: {<br>                title: ‘主页’<br>            },<br>            redirect: ‘/login’,      // 重定向<br>        }<br>    ]<br>})<br>这里 主页的标题 可以利用路由守卫来写</p><p>router.beforeEach((to, from, next) =&gt; {<br>    document.title = to.meta.title<br>})</p><h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><p>#CSS</p><h3 id="ios下fixed定位失效解决方法"><a href="#ios下fixed定位失效解决方法" class="headerlink" title="ios下fixed定位失效解决方法"></a>ios下fixed定位失效解决方法</h3><p>针对这个问题只能自己做滚动条让中间的一部分来进行滚动</p><h3 id="如何制作滚动条"><a href="#如何制作滚动条" class="headerlink" title="如何制作滚动条"></a>如何制作滚动条</h3><p>解决：overflow-y: scroll</p><h3 id="ios下滚动条卡顿"><a href="#ios下滚动条卡顿" class="headerlink" title="ios下滚动条卡顿"></a>ios下滚动条卡顿</h3><p>自己做的滚动条在ios下会有卡顿问题<br>解决：-webkit-overflow-scrolling: touch     给滚动条元素</p><h3 id="如何隐藏滚动条"><a href="#如何隐藏滚动条" class="headerlink" title="如何隐藏滚动条"></a>如何隐藏滚动条</h3><p>因为在加了-webkit-overflow-scrolling: touch 属性后，隐藏滚动条的css会失效，只能另想他法<br>解决：父级overflow:hidden<br>让滚动条里面的高度/宽度超出父级，这样就可以隐藏滚动条</p><h3 id="ios下吸顶效果"><a href="#ios下吸顶效果" class="headerlink" title="ios下吸顶效果"></a>ios下吸顶效果</h3><p>ios不支持fixed定位，按照之前的套路，scroll事件监听scrollTop =&gt; 获取元素的offsetTop =&gt; scrollTop &gt; offsetTop 改为fixed定位<br>解决：<br>position: sticky;<br>position: -webkit-sticky;</p><p>粘性定位，滚动条未滚动到该元素时，absolute,当滚动过指定元素时,为fixed，ios对于这个属性还是支持的，虽然为从DOM上看是fixed，但是管用</p><h3 id="虚拟键盘挡住输入框"><a href="#虚拟键盘挡住输入框" class="headerlink" title="虚拟键盘挡住输入框"></a>虚拟键盘挡住输入框</h3><p>android系统上，获取焦点后弹出虚拟键盘会挡住输入框，个人猜测，他是先不占用空间，在弹出后占用当前空间<br>解决：setTimeOut(() =&gt; {<br>    document.scrollTop = 元素.offsetTop - 50<br>},500)<br>-50的目的在于不至于贴到顶部</p><h3 id="textarea-实现自适应"><a href="#textarea-实现自适应" class="headerlink" title="textarea 实现自适应"></a>textarea 实现自适应</h3><ol><li><p><div contenteditable="true"></div><br>问题：在ios有兼容性问题</p></li><li><p>js 解决</p></li></ol><p>角色：input事件，scrollHeight 获取当前滚动条高度</p><p>在input事件中，在每次输入时获取到textarea滚动高度，让其height 等于 scrollHeight + ‘px’，记住 前面一定要加height: auto 这个属性，否则你加了高度后高度回不去了</p><p>el.style.height = ‘auto’<br>el.style.height = el.scrollHeight + ‘px’</p><h3 id="获取最终css样式"><a href="#获取最终css样式" class="headerlink" title="获取最终css样式"></a>获取最终css样式</h3><p>// 这两者有兼容性问题，currentStyle 兼容IE  getComputedStyle() 兼容谷歌火狐等….<br>el.currentStyle[‘height’]  </p><p>getComputedStyle(el, null).height</p><p>#HTML</p><p>#JS</p><h3 id="立即执行函数的写法"><a href="#立即执行函数的写法" class="headerlink" title="立即执行函数的写法"></a>立即执行函数的写法</h3><ol><li>常见写法<br>(function () {</li></ol><p>})()</p><ol start="2"><li>包在里面<br>(function () {</li></ol><p>}())</p><ol start="3"><li>!<br>!function () {</li></ol><p>}()</p><h3 id="浏览器支持事件"><a href="#浏览器支持事件" class="headerlink" title="浏览器支持事件"></a>浏览器支持事件</h3><p>IE6 7 8     attachEvent()<br>主流浏览器   addEventListener()</p><h3 id="如何判断是一个空对象"><a href="#如何判断是一个空对象" class="headerlink" title="如何判断是一个空对象"></a>如何判断是一个空对象</h3><p>解决：</p><ol><li><p>for … in 循环</p></li><li><p>JSON.stringify(obj) === ‘{}’</p></li><li><p>ES6      Object.keys(obj).length &gt; 0</p></li></ol><h3 id="Object-definedProperty-obj-val-descriptor"><a href="#Object-definedProperty-obj-val-descriptor" class="headerlink" title="Object.definedProperty(obj, val, descriptor)"></a>Object.definedProperty(obj, val, descriptor)</h3><p>obj 需要绑定的对象<br>val 对象内的key<br>descriptor  选项参数</p><ol><li>get              当访问该属性触发</li><li>set              当更新该属性触发</li><li>configurable     是否可以删除      默认 true</li><li>enumerable       费否可m<br>#综合问题</li></ol><h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>]]></content>
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章</p><a id="more"></a><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h3 id="Vue出现偶发赋值不上的问题"><a href="#Vue出现偶发赋值不上的问题" class="headerlink" title="Vue出现偶发赋值不上的问题"></a>Vue出现偶发赋值不上的问题</h3><p>原因：具体还没查到什么原因，有可能视图更新有队列,没赶上<br>解决：将ajax换成同步的可以解决</p><h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>router.beforeEach((to, from, next) =&gt; {<br>    to      // 要进入的路由<br>    from    // 要离开的路由<br>    next()  // 方法，必须调用，否则无法进入<br>})<br>router.afterEach() // 用法同上<br>主要是业务逻辑需要，在进入路由前或离开前 需要干点什么事儿</p><p><strong>坑</strong>： 例如判断如果当前用户没有进行登录，跳转至登录页面进行登录</p><pre><code>router.beforeEach((to, from, next) =&gt; {    let token = localStorage.getItem(&apos;getToken&apos;)    if (token) {        next()    } else {        router.push({            path: &apos;/login&apos;        })        next()    }})</code></pre><p>大致一眼看上去没有问题，但是此处缺陷入了死循环</p><p>原因：因为在进入了/login页面时，又进行了触发beforeEach这个方法，next虽然调用，但是依然陷入了死循环当中</p><p>next方法<br><img src="/static/18-08-27.png" alt="img"></p><p>第三条，就是说，只要使用了跳转后，next会进行一个新导航，所以这样才导致了死循环</p><p>解决：</p><pre><code>router.beforeEach((to, from, next) =&gt; {    let token = localStorage.getItem(&apos;getToken&apos;)    if (to.name === &apos;Login&apos; || token) {        next()    } else {        router.push({            path: &apos;/login&apos;        })        next()    }})</code></pre><h3 id="跳转路由标题"><a href="#跳转路由标题" class="headerlink" title="跳转路由标题"></a>跳转路由标题</h3><p>let router = new Router({<br>    mode: ‘history’,<br>    routes: [<br>        {<br>            path: ‘/‘,<br>            meta: {<br>                title: ‘主页’<br>            },<br>            redirect: ‘/login’,      // 重定向<br>        }<br>    ]<br>})<br>这里 主页的标题 可以利用路由守卫来写</p><p>router.beforeEach((to, from, next) =&gt; {<br>    document.title = to.meta.title<br>})</p><h1 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h1><p>#CSS</p><h3 id="ios下fixed定位失效解决方法"><a href="#ios下fixed定位失效解决方法" class="headerlink" title="ios下fixed定位失效解决方法"></a>ios下fixed定位失效解决方法</h3><p>针对这个问题只能自己做滚动条让中间的一部分来进行滚动</p><h3 id="如何制作滚动条"><a href="#如何制作滚动条" class="headerlink" title="如何制作滚动条"></a>如何制作滚动条</h3><p>解决：overflow-y: scroll</p><h3 id="ios下滚动条卡顿"><a href="#ios下滚动条卡顿" class="headerlink" title="ios下滚动条卡顿"></a>ios下滚动条卡顿</h3><p>自己做的滚动条在ios下会有卡顿问题<br>解决：-webkit-overflow-scrolling: touch     给滚动条元素</p><h3 id="如何隐藏滚动条"><a href="#如何隐藏滚动条" class="headerlink" title="如何隐藏滚动条"></a>如何隐藏滚动条</h3><p>因为在加了-webkit-overflow-scrolling: touch 属性后，隐藏滚动条的css会失效，只能另想他法<br>解决：父级overflow:hidden<br>让滚动条里面的高度/宽度超出父级，这样就可以隐藏滚动条</p><h3 id="ios下吸顶效果"><a href="#ios下吸顶效果" class="headerlink" title="ios下吸顶效果"></a>ios下吸顶效果</h3><p>ios不支持fixed定位，按照之前的套路，scroll事件监听scrollTop =&gt; 获取元素的offsetTop =&gt; scrollTop &gt; offsetTop 改为fixed定位<br>解决：<br>position: sticky;<br>position: -webkit-sticky;</p><p>粘性定位，滚动条未滚动到该元素时，absolute,当滚动过指定元素时,为fixed，ios对于这个属性还是支持的，虽然为从DOM上看是fixed，但是管用</p><h3 id="虚拟键盘挡住输入框"><a href="#虚拟键盘挡住输入框" class="headerlink" title="虚拟键盘挡住输入框"></a>虚拟键盘挡住输入框</h3><p>android系统上，获取焦点后弹出虚拟键盘会挡住输入框，个人猜测，他是先不占用空间，在弹出后占用当前空间<br>解决：setTimeOut(() =&gt; {<br>    document.scrollTop = 元素.offsetTop - 50<br>},500)<br>-50的目的在于不至于贴到顶部</p><h3 id="textarea-实现自适应"><a href="#textarea-实现自适应" class="headerlink" title="textarea 实现自适应"></a>textarea 实现自适应</h3><ol><li><p><div contenteditable="true"></div><br>问题：在ios有兼容性问题</p></li><li><p>js 解决</p></li></ol><p>角色：input事件，scrollHeight 获取当前滚动条高度</p><p>在input事件中，在每次输入时获取到textarea滚动高度，让其height 等于 scrollHeight + ‘px’，记住 前面一定要加height: auto 这个属性，否则你加了高度后高度回不去了</p><p>el.style.height = ‘auto’<br>el.style.height = el.scrollHeight + ‘px’</p><h3 id="获取最终css样式"><a href="#获取最终css样式" class="headerlink" title="获取最终css样式"></a>获取最终css样式</h3><p>// 这两者有兼容性问题，currentStyle 兼容IE  getComputedStyle() 兼容谷歌火狐等….<br>el.currentStyle[‘height’]  </p><p>getComputedStyle(el, null).height</p><p>#HTML</p><p>#JS</p><h3 id="立即执行函数的写法"><a href="#立即执行函数的写法" class="headerlink" title="立即执行函数的写法"></a>立即执行函数的写法</h3><ol><li>常见写法<br>(function () {</li></ol><p>})()</p><ol start="2"><li>包在里面<br>(function () {</li></ol><p>}())</p><ol start="3"><li>!<br>!function () {</li></ol><p>}()</p><h3 id="浏览器支持事件"><a href="#浏览器支持事件" class="headerlink" title="浏览器支持事件"></a>浏览器支持事件</h3><p>IE6 7 8     attachEvent()<br>主流浏览器   addEventListener()</p><h3 id="如何判断是一个空对象"><a href="#如何判断是一个空对象" class="headerlink" title="如何判断是一个空对象"></a>如何判断是一个空对象</h3><p>解决：</p><ol><li><p>for … in 循环</p></li><li><p>JSON.stringify(obj) === ‘{}’</p></li><li><p>ES6      Object.keys(obj).length &gt; 0</p></li></ol><h3 id="Object-definedProperty-obj-val-descriptor"><a href="#Object-definedProperty-obj-val-descriptor" class="headerlink" title="Object.definedProperty(obj, val, descriptor)"></a>Object.definedProperty(obj, val, descriptor)</h3><p>obj 需要绑定的对象<br>val 对象内的key<br>descriptor  选项参数</p><ol><li>get              当访问该属性触发</li><li>set              当更新该属性触发</li><li>configurable     是否可以删除      默认 true</li><li>enumerable       费否可m<br>#综合问题</li></ol><h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p><h3 id="CORS-跨域解决问题"><a href="#CORS-跨域解决问题" class="headerlink" title="CORS 跨域解决问题"></a>CORS 跨域解决问题</h3><p>原因：跨域问题，一直说CORS来进行解决，缺并不知道怎么来解决<br>解决：在响应头中添加字段<br>    ‘Access-Control-Allow-origin’: ‘*’,             // 都可请求<br>    ‘Access-Control-Allow-Methods’: ‘GET, POST’     // GET、POST方法</p><h3 id="node-中间件"><a href="#node-中间件" class="headerlink" title="node 中间件"></a>node 中间件</h3><p>作用：可以进行统一的配置接口，例如，给所有接口做CORS共享<br>坑：记住 一定要调用next函数，否则无法进行下一步！！！而且报错不提示</p>]]></content>
     
     <summary type="html">
     
@@ -335,71 +410,6 @@
       
         &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;这个环境变量实在是有点坑，前面倒腾了几次，还是有问题，现在这个问题终于解决了，我来阐述下我的配置及踩过的坑&lt;/p&gt;
 &lt;h3 id=&quot;场景&quot;&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>手机select展示样式不同</title>
-    <link href="http://yoursite.com/2018/05/16/%E6%89%8B%E6%9C%BAselect%E5%B1%95%E7%A4%BA%E6%A0%B7%E5%BC%8F%E4%B8%8D%E5%90%8C/"/>
-    <id>http://yoursite.com/2018/05/16/手机select展示样式不同/</id>
-    <published>2018-05-16T13:32:37.000Z</published>
-    <updated>2018-05-21T11:18:54.486Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="下拉框"><a href="#下拉框" class="headerlink" title="下拉框"></a>下拉框</h3><p>虽然今天心情不好，但是也算是学到了点东西</p><p>select在手机当中展示的样式不同，所以，为了还原UI，需要按照UI样式写</p><pre><code>将select下拉框使用定位盖在UI上面，透明度给0就可以实现，通过change事件的改变在来改变UI的DOM，此方法为最合适的方法</code></pre><p>一定要注意变通，而且不管干什么一定要注意过脑子</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;下拉框&quot;&gt;&lt;a href=&quot;#下拉框&quot; class=&quot;headerlink&quot; title=&quot;下拉框&quot;&gt;&lt;/a&gt;下拉框&lt;/h3&gt;&lt;p&gt;虽然今天心情不好，但是也算是学到了点东西&lt;/p&gt;
-&lt;p&gt;select在手机当中展示的样式不同，所以，为了还原UI，需要按照UI样式写
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>换电脑后如何继续写博客</title>
-    <link href="http://yoursite.com/2018/04/27/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E5%A6%82%E4%BD%95%E7%BB%A7%E7%BB%AD%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2018/04/27/换电脑后如何继续写博客/</id>
-    <published>2018-04-27T13:26:48.000Z</published>
-    <updated>2018-05-16T13:25:59.493Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为有写博客的习惯，但是公司的事儿太忙了，耽搁了好久，每次回家都挺累，所以决定还是每天在公司写一篇博客吧，其实倒是有点像是日记了，不过对于每天的总结还是很有帮助的，blog文章命名一定要以功能来进行命名，这样在以后如果有类似的话很好找</p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><strong>传送门</strong> <a href="https://blog.csdn.net/eternity1118_/article/details/71194395?ref=myread" target="_blank" rel="noopener">换电脑后如何继续写博客</a></p><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>1.找到你原来写blog的文件夹，找到<strong>_config.yml</strong>、<strong>themes</strong>、<strong>source</strong>、<strong>scaffolds</strong>、<strong>package.json</strong></p><p>2.copy到你本地  例： /hexo文件中</p><h5 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h5><pre><code>npm install hexo -g   </code></pre><h5 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h5><pre><code>npm install  npm install hexo-deployer-git --savenpm install hexo-generator-feed --savenpm install hexo-generator-sitemap --save</code></pre><h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><pre><code>hexo ghexo deploy</code></pre><h3 id="加油，你不是最弱的"><a href="#加油，你不是最弱的" class="headerlink" title="加油，你不是最弱的"></a>加油，你不是最弱的</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;因为有写博客的习惯，但是公司的事儿太忙了，耽搁了好久，每次回家都挺累，所以决定还是每天在公司写一篇博客吧，其实倒是有点像是日记了，不过对于每
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2018-04-27 小组会</title>
-    <link href="http://yoursite.com/2018/04/27/2018-04-27-%E5%B0%8F%E7%BB%84%E4%BC%9A/"/>
-    <id>http://yoursite.com/2018/04/27/2018-04-27-小组会/</id>
-    <published>2018-04-27T12:58:01.000Z</published>
-    <updated>2018-04-27T13:32:46.916Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>来了快两个月了，因为平时比较忙，大家都比较忙，距离上次开会大概是三周前了</p><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>不足之处</p><pre><code>1. 针对于现在h5移动端调试问题只能使用手机终端进行调试，影响效率</code></pre><p>答： 因为需要与客户端交互，需要客户端的数据，暂时只能使用抓包工具在store当中把数据先写死进行调试</p><pre><code>2. 命名规范问题</code></pre><p>答： css遵从BEM规范进行命名</p><pre><code>3. git规范开发流程</code></pre><p>答： 首先，环境有dev(本地测试)、alpha(测试人员测试)、rc(预上线测试人员测试)、pro(正式环境)<br>git开发分支：本地创建feature/projuct  ==&gt;  提测合并alpha分支（发送邮件）  ==&gt;  测试通过合并develop分支 ==&gt;  develop分支合并至rc分支并且删除本地分支，如果有bug从rc拉取bugfix/bug分支（develop分支为一个中转站 发送邮件）  ==&gt;  测试通过合并至pro分支（在测试的邮件中回复全部发送运维）<br>需要注意的是邮件的<strong>准确性</strong></p><pre><code>4. .vue单文件组件命名方式</code></pre><p>答： 该文件命名规范为大驼峰例：List.vue BaseInfo.vue</p><p>老大说的几句话挺对的</p><pre><code>1. 设计简单合理2. UI设计，审美观念3. 提高自我价值，变强4. 愿意接受改变，接受别人的建议5. 当封装公共组件时，最好大家一起讨论下设计思想，能够减少返工时间，提高开发效率</code></pre><p>在设计的时候最好有至少两种的设计理念，并且当拿到需求时，一定要先自己设计一遍，不要埋头就干，不过我对着这个还是有满满的自信的，对于审美方面，也许是我自己太死板了，没有用心，没有把自己当成一个客户，可能比较随意，这点我会改正，加油吧！！！</p><h3 id="不管如何，你都要去克服，去接受，把它变为自己的"><a href="#不管如何，你都要去克服，去接受，把它变为自己的" class="headerlink" title="不管如何，你都要去克服，去接受，把它变为自己的"></a>不管如何，你都要去克服，去接受，把它变为自己的</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;来了快两个月了，因为平时比较忙，大家都比较忙，距离上次开会大概是三周前了&lt;/p&gt;
-&lt;h3 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; cla
       
     
     </summary>
