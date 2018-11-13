@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>utils | 渡的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工具库蓝灯地址，翻墙神器https://github.com/getlantern/lantern 时间过滤器format (time, fmt) {    fmt = fmt || ‘yyyy-MM-dd hh:mm’    let date = new Date(time) if (/(y+)/.test(fmt)) {     fmt = fmt.replace(         RegEx">
+  <meta name="description" content="工具库蓝灯地址，翻墙神器https://github.com/getlantern/lantern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="utils">
 <meta property="og:url" content="http://yoursite.com/2018/10/12/utils/index.html">
 <meta property="og:site_name" content="渡的个人博客">
-<meta property="og:description" content="工具库蓝灯地址，翻墙神器https://github.com/getlantern/lantern 时间过滤器format (time, fmt) {    fmt = fmt || ‘yyyy-MM-dd hh:mm’    let date = new Date(time) if (/(y+)/.test(fmt)) {     fmt = fmt.replace(         RegEx">
+<meta property="og:description" content="工具库蓝灯地址，翻墙神器https://github.com/getlantern/lantern">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-16T09:27:08.099Z">
+<meta property="og:updated_time" content="2018-11-05T09:25:02.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="utils">
-<meta name="twitter:description" content="工具库蓝灯地址，翻墙神器https://github.com/getlantern/lantern 时间过滤器format (time, fmt) {    fmt = fmt || ‘yyyy-MM-dd hh:mm’    let date = new Date(time) if (/(y+)/.test(fmt)) {     fmt = fmt.replace(         RegEx">
+<meta name="twitter:description" content="工具库蓝灯地址，翻墙神器https://github.com/getlantern/lantern">
   
     <link rel="alternative" href="/atom.xml" title="渡的个人博客" type="application/atom+xml">
   
@@ -158,6 +158,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h1><h3 id="蓝灯地址，翻墙神器"><a href="#蓝灯地址，翻墙神器" class="headerlink" title="蓝灯地址，翻墙神器"></a>蓝灯地址，翻墙神器</h3><p><a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">https://github.com/getlantern/lantern</a></p>
+<a id="more"></a>
 <h3 id="时间过滤器"><a href="#时间过滤器" class="headerlink" title="时间过滤器"></a>时间过滤器</h3><p>format (time, fmt) {<br>    fmt = fmt || ‘yyyy-MM-dd hh:mm’<br>    let date = new Date(time)</p>
 <pre><code>if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(
@@ -184,7 +185,8 @@ for (let key in dt) {
 return fmt
 </code></pre><p>}</p>
 <h3 id="正则-匹配数字-和-英文逗号"><a href="#正则-匹配数字-和-英文逗号" class="headerlink" title="正则 匹配数字 和 英文逗号"></a>正则 匹配数字 和 英文逗号</h3><p>/[^\d\,]/g</p>
-<h3 id="过滤对象空字符"><a href="#过滤对象空字符" class="headerlink" title="过滤对象空字符"></a>过滤对象空字符</h3><p>// 过滤为空的字段<br>filterData (data) {<br>    for (const key in data) {<br>        if (data[key] === ‘’ || data[key] === undefined) {<br>            delete data[key]<br>        }<br>    }<br>    return data<br>},</p>
+<h3 id="过滤对象空字符"><a href="#过滤对象空字符" class="headerlink" title="过滤对象空字符"></a>过滤对象空字符</h3><p>// 过滤为空的字段<br>filterData (data) {<br>    for (const key in data) {<br>        if (data[key] === ‘’ || data[key] === undefined) {<br>            delete data[key]<br>        }<br>    }<br>    return data<br>}</p>
+<h3 id="getcomputedStyle-获取最终样式，当获取为translate3d-时，返回的是矩阵，-解析方法"><a href="#getcomputedStyle-获取最终样式，当获取为translate3d-时，返回的是矩阵，-解析方法" class="headerlink" title="getcomputedStyle() 获取最终样式，当获取为translate3d  时，返回的是矩阵， 解析方法"></a>getcomputedStyle() 获取最终样式，当获取为translate3d  时，返回的是矩阵， 解析方法</h3><p>getTransformByMatrix (translateString) {<br>    var matrix = translateString.match(/matrix(3d)?((.+?))/)<br>    var is3D = matrix &amp;&amp; matrix[1]<br>    if (matrix) {<br>        matrix = matrix[2].split(‘,’)<br>        if (is3D === ‘3d’) { matrix = matrix.slice(12, 15) } else {<br>            matrix.push(0)<br>            matrix = matrix.slice(4, 7)<br>        }<br>    } else {<br>        matrix = [0, 0, 0]<br>    }<br>    var result = {<br>        x: parseFloat(matrix[0]),<br>        y: parseFloat(matrix[1]),<br>        z: parseFloat(matrix[2])<br>    }<br>    return result<br>}</p>
 
       
 

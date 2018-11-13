@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/static/18-08-27.png">
-<meta property="og:updated_time" content="2018-10-16T09:24:17.214Z">
+<meta property="og:updated_time" content="2018-11-13T09:37:28.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己所遇到过的坑">
 <meta name="twitter:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
@@ -212,7 +212,21 @@
 <p>el.style.height = ‘auto’<br>el.style.height = el.scrollHeight + ‘px’</p>
 <h3 id="获取最终css样式"><a href="#获取最终css样式" class="headerlink" title="获取最终css样式"></a>获取最终css样式</h3><p>// 这两者有兼容性问题，currentStyle 兼容IE  getComputedStyle() 兼容谷歌火狐等….<br>el.currentStyle[‘height’]  </p>
 <p>getComputedStyle(el, null).height</p>
+<h3 id="css-显示省略号打包坑"><a href="#css-显示省略号打包坑" class="headerlink" title="css 显示省略号打包坑"></a>css 显示省略号打包坑</h3><p>webkit-box-orient 在打包后会丢失该属性   optimize-css-assets-webpack-plugin这个插件的问题</p>
+<p>解决方案1：<br>    /<em>! autoprefixer: off </em>/<br>    -webkit-box-orient: vertical;<br>    /<em> autoprefixer: on </em>/<br>解决方案2</p>
+<ol start="2">
+<li><p>optimize-css-assets-webpack-plugin 从这个插件的问题源头解决</p>
+<p> new OptimizeCSSPlugin({<br> cssProcessorOptions: config.build.productionSourceMap</p>
+<pre><code>? { safe: true, map: { inline: false } }
+: { safe: true }
+</code></pre><p> })</p>
+</li>
+</ol>
+<h3 id="移动端-touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件"><a href="#移动端-touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件" class="headerlink" title="移动端 touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件"></a>移动端 touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件</h3><p>touchmove 阻止事件默认行为</p>
+<h3 id="弹窗问题"><a href="#弹窗问题" class="headerlink" title="弹窗问题"></a>弹窗问题</h3><p>touchmove 禁止默认行为，使其无法滑动，将scrollTop 存在本地，同时将当前元素滚动到0  也就是顶部的位置，当松开后，将记录的scrollTop取出，在滚动到点击浮层的位置</p>
+<p>该方法可解决弹窗滑动问题，但是用户体验稍微差点，会有来回切换的片段，  可在进行研究下</p>
 <p>#HTML</p>
+<h3 id="禁止编辑元素-h5属性"><a href="#禁止编辑元素-h5属性" class="headerlink" title="禁止编辑元素  h5属性"></a>禁止编辑元素  h5属性</h3><p>contenteditable=”false”</p>
 <p>#JS</p>
 <h3 id="立即执行函数的写法"><a href="#立即执行函数的写法" class="headerlink" title="立即执行函数的写法"></a>立即执行函数的写法</h3><ol>
 <li>常见写法<br>(function () {</li>

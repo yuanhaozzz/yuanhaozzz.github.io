@@ -152,34 +152,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h1><h3 id="蓝灯地址，翻墙神器"><a href="#蓝灯地址，翻墙神器" class="headerlink" title="蓝灯地址，翻墙神器"></a>蓝灯地址，翻墙神器</h3><p><a href="https://github.com/getlantern/lantern" target="_blank" rel="noopener">https://github.com/getlantern/lantern</a></p>
-<h3 id="时间过滤器"><a href="#时间过滤器" class="headerlink" title="时间过滤器"></a>时间过滤器</h3><p>format (time, fmt) {<br>    fmt = fmt || ‘yyyy-MM-dd hh:mm’<br>    let date = new Date(time)</p>
-<pre><code>if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(
-        RegExp.$1, (date.getFullYear() + &apos;&apos;).substr(4 - RegExp.$1.length)
-    )
-}
-
-let dt = {
-    &apos;M+&apos;: date.getMonth() + 1,
-    &apos;d+&apos;: date.getDate(),
-    &apos;h+&apos;: date.getHours(),
-    &apos;m+&apos;: date.getMinutes(),
-    &apos;s+&apos;: date.getSeconds()
-}
-
-for (let key in dt) {
-    if (new RegExp(`(${key})`).test(fmt)) {
-        let str = dt[key] + &apos;&apos;
-        fmt = fmt.replace(RegExp.$1,
-            (RegExp.$1.length === 1) ? str : (&apos;00&apos; + str).substr(str.length)
-        )
-    }
-}
-return fmt
-</code></pre><p>}</p>
-<h3 id="正则-匹配数字-和-英文逗号"><a href="#正则-匹配数字-和-英文逗号" class="headerlink" title="正则 匹配数字 和 英文逗号"></a>正则 匹配数字 和 英文逗号</h3><p>/[^\d\,]/g</p>
-<h3 id="过滤对象空字符"><a href="#过滤对象空字符" class="headerlink" title="过滤对象空字符"></a>过滤对象空字符</h3><p>// 过滤为空的字段<br>filterData (data) {<br>    for (const key in data) {<br>        if (data[key] === ‘’ || data[key] === undefined) {<br>            delete data[key]<br>        }<br>    }<br>    return data<br>},</p>
-
+        
+          <a class="article-more-a" href="/2018/10/12/utils/#more">^(*￣(oo)￣)^ >></a>
+        
       
 
       
