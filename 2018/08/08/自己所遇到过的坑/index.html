@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/static/18-08-27.png">
-<meta property="og:updated_time" content="2018-11-13T09:37:28.812Z">
+<meta property="og:updated_time" content="2019-01-16T08:17:25.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己所遇到过的坑">
 <meta name="twitter:description" content="前言总是感觉自己整理的问题有点零散，有时候甚至会再犯，所以写这篇文章的目的是为了能够让自己的记忆更加深刻，同时在遇到以前的问题的时候可以在看看这篇文章">
@@ -225,7 +225,10 @@
 <h3 id="移动端-touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件"><a href="#移动端-touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件" class="headerlink" title="移动端 touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件"></a>移动端 touchmove事件在向右滑动时，会出发ios默认的返回上个页面的事件</h3><p>touchmove 阻止事件默认行为</p>
 <h3 id="弹窗问题"><a href="#弹窗问题" class="headerlink" title="弹窗问题"></a>弹窗问题</h3><p>touchmove 禁止默认行为，使其无法滑动，将scrollTop 存在本地，同时将当前元素滚动到0  也就是顶部的位置，当松开后，将记录的scrollTop取出，在滚动到点击浮层的位置</p>
 <p>该方法可解决弹窗滑动问题，但是用户体验稍微差点，会有来回切换的片段，  可在进行研究下</p>
-<p>#HTML</p>
+<p>解决：<br>弹窗打开  禁止body滚动事件  弹窗关闭   解除body滚动事件  </p>
+<pre><code>使用该方法 如果有输入框  在弹起输入框后会有部分ios机型 收起键盘后 底下留白bug
+解决：离开焦点时让body的scrollTop  =  0         注：滚动条使用的不是body的
+</code></pre><p>#HTML</p>
 <h3 id="禁止编辑元素-h5属性"><a href="#禁止编辑元素-h5属性" class="headerlink" title="禁止编辑元素  h5属性"></a>禁止编辑元素  h5属性</h3><p>contenteditable=”false”</p>
 <p>#JS</p>
 <h3 id="立即执行函数的写法"><a href="#立即执行函数的写法" class="headerlink" title="立即执行函数的写法"></a>立即执行函数的写法</h3><ol>
@@ -260,7 +263,58 @@
 <h3 id="Vue在上线后，针对于不同浏览器没有加载出来页面问题"><a href="#Vue在上线后，针对于不同浏览器没有加载出来页面问题" class="headerlink" title="Vue在上线后，针对于不同浏览器没有加载出来页面问题"></a>Vue在上线后，针对于不同浏览器没有加载出来页面问题</h3><p>原因：有些ES6语法没有被转换成功 new Set map promise asnyc 等<br>解决： cnpm install –save babel-polyfill      </p>
 <h3 id="CORS-跨域解决问题"><a href="#CORS-跨域解决问题" class="headerlink" title="CORS 跨域解决问题"></a>CORS 跨域解决问题</h3><p>原因：跨域问题，一直说CORS来进行解决，缺并不知道怎么来解决<br>解决：在响应头中添加字段<br>    ‘Access-Control-Allow-origin’: ‘*’,             // 都可请求<br>    ‘Access-Control-Allow-Methods’: ‘GET, POST’     // GET、POST方法</p>
 <h3 id="node-中间件"><a href="#node-中间件" class="headerlink" title="node 中间件"></a>node 中间件</h3><p>作用：可以进行统一的配置接口，例如，给所有接口做CORS共享<br>坑：记住 一定要调用next函数，否则无法进行下一步！！！而且报错不提示</p>
+<h3 id="如何获取微信openId"><a href="#如何获取微信openId" class="headerlink" title="如何获取微信openId"></a>如何获取微信openId</h3><pre><code>1. 判断当前域名是否含有code字段
+2. 有  使用code  
+3. 没有  请求微信公众号 后台配置的 网页授权安全域名 与  js安全域名一致   返回微信个人信息
+</code></pre><h3 id="服务器图片转换blob"><a href="#服务器图片转换blob" class="headerlink" title="服务器图片转换blob"></a>服务器图片转换blob</h3><p>发送ajax请求  设置响应类型为blob即可，放入formData中  发送时如果碰见传递参数为空的现象  先看请求头，在看是否为 序列化导致</p>
+<pre><code>handleImage (imgUrl) {
+    return new Promise((resolve, reject) =&gt; {
+        let img = imgUrl
+        if (this.currentHost.includes(&apos;alpha&apos;)) {
+            if (img.includes(&apos;ztjy-img-dev.szytest.com&apos;)) {
+                resolve(imgUrl)
+                return
+            }
+        } else {
+            if (img.includes(&apos;snsimg.ztjystore.cn&apos;)) {
+                resolve(imgUrl)
+                return
+            }
+        }
 
+        var xhr = new XMLHttpRequest()
+        // 获取二进制对象
+        xhr.responseType = &apos;blob&apos;
+        xhr.onload = function () {
+            // 匹配当前文件后缀
+            let ext = xhr.getResponseHeader(&apos;Content-Type&apos;).split(&apos;/&apos;)[1]
+            let formData = new FormData()
+            formData.append(&apos;file&apos;, xhr.response, Date.now() + &apos;.&apos; + ext)
+            formData.append(&apos;file_tag&apos;, &apos;ad&apos;)
+            Articals.upload(formData, res =&gt; {
+                resolve(res.httpUrl)
+            }, (errorType, error) =&gt; {
+                this.$message({type: &apos;error&apos;, message: &apos;操作失败!&apos;})
+            })
+        }
+        xhr.open(&apos;GET&apos;, imgUrl)
+        xhr.send()
+    })
+}
+</code></pre><h3 id="服务器图片转换blob在通过h5-新属性-转换为base64"><a href="#服务器图片转换blob在通过h5-新属性-转换为base64" class="headerlink" title="服务器图片转换blob在通过h5 新属性 转换为base64"></a>服务器图片转换blob在通过h5 新属性 转换为base64</h3><pre><code>function convertFileToDataURLviaFileReader(url, callback){
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = &apos;blob&apos;;
+    xhr.onload = function() {
+        var reader  = new FileReader();
+        reader.onloadend = function () {
+            callback(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+    };
+    xhr.open(&apos;GET&apos;, url);
+    xhr.send();
+}
+</code></pre>
       
 
       
@@ -418,7 +472,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 渡丶
+    		&copy; 2019 渡丶
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
